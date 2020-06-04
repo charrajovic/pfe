@@ -1,0 +1,23 @@
+.first {background:cyan}
+.miaw {font-size:32px;margin-top:20px}
+.lolo {font-size:12px}
+.lol {font-size:9px}
+.bt {margin-top:32px}
+.haw {margin-top:20px}
+.img {background-image:url('../ressource/img/hay.jpg');height:250px;background-size:100%}
+.form-control {margin-top:5px}
+p.lolo {margin-top:10px}
+.poo {margin-top:15px}
+.hey {padding:10%;background:#e9ebe9}
+.oppo {background:#FFF;padding:3%}
+.bord {border-width:5px}
+.oran {background:orange;width:20px;height:20px}
+.yell {background:yellow;width:20px;height:20px}
+.nass {font-size:12px}
+.blac {background:black;width:20px;height:20px}
+.gree {background:green;width:20px;height:20px}
+.re {background:red;width:20px;height:20px}
+#flex
+{
+    display: block;
+}

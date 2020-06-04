@@ -1,0 +1,11 @@
+.haut
+{
+    font-weight:bold;
+    background:purple
+}
+.zones
+{
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}

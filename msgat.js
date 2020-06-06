@@ -134,7 +134,7 @@ function chatboxe()
                          var final=op1.split("_");
                          var fina2=op1.split(".");
                          var final2=fina2[fina2.length-1];
-                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
                      }
                  }
             }
@@ -158,7 +158,7 @@ function chatboxe()
                         var final=op1.split("_");
                         var fina2=op1.split(".");
                         var final2=fina2[fina2.length-1];
-                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
                      }
                      
 
@@ -440,7 +440,7 @@ function imgg()
                          var final=op1.split("_");
                          var fina2=op1.split(".");
                          var final2=fina2[fina2.length-1];
-                document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+d+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+toti+"' style='display:none' download></a></p></div></div>" 
+                document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+d+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+toti+"' style='display:none' download></a></p></div></div>" 
             document.getElementById("messag").value="";
             var element = document.getElementById("chatbox");
             element.scrollTop = element.scrollHeight;
@@ -570,7 +570,7 @@ function msgs()
                          var final=op1.split("_");
                          var fina2=op1.split(".");
                          var final2=fina2[fina2.length-1];
-                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
                      }
                  }
              }
@@ -595,7 +595,7 @@ function msgs()
                         var final=op1.split("_");
                         var fina2=op1.split(".");
                         var final2=fina2[fina2.length-1];
-                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
                      }
                      
 
@@ -850,7 +850,7 @@ window.onload=function()
                          var final=op1.split("_");
                          var fina2=op1.split(".");
                          var final2=fina2[fina2.length-1];
-                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
                      }
                  }
              }
@@ -875,7 +875,7 @@ window.onload=function()
                         var final=op1.split("_");
                         var fina2=op1.split(".");
                         var final2=fina2[fina2.length-1];
-                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
                      }
                      
 

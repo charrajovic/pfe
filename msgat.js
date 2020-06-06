@@ -116,17 +116,53 @@ function chatboxe()
             tof="<div class='offset-1 col-1 phototo' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
             if(obj[i].id==z && obj[i].etat==0)
             {
-                 if(obj[i].contenu!="")
+                if(obj[i].contenu!="")
                  document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsg' style='background: silver;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer'>"+obj[i].contenu+"</p></div></div>"
                  else
-                 document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -81%;left:53%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -89%;left:44%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                 {
+                     str=obj[i].file;
+                    var words = str.split('.');
+                    var fruits = ['GIF','PNG','JPG','JPEG'];
+                    words=words[words.length-1];
+                     if(fruits.includes(words.toUpperCase()))
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -81%;left:53%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -89%;left:44%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                     else
+                     {
+                         var t=obj[i].file;
+                         var op=t.split('/');
+                         var op1=op[op.length-1];
+                         var final=op1.split("_");
+                         var fina2=op1.split(".");
+                         var final2=fina2[fina2.length-1];
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                     }
+                 }
             }
             else if(obj[i].id!=z && obj[i].etat==0)
             {
                 if(obj[i].contenu!="")
                 document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsg' style='background: #1E90FF;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer'>"+obj[i].contenu+"</p></div></div>"
                 else
-                document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -81%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -89%;left:-8%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                {
+                     str=obj[i].file;
+                    var words = str.split('.');
+                    var fruits = ['GIF','PNG','JPG','JPEG'];
+                    words=words[words.length-1];
+                     if(fruits.includes(words.toUpperCase()))
+                     document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -81%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -89%;left:-8%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                     else
+                     {
+                        var t=obj[i].file;
+                        var op=t.split('/');
+                        var op1=op[op.length-1];
+                        var final=op1.split("_");
+                        var fina2=op1.split(".");
+                        var final2=fina2[fina2.length-1];
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                     }
+                     
+
+                }
             }
         
          }
@@ -261,6 +297,11 @@ function fill()
     document.getElementById("fill").click();
 }
 
+function sendfile()
+{
+    document.getElementById("fille").click();
+}
+
 function imgs()
 {
     var d = new Date();
@@ -280,13 +321,14 @@ function imgs()
   oFReader.readAsDataURL(document.getElementById("fill").files[0]);
   var f = document.getElementById("fill").files[0];
   var fsize = f.size||f.fileSize;
-  if(fsize > 2000000)
+  if(fsize > 20000000)
   {
    alert("Image File Size is very big");
   }
   else
   {
    form_data.append("file", document.getElementById('fill').files[0]);
+   form_data.append("name", sp1[0]);
    $.ajax({
     url:"fill.php",
     method:"POST",
@@ -302,6 +344,7 @@ function imgs()
     console.log(response)
      if(response!=0)
      {
+         console.log(response)
          var toti=response;
         $.post('/pfe/fillnext.php', {"id":document.getElementById("ide").textContent}, function(response) {
             if(response==1)
@@ -342,6 +385,98 @@ function imgs()
    });
 }
 }
+
+function imgg()
+{
+    var d = new Date();
+    var A=document.getElementById("fille").value
+    var sp=A.split("\\");
+    var sp1=sp[sp.length-1].split(".")
+    console.log(sp1[0])
+  var name = document.getElementById("fille").files[0].name;
+  console.log(name)
+  var form_data = new FormData();
+  var ext = name.split('.').pop().toLowerCase();
+  if(jQuery.inArray(ext, ['gif','png','jpg','jpeg']) != -1) 
+  {
+   alert("Invalid Image File");
+   return;
+  }
+  var oFReader = new FileReader();
+  oFReader.readAsDataURL(document.getElementById("fille").files[0]);
+  var f = document.getElementById("fille").files[0];
+  var fsize = f.size||f.fileSize;
+  if(fsize > 20000000)
+  {
+   alert("Image File Size is very big");
+  }
+  else
+  {
+   form_data.append("file", document.getElementById('fille').files[0]);
+   form_data.append("name", sp1[0]);
+   $.ajax({
+    url:"fill.php",
+    method:"POST",
+    data: form_data,
+    contentType: false,
+    cache: false,
+    processData: false,
+    beforeSend:function(){
+     $('#uploaded_image').html("<label class='text-success'>Image Uploading...</label>");
+    },   
+    success:function(response)
+    {
+    console.log(response)
+     if(response!=0)
+     {
+         console.log(response)
+         var toti=response;
+        $.post('/pfe/fillnext.php', {"id":document.getElementById("ide").textContent}, function(response) {
+            if(response==1)
+            {
+                var t=toti;
+                         var op=t.split('/');
+                         var op1=op[op.length-1];
+                         var final=op1.split("_");
+                         var fina2=op1.split(".");
+                         var final2=fina2[fina2.length-1];
+                document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+d+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+toti+"' style='display:none' download></a></p></div></div>" 
+            document.getElementById("messag").value="";
+            var element = document.getElementById("chatbox");
+            element.scrollTop = element.scrollHeight;
+            var t=document.getElementsByClassName("dismsg");
+            num++;
+            for (let i = 0; i < t.length; i++) {
+            t[i].addEventListener("click",dispsg);
+         }
+         var r=document.getElementsByClassName("fullscreen");
+         for (let i = 0; i < r.length; i++) {
+             r[i].addEventListener("click",fullp);
+         }
+        var down=document.getElementsByClassName("download");
+        for (let i = 0; i < down.length; i++) {
+            down[i].addEventListener("click",downlod)
+        }
+        var over=document.getElementsByClassName("dismsge");
+        for (let i = 0; i < over.length; i++) {
+            over[i].addEventListener("mouseover",dismp);
+            over[i].parentElement.children[2].addEventListener("mouseover",dismp);
+            over[i].parentElement.children[3].addEventListener("mouseover",dismp);
+        }
+        var out=document.getElementsByClassName("dismsge");
+        for (let i = 0; i < over.length; i++) {
+            out[i].addEventListener("mouseout",disn);
+            out[i].parentElement.children[2].addEventListener("mouseout",disn);
+            out[i].parentElement.children[3].addEventListener("mouseout",disn);
+        }
+            }
+        });
+     }
+    }
+   });
+}
+}
+
 function closeX()
 {
     document.getElementById("messages").style.display="none"
@@ -420,7 +555,24 @@ function msgs()
                  if(obj[i].contenu!="")
                  document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsg' style='background: silver;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer'>"+obj[i].contenu+"</p></div></div>"
                  else
-                 document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -81%;left:53%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -89%;left:44%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                 {
+                     str=obj[i].file;
+                    var words = str.split('.');
+                    var fruits = ['GIF','PNG','JPG','JPEG'];
+                    words=words[words.length-1];
+                     if(fruits.includes(words.toUpperCase()))
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -81%;left:53%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -89%;left:44%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                     else
+                     {
+                         var t=obj[i].file;
+                         var op=t.split('/');
+                         var op1=op[op.length-1];
+                         var final=op1.split("_");
+                         var fina2=op1.split(".");
+                         var final2=fina2[fina2.length-1];
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                     }
+                 }
              }
              
              else
@@ -428,13 +580,32 @@ function msgs()
                 if(obj[i].contenu!="")
                 document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsg' style='background: #1E90FF;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer'>"+obj[i].contenu+"</p></div></div>"
                 else
-                document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -81%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -89%;left:-8%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                {
+                     str=obj[i].file;
+                    var words = str.split('.');
+                    var fruits = ['GIF','PNG','JPG','JPEG'];
+                    words=words[words.length-1];
+                     if(fruits.includes(words.toUpperCase()))
+                     document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -81%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -89%;left:-8%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                     else
+                     {
+                        var t=obj[i].file;
+                        var op=t.split('/');
+                        var op1=op[op.length-1];
+                        var final=op1.split("_");
+                        var fina2=op1.split(".");
+                        var final2=fina2[fina2.length-1];
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                     }
+                     
+
+                }
              }
              
          }
         //  document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-6 col-1'><i class='fa fa-sort-desc fa-2x'></i></div></div>"
-        document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='offset-3 col-9'><input type='file' id='fill' style='display:none'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input id='inpte' type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div id='mssg' class='btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div></div></div>";
-        var input = document.getElementById("inpte");
+        document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='col-6' style='padding:0'><input type='file' id='fille' style='display:none'/><div class='sendfile' style='background-image: url(img/fichier.jpg);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div><div class='col-6' style='padding-left:0'><input type='file' id='fill' style='display:none'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div id='mssg' class='btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div></div></div>";
+        var input = document.getElementById("messag");
         input.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {
         event.preventDefault();
@@ -442,10 +613,15 @@ function msgs()
         }
         }); 
         document.getElementById("fill").addEventListener("change",imgs);
+        document.getElementById("fille").addEventListener("change",imgg);
          var pr=document.getElementsByClassName("sendim");
          for (let i = 0; i < pr.length; i++) {
              pr[i].addEventListener("click",fill);
              
+         }
+         var fille=document.getElementsByClassName("sendfile");
+         for (let i = 0; i < fille.length; i++) {
+             fille[i].addEventListener("click",sendfile);
          }
          document.getElementById("mssg").addEventListener("click",envoyer);
          var t=document.getElementsByClassName("dismsg");
@@ -503,7 +679,10 @@ function notf()
     nom=res[0]
     prenom=res[1]
     console.log(this.children[0].children[1].textContent+"/"+res[0]+"/"+res[1]);
-    window.location="message?id="+this.children[0].children[1].textContent
+    $.post('/pfe/chatid.php', {"id":this.children[0].children[1].textContent}, function(response) {
+        if(response==1)
+        window.location="message"
+	});
     // $.post('/pfe/msg.php', {"service":"chat","idm":this.children[0].children[1].textContent}, function(response) {
        
     //     if(response=="nope")
@@ -584,12 +763,24 @@ function shrttat()
     document.getElementById("sidebar").style.display="none"
 }
 
+function unset()
+{
+    $.post('/pfe/unset.php', {"service":"ms"}, function(response) {
+        
+    });
+}
+
 window.onload=function()
 {
     etat=1;
     var zone=this.document.getElementsByClassName("msgat");
     for (let i = 0; i < zone.length; i++) {
         zone[i].addEventListener("click",msgs);
+        
+    }
+    var zon=this.document.getElementsByClassName("unset");
+    for (let i = 0; i < zon.length; i++) {
+        zon[i].addEventListener("click",unset);
         
     }
     document.getElementById("logout").addEventListener("click",logout);
@@ -610,10 +801,10 @@ window.onload=function()
        
         if(response=="nope")
         {
-            document.getElementById("cont").innerHTML="<div class='row'><div class='offset-md-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background: antiquewhite;display:block;overflow:scroll'></div>";
+            document.getElementById("cont").innerHTML="<div class='row'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background:white;display:block;overflow:scroll;margin-left:-1px'></div>";
          document.getElementById("ide").style.display="none";
-         document.getElementById("chatbox").innerHTML="<div class='row flex' style='width:100%'><div class='offset-md-1 col-md-3' style='font-weight:bold;font-size:25px;color:blue'>aucune message!</div></div>"
-         document.getElementById("cont").innerHTML+="<div class='rox'><div class='col-md-5 offset-md-3'><input type='text' class='form-control' id='messag' /></div><div class='col-md-2'><input type='submit' value='envoyer' id='mssg' class='btn btn-success'/></div></div>";
+         document.getElementById("chatbox").innerHTML="<div class='row flex' style='width:100%'><div class='offset-1 col-3' style='font-weight:bold;font-size:25px;color:blue'>aucune message!</div></div>"
+         document.getElementById("cont").innerHTML+="<div class='row'><div class='col-5 offset-3'><input type='text' class='form-control' id='messag' /></div><div class='col-2'><input type='submit' value='envoyer' id='mssg' class='btn btn-success'/></div></div>";
          document.getElementById("mssg").addEventListener("click",envoyer);
         }
         else
@@ -621,7 +812,7 @@ window.onload=function()
             
          var obj = JSON.parse(response);
         
-         document.getElementById("cont").innerHTML="<div class='row'><div class='offset-md-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background: white;display:block;overflow:scroll;margin-left:-1px'></div>";
+         document.getElementById("cont").innerHTML="<div class='row' style='background: aqua;width: 100%;margin-left: 0px;border-radius: 5%;'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background-image:url(./img/font.jpg);background-size:100% 100%;background-repeat:no-repeat;display:block;overflow:scroll;margin-left:-1px'></div>";
          document.getElementById("ide").style.display="none";
          t=obj.length
          num=obj.length
@@ -629,28 +820,115 @@ window.onload=function()
             var date=obj[i].date;
             var res = date.split(" ");
             var res1=res[1].split(".");
-            var tof="<div class='offset-md-1 col-md-1'></div>";
+            var tof="<div class='offset-1 col-1 phototo'></div>";
             if(i<obj.length-1)
             if(obj[i].id!=obj[i+1].id)
             {
-                tof="<div class='offset-md-1 col-md-1' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
+                tof="<div class='offset-1 col-1 phototo' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
             }
             if(i==obj.length-1)
             if(obj[i].id==z)
-            tof="<div class='offset-md-1 col-md-1' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
-             if(obj[i].id==z)
-             document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-md-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsg' style='background: silver;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer'>"+obj[i].contenu+"</p></div></div>"
+            tof="<div class='offset-1 col-1 phototo' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
+            console.log(obj[i].contenu) 
+            if(obj[i].id==z)
+             {
+                 if(obj[i].contenu!="")
+                 document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsg' style='background: silver;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer'>"+obj[i].contenu+"</p></div></div>"
+                 else
+                 {
+                     str=obj[i].file;
+                    var words = str.split('.');
+                    var fruits = ['GIF','PNG','JPG','JPEG'];
+                    words=words[words.length-1];
+                     if(fruits.includes(words.toUpperCase()))
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -81%;left:53%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -89%;left:44%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                     else
+                     {
+                         var t=obj[i].file;
+                         var op=t.split('/');
+                         var op1=op[op.length-1];
+                         var final=op1.split("_");
+                         var fina2=op1.split(".");
+                         var final2=fina2[fina2.length-1];
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                     }
+                 }
+             }
+             
              else
-             document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-md-6 col-md-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsg' style='background: #1E90FF;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer'>"+obj[i].contenu+"</p></div></div>"
+             {
+                if(obj[i].contenu!="")
+                document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsg' style='background: #1E90FF;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer'>"+obj[i].contenu+"</p></div></div>"
+                else
+                {
+                     str=obj[i].file;
+                    var words = str.split('.');
+                    var fruits = ['GIF','PNG','JPG','JPEG'];
+                    words=words[words.length-1];
+                     if(fruits.includes(words.toUpperCase()))
+                     document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -81%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: relative;width: 7%;top: -89%;left:-8%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                     else
+                     {
+                        var t=obj[i].file;
+                        var op=t.split('/');
+                        var op1=op[op.length-1];
+                        var final=op1.split("_");
+                        var fina2=op1.split(".");
+                        var final2=fina2[fina2.length-1];
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                     }
+                     
+
+                }
+             }
+             
          }
-        //  document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-md-6 col-md-1'><i class='fa fa-sort-desc fa-2x'></i></div></div>"
-         document.getElementById("cont").innerHTML+="<div class='rox'><div class='col-md-5 offset-md-3'><input type='text' class='form-control' id='messag' /></div><div class='col-md-2'><input type='submit' value='envoyer' id='mssg' class='btn btn-success'/></div></div>";
+        //  document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-6 col-1'><i class='fa fa-sort-desc fa-2x'></i></div></div>"
+        document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='col-6' style='padding:0'><input type='file' id='fille' style='display:none'/><div class='sendfile' style='background-image: url(img/fichier.jpg);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div><div class='col-6' style='padding-left:0'><input type='file' id='fill' style='display:none'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div id='mssg' class='btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div></div></div>";
+        var input = document.getElementById("messag");
+        input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("mssg").click();
+        }
+        }); 
+        document.getElementById("fill").addEventListener("change",imgs);
+        document.getElementById("fille").addEventListener("change",imgg);
+         var pr=document.getElementsByClassName("sendim");
+         for (let i = 0; i < pr.length; i++) {
+             pr[i].addEventListener("click",fill);
+             
+         }
+         var fille=document.getElementsByClassName("sendfile");
+         for (let i = 0; i < fille.length; i++) {
+             fille[i].addEventListener("click",sendfile);
+         }
          document.getElementById("mssg").addEventListener("click",envoyer);
          var t=document.getElementsByClassName("dismsg");
          for (let i = 0; i < t.length; i++) {
             t[i].addEventListener("click",dispsg);
              
          }
+         var r=document.getElementsByClassName("fullscreen");
+         for (let i = 0; i < r.length; i++) {
+             r[i].addEventListener("click",fullp);
+         }
+        }
+        var down=document.getElementsByClassName("download");
+        for (let i = 0; i < down.length; i++) {
+            down[i].addEventListener("click",downlod)
+        }
+        var over=document.getElementsByClassName("dismsge");
+        for (let i = 0; i < over.length; i++) {
+            over[i].addEventListener("mouseover",dismp);
+            over[i].parentElement.children[2].addEventListener("mouseover",dismp);
+            over[i].parentElement.children[3].addEventListener("mouseover",dismp);
+        }
+        var out=document.getElementsByClassName("dismsge");
+        for (let i = 0; i < over.length; i++) {
+            out[i].addEventListener("mouseout",disn);
+            out[i].parentElement.children[2].addEventListener("mouseout",disn);
+            out[i].parentElement.children[3].addEventListener("mouseout",disn);
         }
         var element = document.getElementById("chatbox");
         element.scrollTop = element.scrollHeight;

@@ -5,7 +5,7 @@ if($_FILES["file"]["name"] != '')
 {
  $test = explode('.', $_FILES["file"]["name"]);
  $ext = end($test);
- $name = $_SESSION["id"].rand(1, 9999999999) . '.' . $ext;
+ $name = $_REQUEST["name"] . "_" . $_SESSION["id"].rand(1, 9999999999) . '.' . $ext;
  $location = './img/' . $name;  
  move_uploaded_file($_FILES["file"]["tmp_name"], $location);
  include("connect.php");

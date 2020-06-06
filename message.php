@@ -35,6 +35,29 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
   <!-- <link rel="stylesheet" href="css/list.css"/> -->
   <link href="css/style-responsive.css" rel="stylesheet">
   <link href="acc.css" rel="stylesheet" />
+  <style>
+.loader {
+  margin:auto;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
   <script src="jquery.min.js"></script>
   <script src="lib/chart-master/Chart.js"></script>
    <script src="msgat.js"></script>
@@ -245,7 +268,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["photo"]; ?>" class="img-circle" width="80" id="modi"></a></p>
           <h5 class="centered"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h5>
           <li class="mt">
-            <a href="index.html">
+            <a class="unset" href="index.html">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -256,24 +279,24 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
               <span>consulter les regles</span>
               </a>
             <ul class="sub">
-            <li><a href="zones">consultation les zones</a></li>
-              <li><a href="regles">consultation les régles</a></li>
+            <li><a  class="unset" href="zones">consultation les zones</a></li>
+              <li><a  class="unset" href="regles">consultation les régles</a></li>
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="list">
+            <a class="unset" href="list">
               <i class="fa fa-cogs"></i>
               <span>list des architect</span>
               </a>
           </li>
-          <li class="sub-menu">
+          <li class="unset" class="sub-menu">
             <a class="active" href="message">
               <i class="fa fa-book"></i>
               <span id="msg">messages</span>
               </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a class="unset" href="javascript:;">
               <i class="fa fa-tasks"></i>
               <span>Forms</span>
               </a>
@@ -319,15 +342,15 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           <div class="col-sm-9">
             <section id="messages" style="display:none;height:500px"></section>
             <section class="panel" id="cont">
-              <?php if(isset($_REQUEST["id"])){
-                $idm=$_REQUEST["id"];
+              <?php if(isset($_SESSION["target"])){
+                $idm=$_SESSION["target"];
                 $sql = "SELECT `nom`,`prenom` FROM `user` WHERE id=$idm";
                 $res=mysqli_query($con,$sql); 
                 if($kar = mysqli_fetch_array($res))
                 {
-                  ?><h4 id="noms"><?php echo $kar[0]; ?></h4><h4 id="prenoms"><?php echo $kar[0]; ?></h4><?php
+                  ?><h4 id="noms" style="display:none"><?php echo $kar[0]; ?></h4><h4 id="prenoms" style="display:none"><?php echo $kar[1]; ?></h4><?php
                 } 
-                  ?><h4 class="idnotif"><?php echo $_REQUEST["id"]; ?></h4><?php
+                  ?><h4 class="idnotif" style="display:none"><?php echo $_SESSION["target"]; ?></h4><div class="loader"></div><?php
               }else{ ?>
                 <div class="row" style="font-weight: bold;font-size:x-large">
                   <div class="offset-md-4">

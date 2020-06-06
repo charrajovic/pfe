@@ -7,7 +7,10 @@ function notf()
     nom=res[0]
     prenom=res[1]
     console.log(this.children[0].children[1].textContent+"/"+res[0]+"/"+res[1]);
-    window.location="message?id="+this.children[0].children[1].textContent
+    $.post('/pfe/chatid.php', {"id":this.children[0].children[1].textContent}, function(response) {
+        if(response==1)
+        window.location="message"
+	});
     // $.post('/pfe/msg.php', {"service":"chat","idm":this.children[0].children[1].textContent}, function(response) {
        
     //     if(response=="nope")

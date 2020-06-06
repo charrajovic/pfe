@@ -20,5 +20,6 @@
     echo $js;
     else
     echo "nope";
+    $_SESSION["target"]=$idr;
     mysqli_close($con);
 ?>

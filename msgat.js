@@ -433,8 +433,15 @@ function msgs()
              
          }
         //  document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-6 col-1'><i class='fa fa-sort-desc fa-2x'></i></div></div>"
-        document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='offset-3 col-9'><input type='file' id='fill' style='display:none'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div id='mssg' class='btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div></div></div>";
-         document.getElementById("fill").addEventListener("change",imgs);
+        document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='offset-3 col-9'><input type='file' id='fill' style='display:none'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input id='inpte' type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div id='mssg' class='btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div></div></div>";
+        var input = document.getElementById("inpte");
+        input.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("mssg").click();
+        }
+        }); 
+        document.getElementById("fill").addEventListener("change",imgs);
          var pr=document.getElementsByClassName("sendim");
          for (let i = 0; i < pr.length; i++) {
              pr[i].addEventListener("click",fill);

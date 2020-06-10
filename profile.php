@@ -311,6 +311,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           if($kar = mysqli_fetch_array($res))
           {
           ?>
+          <div class='amischeck' style="display:none"><?php echo $id; ?></div>
           <div class="row" style="margin:5px 0">
           <input type="file" class="form-control" id="file" accept="image/*" style="display: none">
           <div class="offset-md-4 col-md-4 consult" id="cont" style="padding:0">

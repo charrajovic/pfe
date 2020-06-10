@@ -48,6 +48,39 @@
         else
         echo "walo";
         } 
+        else if($_REQUEST["service"]=="checking")
+    {
+        $y=0;
+        $id=$_REQUEST["id"];
+        $session=$_SESSION["id"];
+        $sql = "SELECT * FROM `invitations` WHERE (idp = $id and idm=$session) or (idm = $id and idp=$session)";
+        $res=mysqli_query($con,$sql); 
+        if($kar = mysqli_fetch_array($res))
+        {
+            if($kar[1]==$id && $kar[3]==0)
+            {
+                echo 2;
+            }
+            else if($kar[2]==$id && $kar[3]==0)
+            {
+                echo 1;
+            }
+            else if($kar[1]==$id && $kar[3]==1)
+            {
+                echo 3;
+            }
+            else if($kar[2]==$id && $kar[3]==1)
+            {
+                echo 4;
+            }
+            else
+            {
+                echo 5;
+            }
+        }
+        else 
+        echo 0;
+        } 
     else
     {
         $js="{";

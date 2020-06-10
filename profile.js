@@ -211,6 +211,74 @@ function block()
     console.log(5)
 }
 
+function check()
+{
+    var tt=document.getElementsByClassName("addamis")
+    if(tt.length!=0)
+    {
+        $.post('/pfe/active.php', {"service":"checking","id":document.getElementById("idp").textContent}, function(response) {
+            console.log(response)
+            if(response==1)
+            {
+                var t=document.getElementsByClassName("addamis");
+                for (let i = 0; i < t.length; i++) {
+                    if(t[i].innerHTML!="invitation envoyé")
+                    {
+                        t[i].innerHTML="invitation envoyé"
+                        t[i].style.background="#17a2b8"
+                    }
+                
+            }
+            }
+            else if(response==2)
+            {
+                var t=document.getElementsByClassName("addamis");
+                for (let i = 0; i < t.length; i++) {
+                    if(t[i].innerHTML!="accepter invitation")
+                    {
+                        t[i].innerHTML="accepter invitation"
+                        t[i].style.background="#17a2b8"
+                    }
+            }
+        }
+        else if(response==3)
+            {
+                var t=document.getElementsByClassName("addamis");
+                for (let i = 0; i < t.length; i++) {
+                    if(t[i].innerHTML!="amis")
+                    {
+                        t[i].innerHTML="amis"
+                        t[i].style.background="green"
+                    }
+                
+            }
+        }
+        else if(response==4)
+            {
+                var t=document.getElementsByClassName("addamis");
+                for (let i = 0; i < t.length; i++) {
+                    if(t[i].innerHTML!="amis")
+                    {
+                        t[i].innerHTML="amis"
+                        t[i].style.background="green"
+                    }
+            }
+        }
+        else if(response==0)
+            {
+                var t=document.getElementsByClassName("addamis");
+                for (let i = 0; i < t.length; i++) {
+                    if(t[i].innerHTML!="envoyé invitation")
+                    {
+                        t[i].innerHTML="envoyé invitation"
+                        t[i].style.background="rgb(0, 123, 255)"
+                    }
+            }
+        }
+       });
+    }
+}
+
 window.onload=function()
 {
     var zone=this.document.getElementsByClassName("zones");
@@ -235,4 +303,5 @@ window.onload=function()
     for (let i = 0; i < t.length; i++) {
         t[i].addEventListener("click",block);
     }
+    this.setInterval(check,1000);
 }

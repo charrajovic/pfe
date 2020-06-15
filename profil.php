@@ -1,10 +1,4 @@
-<?php 
-include("fonctions/inbox.fonction.php");
- $count=count_message_envoye();   
-  $data=count_message_recue();
-    $notis=notification();
 
- ?>
 
 
 
@@ -305,7 +299,7 @@ include("fonctions/inbox.fonction.php");
                 <div class="profile-pic">';
                 ?>
                   
-                  <p><img id="modification" src="cssfile/img/<?php echo $_SESSION['profil'];?>" class="img-circle" style="cursor: pointer;" ></p>
+                  <p><img id="modification" src="img/<?php echo $_SESSION['profil'];?>" class="img-circle" style="cursor: pointer;" ></p>
                   
                 </div>
               </div>

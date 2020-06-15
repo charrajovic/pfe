@@ -142,7 +142,7 @@ function tofchoose()
      console.log(response);
      if(response!=0)
      {
-        document.getElementById("tof").style.backgroundImage="url('"+response+"')"
+        document.getElementById("tof").src=response
         document.getElementById("modi").src=response
      }
     }
@@ -279,11 +279,38 @@ function check()
     }
 }
 
+function prof()
+{
+    var id=this.parentElement.children[0].textContent;
+    window.location="profile?id="+id;
+}
+
+function coco()
+{
+    $.post('/pfe/chatid.php', {"id":this.parentElement.nextElementSibling.textContent}, function(response) {
+        console.log(response)
+        if(response==1)
+        window.location="message"
+        else
+        alert("impossible!")
+	});
+}
+
 window.onload=function()
 {
     var zone=this.document.getElementsByClassName("zones");
     for (let i = 0; i < zone.length; i++) {
         zone[i].addEventListener("click",zon);
+        
+    }
+    var zone=this.document.getElementsByClassName("msgat");
+    for (let i = 0; i < zone.length; i++) {
+        zone[i].addEventListener("click",prof);
+        
+    }
+    var zone=this.document.getElementsByClassName("msge");
+    for (let i = 0; i < zone.length; i++) {
+        zone[i].addEventListener("click",coco);
         
     }
     document.getElementById("logout").addEventListener("click",logout);

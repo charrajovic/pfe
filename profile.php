@@ -292,17 +292,88 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
     <section id="main-content">
       <section class="wrapper">
         <?php if(!isset($_REQUEST["id"]) || $_REQUEST["id"]==$_SESSION["id"]){ ?>
-        <div class="row" style="margin:5px 0">
+        <!--<div class="row" style="margin:5px 0">
           <div class="offset-md-4 col-md-4 consult" id="cont" style="padding:0">
-            <div class="tofprof" id="tof" style="background-image:url('<?php echo $_SESSION["photo"]; ?>');background-repeat:no-repeat;background-size:100% 100%;height:300px;border-radius:50%"></div>
+            <div class="tofprof" id="tof" style="background-image:url('<?php //echo $_SESSION["photo"]; ?>');background-repeat:no-repeat;background-size:100% 100%;height:300px;border-radius:50%"></div>
             <input type="file" class="form-control" id="file" accept="image/*">
-            <!-- <button class="btn btn-primary form-control" style="margin:5px 0">change photo</button> -->
-          </div>
+             <button class="btn btn-primary form-control" style="margin:5px 0">change photo</button> -->
+          <!-- </div>
         </div>
         <div class="row">
         <div class="offset-md-5 col-md-4 consult" style="padding:0">
-            <h1 style="color:blue"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h1>
+            <h1 style="color:blue"><?php //echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h1>
         </div>
+        </div> -->
+        <div class="row mt">
+          <div class="col-lg-12">
+            <?php 
+           
+            echo '<div class="row content-panel">
+              <div class="col-md-4 profile-text mt mb centered">
+                <div class="right-divider">
+                   
+                  <h4>votre nom :</h4>
+                  <h5>'.$_SESSION['nom'].' '.$_SESSION['prenom'].'</h5>
+                  <h4>votre email :</h4>
+                  <h5>'.$_SESSION['mail'].'</h5>
+                  <h4>votre travail :</h4>
+                  
+                </div>
+              </div>
+            
+              <!-- /col-md-4 -->
+              <div class="col-md-4 profile-text">
+                <h3>Bienvenue Mr:'.$_SESSION['prenom'].'</h3>
+                <h6>vos informations sont protegeés</h6>
+                <p>salut monsieur ce site vous permet d"envoyer facilement et rapidement vos propositions et consulté les nouveaux regeles d"amenagements.</p>
+                <br>
+                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Send Message</button></p>
+              </div>
+              <!-- /col-md-4 -->
+              <div class="col-md-4 centered">
+                <div class="profile-pic">';
+                ?>
+                  
+                  <p><img id="tof" src="<?php echo $_SESSION['photo'];?>" class="img-circle" style="cursor: pointer;" ></p>
+                  <input type="file" class="form-control" id="file" accept="image/*">
+                  
+                </div>
+              </div>
+          
+              <!-- /col-md-4 -->
+            </div>
+            <!-- /row -->
+          </div>
+          <?php $id=$_SESSION["id"];
+              $sql = "SELECT u.id,`nom`,`prenom`,`mail`,`password`,`date`,u.etat,`datetat`,`photo` FROM `user` u,invitations i WHERE (i.idp=$id or i.idm=$id) and (i.idp=u.id or i.idm=u.id) and u.id!=$id and i.etat=1";
+              $res=mysqli_query($con,$sql); 
+              if($kar = mysqli_fetch_array($res))
+              { ?>
+          <div class="col-lg-12 mt">
+            <div class="row content-panel" style="padding-bottom:0">
+             
+                <div class="col-md-4 offset-md-4">
+                  <h1 style="font-weight:bold;color:purple;font-size:30px">amis:</h1>
+                </div>
+            </div>
+            <div class="row content-panel" style="padding-top:0">
+              <div class="col-md-8 offset-md-3">
+              <?php 
+              do
+              { ?>
+                  <div class="row panel-body" style="border:1px">
+                        <p style="display:none"><?php echo $kar[0]; ?></p>
+                        <div class="col-1" style="background-image: url('<?php echo $kar[8]; ?>');background-repeat: no-repeat;background-size: 100% 100%;height:33px;border-radius:50%"></div>
+                        <div class="col-7 msgat" style="font-weight:bold;cursor:pointer;font-size:25px;color:black">
+                         <?php echo $kar[1]." ".$kar[2]; ?>
+                        </div>
+                        </div>
+              <?php }while($kar = mysqli_fetch_array($res)); ?>
+              </div>
+            </div>
+            <!-- /col-lg-12 -->
+          </div>
+              <?php } ?>
         </div>
         <?php }else{ 
           $id=$_REQUEST["id"];
@@ -311,14 +382,14 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           if($kar = mysqli_fetch_array($res))
           {
           ?>
-          <div class='amischeck' style="display:none"><?php echo $id; ?></div>
+          <!-- <div class='amischeck' style="display:none"><?php echo $id; ?></div>
           <div class="row" style="margin:5px 0">
           <input type="file" class="form-control" id="file" accept="image/*" style="display: none">
           <div class="offset-md-4 col-md-4 consult" id="cont" style="padding:0">
           <div id="tof" style="display:none"></div>
             <div class="tofprof" style="background-image:url('<?php echo $kar[8]; ?>');background-repeat:no-repeat;background-size:100% 100%;height:300px;border-radius:50%"></div>
-            <!-- <button class="btn btn-primary form-control" style="margin:5px 0">change photo</button> -->
-          </div>
+             <button class="btn btn-primary form-control" style="margin:5px 0">change photo</button> -->
+          <!-- </div>
         </div>
         <div class="row">
         <div class="offset-md-5 col-md-4 consult">
@@ -329,7 +400,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
         <div class="offset-md-3 col-md-3">
           <div style="display: none" id="idp"><?php echo $kar[0]; ?></div>
             <?php 
-             $session=$_SESSION["id"];
+            /* $session=$_SESSION["id"];
              $id=$_REQUEST["id"];
              $sql = "SELECT * FROM `invitations` WHERE (idp = $id and idm=$session) or (idm = $id and idp=$session)";
              $res=mysqli_query($con,$sql);  
@@ -354,14 +425,147 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
               else
               {
                 ?><button class="btn btn-primary form-control addamis" style="height:50px;font-weight:bold">envoyer invitation</button><?php
-              }
+              }*/
             ?>
         </div>
         <div class="col-md-3" style="padding:0">
             <button class="btn btn-danger form-control block" style="height:50px;font-weight:bold">blocker</button>
         </div>
+        </div> --> -->
+        <div class="row mt">
+          <div class="col-lg-12">
+          <div class='amischeck' style="display:none"><?php echo $id; ?></div>
+            <?php 
+            $toto=$kar[1].' '.$kar[2];
+           
+            echo '<div class="row content-panel">
+              <div class="col-md-4 profile-text mt mb centered">
+                <div class="right-divider">
+                   
+                  <h4>votre nom :</h4>
+                  <h5>'.$kar[1].' '.$kar[2].'</h5>
+                  <h4>votre email :</h4>
+                  <h5>'.$kar[3].'</h5>
+                  <h4>votre travail :</h4>
+                  
+                </div>
+              </div>
+            
+              <!-- /col-md-4 -->
+              <div class="col-md-4 profile-text">
+                <h3>Bienvenue Mr:'.$kar[2].'</h3>
+                <h6>vos informations sont protegeés</h6>
+                <p>salut monsieur ce site vous permet d"envoyer facilement et rapidement vos propositions et consulté les nouveaux regeles d"amenagements.</p>
+                <br>
+                <p><button class="btn btn-theme msge"><i class="fa fa-envelope"></i> Send Message</button></p>'; ?>
+                <div style="display: none" id="idp"><?php echo $kar[0]; ?></div>
+            <?php 
+             $session=$_SESSION["id"];
+             $id=$_REQUEST["id"];
+             $sql = "SELECT * FROM `invitations` WHERE (idp = $id and idm=$session) or (idm = $id and idp=$session)";
+             $res=mysqli_query($con,$sql);  
+              if($ka = mysqli_fetch_array($res))
+              {
+                    if($ka[3]==1)
+                    {
+                    ?><button class="btn btn-success addamis" style="height:25px;font-weight:bold;width:95px">amis</button><?php
+                    }
+                    else
+                    {
+                      if($ka[1]==$session)
+                      {
+                        ?><button class="btn btn-info addamis" style="height:25px;font-weight:bold;width:95px">invitation envoye</button><?php
+                      }
+                      else
+                      {
+                        ?><button class="btn btn-info addamis" style="height:25px;font-weight:bold;width:95px">accepter invitation</button><?php
+                      }
+                    } 
+              }
+              else
+              {
+                ?><button class="btn btn-primary form-control addamis" style="height:25px;font-weight:bold;width:95px">envoyer invitation</button><?php
+              }
+            ?>
+              <?php echo '</div>
+              <!-- /col-md-4 -->
+              <div class="col-md-4 centered">
+                <div class="profile-pic">';
+                ?>
+                  
+                  <p><img id="tof" src="<?php echo $kar[8];?>" class="img-circle" style="cursor: pointer;" ></p>
+                  <input type="file" class="form-control" id="file" accept="image/*">
+                  
+                </div>
+              </div>
+          
+              <!-- /col-md-4 -->
+            </div>
+            <!-- /row -->
+          </div>
+          <?php $id=$_REQUEST["id"];
+              $sql = "select u.id,u.nom,u.prenom,u.mail,u.password,u.date,u.etat,u.datetat,u.photo from invitations i,user u where (idp=$session and (idm in (select idm from invitations where idp=$id and etat=1) or idm in (select idp from invitations where idm=$id and etat=1)) and idm=u.id and i.etat=1) or (idm=$session and (idp in (select idm from invitations where idp=$id and etat=1) or idp in (select idp from invitations where idm=$id and etat=1)) and idp=u.id and i.etat=1)";
+              $res=mysqli_query($con,$sql); 
+              if($kar = mysqli_fetch_array($res))
+              { ?>
+          <div class="col-lg-12 mt">
+            <div class="row content-panel" style="padding-bottom:0">
+             
+                <div class="col-md-4 offset-md-4">
+                  <h1 style="font-weight:bold;color:purple;font-size:30px">amis en commun:</h1>
+                </div>
+            </div>
+            <div class="row content-panel" style="padding-top:0">
+              <div class="col-md-8 offset-md-3">
+              <?php 
+              do
+              { ?>
+                  <div class="row panel-body" style="border:1px">
+                        <p style="display:none"><?php echo $kar[0]; ?></p>
+                        <div class="col-1" style="background-image: url('<?php echo $kar[8]; ?>');background-repeat: no-repeat;background-size: 100% 100%;height:33px;border-radius:50%"></div>
+                        <div class="col-7 msgat" style="font-weight:bold;cursor:pointer;font-size:25px;color:black">
+                         <?php echo $kar[1]." ".$kar[2]; ?>
+                        </div>
+                        </div>
+              <?php }while($kar = mysqli_fetch_array($res)); ?>
+              </div>
+            </div>
+            <!-- /col-lg-12 -->
+          </div>
+              <?php } ?>
+              <?php $id=$_REQUEST["id"];
+              $sql = "select u.id,u.nom,u.prenom,u.mail,u.password,u.date,u.etat,u.datetat,u.photo from invitations i,user u where ((idp=$id and (idm not in (select idm from invitations where idp=$session) and idm not in (select idp from invitations where idm=$session)) and idm=u.id) or (idm=$id and (idp not in (select idm from invitations where idp=$session) and idp not in (select idp from invitations where idm=$session)) and idp=u.id)) and u.id!=$session";
+              $res=mysqli_query($con,$sql); 
+              if($kar = mysqli_fetch_array($res))
+              { ?>
+          <div class="col-lg-12 mt">
+            <div class="row content-panel" style="padding-bottom:0">
+             
+                <div class="col-md-8 offset-md-4">
+                  <h1 style="font-weight:bold;color:purple;font-size:30px">Suggestions de demande d'amis:</h1>
+                </div>
+            </div>
+            <div class="row content-panel" style="padding-top:0">
+              <div class="col-md-8 offset-md-3">
+              <?php 
+              do
+              { ?>
+                  <div class="row panel-body" style="border:1px">
+                        <p style="display:none"><?php echo $kar[0]; ?></p>
+                        <div class="col-1" style="background-image: url('<?php echo $kar[8]; ?>');background-repeat: no-repeat;background-size: 100% 100%;height:33px;border-radius:50%"></div>
+                        <div class="col-7 msgat" style="font-weight:bold;cursor:pointer;font-size:25px;color:black">
+                         <?php echo $kar[1]." ".$kar[2]; ?>
+                        </div>
+                        </div>
+              <?php }while($kar = mysqli_fetch_array($res)); ?>
+              </div>
+            </div>
+            <!-- /col-lg-12 -->
+          </div>
+              <?php } ?>
         </div>
         <?php }} ?>
+        
           <!-- /col-lg-9 END SECTION MIDDLE -->
           <!-- **********************************************************************************************************************************************************
               RIGHT SIDEBAR CONTENT

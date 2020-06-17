@@ -1,0 +1,9 @@
+la class Connection permet d"etablir la connexion avec la base donne 
+
+<< private connection con >>
+la class statmanet permet de executer les resuetes SQL avec deux fonction : 
+executeUpdate pour MJA et executeQuery pour l'insertion 
+<< private Statement stm >>
+     </div>
+</body>
+</html>

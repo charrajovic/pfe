@@ -1,0 +1,42 @@
+#divimage
+{
+	height: 150px;width: 150px;border-radius: 50%;cursor: pointer;
+	background-image: url('naruto.jpg');                                 
+	background-size: 100% 100%;
+	
+}
+#pop
+{
+	position: fixed;top: 0px;left :0px ;background-color: rgba(13, 13, 13, 0.64); 
+	width: 100%;height: 100%;display: none;
+}
+#up
+{
+	position: fixed;top: 20%;left :15% ;background-color: rgba(255, 255, 255, 1); 
+	width: 70%;height: 70%;border-radius: 30px;display: none;
+}
+#title {
+    position: absolute;
+    top: 2%;
+    left: 40%;
+    float: left;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: italic;
+    color:#CCC;
+}
+#karwa
+{
+	float: right;margin-right: 15px;font-weight: bolder;
+	font-size: 20px;cursor: pointer;
+}
+#bac {
+    height: 57%;
+    width: 68%;
+    
+    background-size: 100% 100%;
+    position: fixed;
+    top: 30%;
+    right: 16%;
+    border-radius: 10px;
+	  }

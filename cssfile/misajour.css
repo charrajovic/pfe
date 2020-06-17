@@ -1,0 +1,65 @@
+.tab
+{
+  margin-top: 50px;
+
+}
+
+.fas
+{
+	cursor: pointer;
+}
+#cacher
+{
+	
+    height: 236px;
+    width: 400px;
+    margin-top: 16px;
+    background-color: #2f323a;
+    padding: 14px 41px;
+    border-radius: 10px;
+    display: none;
+}
+#ring
+{
+	
+   height: 30px;width: 30;position: fixed;top: 76%;left: 47%;
+   border: 20px solid white ;border-top-color:black;border-bottom-color:black;border-radius: 50%;
+   animation: charge 3s linear;display: none; 
+}
+@keyframes charge {
+  0%   {
+
+  	transform: rotate(0deg) scale(1);
+  	border-top-color:black;
+  	border-bottom-color:black;
+
+  }
+  25%  {
+       transform: rotate(180deg) scale(1.5);
+  	border-top-color:purple;
+  	border-bottom-color:purple;
+  }
+
+  50%
+  {
+  	transform: rotate(360deg) scale(1.2);
+  	border-top-color:red;
+  	border-bottom-color:red;
+  }
+  75%
+  {
+  	transform: rotate(720deg) scale(1);
+  	border-top-color:brown;
+  	border-bottom-color:brown;
+  }
+  100%
+  {
+  	transform: rotate(180deg) scale(1);
+  	border-top-color:black;
+  	border-bottom-color:black;
+
+  }
+  small,label
+  {
+    color: white;font-weight: 20px;
+  }

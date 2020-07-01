@@ -255,25 +255,6 @@ ul.top-menu > li > .logout {
 }
 
 /*LEFT NAVIGATION ICON*/
-.dcjq-icon {
-    height:17px;
-    width:17px;
-    display:inline-block;
-    background: url("../img/nav-expand.png") no-repeat top;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    position:absolute;
-    right:10px;
-    top:15px;
-}
-.active .dcjq-icon {
-    background: url("../img/nav-expand.png") no-repeat bottom;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-}
-/*---*/
 
 .nav-collapse.collapse {
     display: inline;
@@ -558,7 +539,6 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
 .dropdown-menu.tasks-bar .task-info .percent {
     display: inline-block;
-    float: right;
     font-size: 13px;
     font-weight: 600;
     padding-left: 10px;
@@ -1624,8 +1604,6 @@ PANELS CONFIGURATIONS
 
 /* Grid Showcase*/
 
-	margin-bottom: 15px;
-}
 
 .show-grid [class^=col-] {
 	padding-top: 10px;
@@ -1810,7 +1788,6 @@ label {
     -moz-transition: left 0.25s ease-out;
     -o-transition: left 0.25s ease-out;
     transition: left 0.25s ease-out;
-    -webkit-backface-visibility: hidden;
 }
 .has-switch > div.switch-off {
     left: -63%;
@@ -1852,7 +1829,6 @@ label {
     -moz-transition: 0.25s ease-out;
     -o-transition: 0.25s ease-out;
     transition: 0.25s ease-out;
-    -webkit-backface-visibility: hidden;
 }
 .has-switch span.switch-left {
     border-radius: 30px 0 0 30px;
@@ -1885,7 +1861,6 @@ label {
     -moz-transition: 0.25s ease-out;
     -o-transition: 0.25s ease-out;
     transition: 0.25s ease-out;
-    -webkit-backface-visibility: hidden;
 }
 .switch-square {
     border-radius: 6px;
@@ -2092,7 +2067,6 @@ ul.my-friends {
 
 ul.my-friends li .friends-pic {
 	display: inline-block;
-	float: left;
 	overflow: hidden;
 	margin: 4px;
 }
@@ -2266,7 +2240,6 @@ ul.my-friends li .friends-pic {
 }
 
 .dm-icon:before {
-	speak: none;
 	line-height: 105px;
 	font-style: normal;
 	font-weight: normal;
@@ -3360,10 +3333,6 @@ ul.chat-available-user li a:hover {
 
 #contact {
   padding: 40px 0;
-}
-
-.contact-form {
-
 }
 
 .contact-form label {

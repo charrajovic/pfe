@@ -296,8 +296,331 @@ function coco()
 	});
 }
 
+function modifiersession()
+{
+    if(this.classList[2]=="fa-pencil"){
+       
+        var tr = this.parentElement.parentElement;
+        
+        var first = tr.children[1].textContent;
+       
+        tr.children[1].innerHTML = "<input style='color : black; width:40% ' type='text' value='"+first+"'/>";
+      
+
+        this.classList.remove("fa-pencil");
+        this.classList.add("fa-check-circle");
+
+    }
+    else{
+        var tr = this.parentElement.parentElement;
+        var nom='',prenom='',email='',travail='';
+        if (tr.children[0].textContent=='nom') {
+          nom = tr.children[1].children[0].value;
+          tr.children[1].innerHTML=nom;
+          }else if (tr.children[0].textContent=='prenom') {
+          prenom = tr.children[1].children[0].value;
+          tr.children[1].innerHTML=prenom;
+         }else if(tr.children[0].textContent=='email'){
+         email = tr.children[1].children[0].value;
+         tr.children[1].innerHTML=email;
+          }else{
+          travail = tr.children[1].children[0].value;
+
+        tr.children[1].innerHTML=travail;
+        }
+         
+      
+        $.post("pages/ajax.php",
+        {
+          first_name: nom,last_name:prenom,emaile:email,job:travail
+         },
+    function(data){
+      console.log("Data: " + data );
+    });
+       
+       // $.ajax({
+       //  method: "POST",
+       //  url: "pages/misajour.php",
+       //  data: { first_name: nom,last_name:prenom,emaile:email,job:travail },
+       //  success : function(data)
+       //  {
+       //   $('#sow').html(data);
+       //  }
+       //  });
+
+     this.classList.remove("fa-check-circle");
+        this.classList.add("fa-pencil");
+       
+    }
+}
+
+function dismod()
+{
+    if(this.children[0].textContent=="modifiers votre informations")
+    {
+        document.getElementById("dismod").style.display="block"
+        this.children[0].textContent="valider les informations"
+    }
+    else
+    {
+        document.getElementById("dismod").style.display="none"
+        this.children[0].textContent="modifiers votre informations"
+    }
+}
+
+function tifo()
+{
+  console.log(this.children[0].textContent)
+  $.post("pages/noti.php",
+        {
+          "notification":this.children[0].textContent
+
+         },
+    function(data){
+              window.location="/pfe/index.php?page=inbox"
+           });
+}
+function getallnoti()
+{
+
+ var email= document.getElementById('emaile').textContent;
+   
+    $.post("pages/noti.php",
+        {
+          "email":email
+         },
+    function(data){
+     
+     var obj1 = JSON.parse(data);
+     document.getElementById("addnotifi").innerHTML='';
+    for (var i = 0; i < obj1.length; i++) {
+      var daten = new Date(obj1[i].datep);
+      var min=daten.getMinutes();
+      
+
+      
+
+      document.getElementById("addnotifi").innerHTML+= '<li>'+
+                '<a class="notif" style="cursor: pointer;">'+
+                  '<span style="display:none">'+obj1[i].id+'</span>'+
+                  '<span class="photo"><img src="'+obj1[i].profil+'">'+'</span>'+
+                  '<span class="subject">'+
+                  '<span class="from">'+obj1[i].nom_expediteur+'</span>'+
+                  // '<span class="time">'+min+'min'+'</span>'+
+                  '</span>'+
+                  '<span class="subject">'+obj1[i].sujet+'</span>'+
+                  '</a>'+
+              '</li>'
+    }
+    var yy=document.getElementsByClassName("notif")
+  for (let i = 0; i < yy.length; i++) {
+    yy[i].addEventListener("click",tifo)
+  }
+
+
+           });
+    
+
+setTimeout(getallnoti,1000);
+
+}
+
+
+
+function ajax()
+{
+ 
+   
+     var id= this.children[1].textContent;
+    
+     $.post("pages/msg_evo_ajax.php",
+        {
+          "idr":id
+         },
+    function(data){
+
+    
+     var obj = JSON.parse(data);
+  
+     document.getElementById("hide").innerHTML ='<header class="panel-heading wht-bg">'+
+                '<h4 class="gen-case">'+
+                   'Voir les propositions'+
+                    '<form action="#" class="pull-right mail-src-position">'+
+                      '<div class="input-append">'+
+                        '<input type="text" class="form-control " placeholder="Search Mail">'+
+                      '</div>'+
+                   '</form>'+
+                  '</h4>'+
+              '</header>'+
+              '<div class="panel-body ">'+
+                '<div class="mail-header row">'+
+                  '<div class="col-md-8">'+
+                    '<h4 class="pull-left">salut monsieur </h4>'+
+                  '</div>'+
+                  '<div class="col-md-4">'+
+                    '<div class="compose-btn pull-right">'+
+                      '<input type="button" value = "retour" onclick="history.go(0)" />'+
+                      '<button class="btn  btn-sm tooltips" data-original-title="Print" type="button" data-toggle="tooltip" data-placement="top" title="">'+'<i class="fa fa-print">'+'</i> '+'</button>'+
+                      '<button class="btn btn-sm tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title="">'+'<i class="fa fa-trash-o">'+'</i>'+'</button>'+
+                   ' </div>'+
+                  '</div>'+
+                '</div>'+
+                '<div class="mail-sender">'+
+                  '<div class="row">'+
+                    '<div class="col-md-8">'+
+                      '<img src="" alt="" height="30" width="30" id="profil">'+
+                      '<strong id="nom_destinataire"></strong>'+
+                      '<span id="email"></span>'+
+                      
+                    '</div>'+
+                   '<div class="col-md-4">'+
+                      '<p class="date" id="date"> '+'</p>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>'+
+                '<div class="view-mail" id="message">'+
+                  
+                '</div>'+
+                '<div class="attachment-mail">'+
+                  
+                  '<ul>'+
+                    '<li>'+
+                      '<a class="atch-thumb" href="#">'+
+                       ' <img src="cssfile/img/logo_txt.jpg">'+
+                        '</a>'+
+                     '<a class="name" href="#" id="file">'+
+                       
+                        '<span>20KB</span>'+
+                       '</a>'+
+                      '<div class="links">'+
+                        '<button type="button" class="btn btn-outline-primary">'+'voir'+'</button>'+
+                         '<a class="name" id="myAnchor" href="" download>'+
+                        '<button class="btn btn-outline-secondary" name="down">'+'telecharger'+'</button>'+
+                      '</a>'+
+                      '</div>'+
+                    '</li>'+
+                  '</ul>'+
+                '</div>'+
+
+                '<div class="compose-btn pull-left">'+
+                  '<a href="mail_compose.html" class="btn btn-sm btn-theme">'+'<i class="fa fa-reply">'+'</i>'+' Reply'+'</a>'+
+                  '<button class="btn btn-sm ">'+'<i class="fa fa-arrow-right">'+'</i>'+' Forward'+'</button>'+
+                  '<button class="btn  btn-sm tooltips" data-original-title="Print" type="button" data-toggle="tooltip" data-placement="top" title="">'+'<i class="fa fa-print">'+'</i>'+' </button>'+
+                  '<button class="btn btn-sm tooltips" data-original-title="Trash" data-toggle="tooltip" data-placement="top" title="">'+'<i class="fa fa-trash-o"></i></button>'+
+                '</div>'+
+              '</div>'
+
+               
+             
+                
+
+
+       document.getElementById("nom_destinataire").innerHTML = obj.nom_destinataire;
+       document.getElementById("email").innerHTML='['+obj.email_dest+']';
+      document.getElementById("message").innerHTML = obj.message;
+      document.getElementById("profil").src=""+obj.profil+"";
+       document.getElementById("file").innerHTML = obj.file;
+       document.getElementById("myAnchor").href = "upload/"+obj.file+"";
+       console.log("obj.nom_expediteur");
+      
+       
+       
+
+           });
+
+	
+}
+function propo()
+{
+    
+     var email= document.getElementById('emaile').textContent;
+   
+    $.post("pages/rec_mail_ajax.php",
+        {
+          "email":email
+         },
+    function(data){
+     
+     var obj = JSON.parse(data);
+     document.getElementById('nbre').innerHTML=obj;
+      document.getElementById('msg_nbr').innerHTML="vous avez "+obj+" message(s)";
+     
+
+
+           });
+    
+
+   setTimeout(propo,500)
+}
+function propo_not()
+{
+    var email= document.getElementById('emaile').textContent;
+   
+    $.post("pages/noti.php",
+        {
+          "email":email
+         },
+    function(data){
+     
+     var obj1 = JSON.parse(data);
+     document.getElementById("addnotifi").innerHTML='';
+    for (var i = 0; i < obj1.length; i++) {
+      var daten = new Date(obj1[i].datep);
+      var min=daten.getMinutes();
+      
+
+      
+
+      document.getElementById("addnotifi").innerHTML+= '<li>'+
+                '<a class="notif" style="cursor: pointer;">'+
+                  '<span style="display:none">'+obj1[i].id+'</span>'+
+                  '<span class="photo"><img src="'+obj1[i].profil+'">'+'</span>'+
+                  '<span class="subject">'+
+                  '<span class="from">'+obj1[i].nom_expediteur+'</span>'+
+                  // '<span class="time">'+min+'min'+'</span>'+
+                  '</span>'+
+                  '<span class="subject">'+obj1[i].sujet+'</span>'+
+                  '</a>'+
+              '</li>'
+    }
+    var yy=document.getElementsByClassName("notif")
+  for (let i = 0; i < yy.length; i++) {
+    yy[i].addEventListener("click",tifo)
+  }
+
+
+           });
+    
+
+setTimeout(getallnoti,1000);
+}
+
+function popup()
+{
+    var t=document.getElementsByClassName("containere")
+    for (let i = 0; i < t.length; i++) {
+        t[i].style.opacity=0.1
+    }
+    document.getElementById("popupe").style.display="block"
+    document.getElementById("darag").style.display="block"
+}
+
+function closex()
+{
+    var t=document.getElementsByClassName("containere")
+    for (let i = 0; i < t.length; i++) {
+        t[i].style.opacity=1
+    }
+    document.getElementById("popupe").style.display="none"
+    document.getElementById("darag").style.display="none"
+}
+
 window.onload=function()
 {
+    var tt=document.getElementsByClassName("modif");
+    for (let i = 0; i < tt.length; i++) {
+        tt[i].addEventListener("click",modifiersession);
+    }
     var zone=this.document.getElementsByClassName("zones");
     for (let i = 0; i < zone.length; i++) {
         zone[i].addEventListener("click",zon);
@@ -313,16 +636,36 @@ window.onload=function()
         zone[i].addEventListener("click",coco);
         
     }
+    var cl=document.getElementsByClassName("close")
+    for (let i = 0; i < cl.length; i++) {
+        cl[i].addEventListener("click",closex)
+    }
     document.getElementById("logout").addEventListener("click",logout);
     document.getElementById("logout").style.cursor="pointer";
     document.getElementById("msg").addEventListener("click",messages);
     document.getElementById("msg").style.cursor="pointer";
     setInterval(poop,10000);
+    // setInterval(propo,1000);
+    // this.setTimeout(propo_not,100);
     this.setTimeout(notification,100);
     document.getElementById("shrttat").addEventListener("click",shrttat);
-    document.getElementById("tof").addEventListener("click",tof);
-    document.getElementById("file").addEventListener("change",tofchoose);
+    var tt=document.getElementsByClassName("tof")
+    for (let i = 0; i < tt.length; i++) {
+        tt[i].addEventListener("click",tof);
+    }
+    var rr=document.getElementsByClassName("file")
+    for (let i = 0; i < rr.length; i++) {
+        rr[i].addEventListener("change",tofchoose);
+    }
     var t=this.document.getElementsByClassName("addamis");
+    var tt=document.getElementsByClassName("modifer")
+    for (let i = 0; i < tt.length; i++) {
+        tt[i].addEventListener("click",dismod);
+    }
+    var y=document.getElementsByClassName("ttof");
+    for (let i = 0; i < y.length; i++) {
+        y[i].addEventListener("click",popup)
+    }
     for (let i = 0; i < t.length; i++) {
         t[i].addEventListener("click",addamis);
     }

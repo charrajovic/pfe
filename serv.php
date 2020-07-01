@@ -5,7 +5,7 @@ if(strcmp($_REQUEST["service"],"auth")==0)
 {
 $mail=$_REQUEST["mail"];
 $pass=$_REQUEST["pass"];
-$sql = "SELECT * FROM `user` WHERE mail like '$mail' and password like '$pass'";
+$sql = "SELECT * FROM `user` WHERE email like '$mail' and password like '$pass'";
     $res=mysqli_query($con,$sql);  
     if($kar = mysqli_fetch_array($res))
     {
@@ -16,10 +16,12 @@ $sql = "SELECT * FROM `user` WHERE mail like '$mail' and password like '$pass'";
         $_SESSION["id"]=$kar[0];
         $_SESSION["nom"]=$kar[1];
         $_SESSION["prenom"]=$kar[2];
-        $_SESSION["mail"]=$kar[3];
+        $_SESSION["email"]=$kar[3];
         $_SESSION["password"]=$kar[4];
         $_SESSION["date"]=$kar[5];
-        $_SESSION["photo"]=$kar[8];
+        $_SESSION["profil"]=$kar[8];
+        $_SESSION["travail"]=$kar[9];
+        $_SESSION['confirmation']=$kar[10];
         echo "1"; 
     }
     else

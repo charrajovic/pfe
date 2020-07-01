@@ -136,63 +136,25 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           <li id="header_inbox_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-envelope-o"></i>
-              <span class="badge bg-theme">5</span>
+              <span class="badge bg-theme" id="nbre"><?php $spl="SELECT count(*) as nbr FROM conversation,destinataire WHERE id_message=destinataire.id AND email_dest='{$_SESSION['email']}' AND  etat!=1 ";
+              $res=mysqli_query($con,$spl);  
+              while($kar = mysqli_fetch_array($res))
+              {
+                  echo $kar[0];
+              } ?></span>
+              <p id="emaile" style="display:none"><?php echo $_SESSION["email"]; ?></p>
               </a>
             <ul class="dropdown-menu extended inbox">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
-                <p class="green">You have 5 new messages</p>
+                 <p class="green" id="msg_nbr"></p>
               </li>
+             <span id="addnotifi">
+              
+               </span>
               <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
-                  <span class="subject">
-                  <span class="from"></span>
-                  <span class="time">Just now</span>
-                  </span>
-                  <span class="message">
-                  Hi mate, how is everything?
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
-                  </span>
-                  <span class="message">
-                  Hi, I need your help with this.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Love your new Dashboard.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Please, answer asap.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">See all messages</a>
+           
+                <a href="index.php?page=inbox">voit tout</a>
               </li>
             </ul>
           </li>
@@ -242,12 +204,12 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
       <div id="sidebar" class="nav-collapse " style="z-index:99">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["photo"]; ?>" class="img-circle" width="80" id="modi"></a></p>
+          <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
           <h5 class="centered"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h5>
           <li class="mt">
-            <a href="index.html">
+            <a href="index.php?page=compte">
               <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
+              <span>Acceuil</span>
               </a>
           </li>
           <li class="sub-menu">
@@ -276,10 +238,17 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Forms</span>
+              <i class="fa fa-desktop"></i>
+              <span>Propositions</span>
               </a>
+            <ul class="sub">
+              <li><a href="index.php?page=proposition#"><i class="fa fa-upload"></i>envoyer proposition</a></li>
+              <li><a href="index.php?page=inbox#"><i class="fa fa-inbox"></i>boite de recéption</a></li>
+              <li><a href="index.php?page=message_envoye#"><i class="fa fa-send"></i>messages envoyés</a></li>
+            
+            </ul>
            
+          </li>
         </ul>
         <!-- sidebar menu end-->
       </div>

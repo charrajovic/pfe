@@ -134,35 +134,11 @@
               <li>
                 <p class="green" id="msg_nbr"></p>
               </li>
-              <?php foreach ($notis as $noti) {
-                      
-                        ?>
+              <span id="addnotifi">
+            
+               </span>
               <li>
-                <a class="notif" style="cursor: pointer;">
-                  <span style="display:none"><?php echo $noti['id']; ?></span>
-                  <span class="photo"><img src="cssfile/img/<?php echo $noti['profil']?>"></span>
-                  <span class="subject">
-                  <span class="from"><?php echo $noti['nom_expediteur']?></span>
-                  <span class="time"><?php
-                    $to_time = date('i',strtotime($noti['datep']));
-                    $from_time = date('i',time());
-                    $temp=round(abs($to_time - $from_time));
-                    if ($temp<=60) {
-                     echo $temp. " min";
-                    } else {
-                      date("h",$temp). "h";
-                    }
-                    
-                    ?></span>
-                  </span>
-                  <span class="subject"><?php echo $noti['sujet']?></span>
-                  </a>
-              </li>
-            <?php }
-                        
-               ?>
-              <li>
-           
+              
                 <a href="index.php?page=inbox">voit tout</a>
               </li>
             </ul>
@@ -223,20 +199,43 @@
       </div>
     </header>
     <aside>
-      <div id="sidebar" class="nav-collapse ">
+      <div id="sidebar" class="nav-collapse " style="z-index:99">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="index.php?page=profil"><img src="cssfile/img/<?php echo $_SESSION['profil']; ?>" class="img-circle" width="120" id="image" height="120"></a></p>
-         
-          <h5 class="centered"><i class="fa fa-user"></i><?php echo " ".$_SESSION['nom']." ".$_SESSION['prenom']; ?><hr></h5>
+          <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
+          <h5 class="centered"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h5>
           <li class="mt">
-            <a class="active" href="index.php?page=compte">
-              <i class="fa fa-home"></i>
-              <span>acceuil</span>
+            <a href="index.php?page=compte">
+              <i class="fa fa-dashboard"></i>
+              <span>Acceuil</span>
               </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a>
+              <i class="fa fa-desktop"></i>
+              <span>consulter les regles</span>
+              </a>
+            <ul class="sub">
+              <li><a href="zones.php">consultation les zones</a></li>
+              <li><a href="regles.php">consultation les régles</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="list">
+              <i class="fa fa-cogs"></i>
+              <span>list des architect</span>
+              </a>
+            
+          </li>
+          <li class="sub-menu">
+            <a href="message">
+              <i class="fa fa-book"></i>
+              <span id="msg">messages</span>
+              </a>
+           
+          </li>
+          <li class="sub-menu">
+            <a class="active" href="javascript:;">
               <i class="fa fa-desktop"></i>
               <span>Propositions</span>
               </a>
@@ -246,19 +245,11 @@
               <li><a href="index.php?page=message_envoye#"><i class="fa fa-send"></i>messages envoyés</a></li>
             
             </ul>
-          </li>
-          </li>
-         
-          <li>
-            <a href="#">
-              <i class="fa fa-comments"></i>
-              <span>Chat Room</span>
-              </a>
+           
           </li>
         </ul>
         <!-- sidebar menu end-->
       </div>
-
     </aside>
     <!--sidebar end-->
     <!-- **********************************************************************************************************************************************************
@@ -426,7 +417,7 @@
                           </tbody>';
                           $id= $_SESSION["proposition"];
                           $GLOBALS['conn']->query("UPDATE `destinataire` SET `etat`=1 WHERE id=$id AND  etat!=1 ");
-                            $res=$GLOBALS['conn']->query("SELECT message,datep,file,nom_expediteur,profil,travail,email FROM conversation,destinataire,utilisator WHERE id_message=destinataire.id AND email=email_expe AND destinataire.id=$id ORDER BY datep");
+                            $res=$GLOBALS['conn']->query("SELECT message,datep,file,nom_expediteur,profil,travail,email FROM conversation,destinataire,user WHERE id_message=destinataire.id AND email=email_expe AND destinataire.id=$id ORDER BY datep");
                           
                             while ($data=$res->fetch()) {
                               $mail=$data['email'];
@@ -456,7 +447,7 @@
                                 '<div class="mail-sender">'.
                                   '<div class="row">'.
                                     '<div class="col-md-8">'.
-                                      '<img src="cssfile/img/'.$data["profil"].'" alt="" height="30" width="30" id="profil">'.
+                                      '<img src="'.$data["profil"].'" alt="" height="30" width="30" id="profil">'.
                                       '<strong id="nom_expediteur"></strong>'.
                                       '<span id="email">['.$mail.']</span>'.' à'.
                                       '<strong>'.'moi'.'</strong>'.

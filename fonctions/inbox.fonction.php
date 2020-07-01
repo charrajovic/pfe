@@ -4,7 +4,7 @@
  {
     $info=array();
 
-    $res=$GLOBALS['conn']->query("SELECT destinataire.id,message,sujet,datep,file,nom_expediteur,nom_destinataire,travail,profil,email,etat FROM utilisator,conversation,destinataire WHERE id_message=destinataire.id AND email_dest LIKE '{$_SESSION['email']}' AND email=email_expe ORDER BY datep DESC ");
+    $res=$GLOBALS['conn']->query("SELECT destinataire.id,message,sujet,datep,file,nom_expediteur,nom_destinataire,travail,profil,email,etat FROM user,conversation,destinataire WHERE id_message=destinataire.id AND email_dest LIKE '{$_SESSION['email']}' AND email=email_expe ORDER BY datep DESC ");
 	
 	   while ($data=$res->fetch()) {
 	    	
@@ -35,7 +35,7 @@ function notification()
 {
 	  $info=array();
 
-    $res=$GLOBALS['conn']->query("SELECT destinataire.id,message,sujet,datep,file,nom_expediteur,nom_destinataire,travail,profil,email FROM utilisator,conversation,destinataire WHERE id_message=destinataire.id AND email_dest LIKE '{$_SESSION['email']}' AND email=email_expe AND etat=0 ORDER BY datep DESC  LIMIT 5 ");
+    $res=$GLOBALS['conn']->query("SELECT destinataire.id,message,sujet,datep,file,nom_expediteur,nom_destinataire,travail,profil,email FROM user,conversation,destinataire WHERE id_message=destinataire.id AND email_dest LIKE '{$_SESSION['email']}' AND email=email_expe AND etat=0 ORDER BY datep DESC  LIMIT 5 ");
 	
 	   while ($data=$res->fetch()) {
 	    	

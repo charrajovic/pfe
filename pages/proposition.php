@@ -180,32 +180,9 @@ include("fonctions/inbox.fonction.php");
               <li>
                 <p class="green" id="msg_nbr"></p>
               </li>
-              <?php foreach ($notis as $noti) {
-                      
-                        ?>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img src="cssfile/img/<?php echo $noti['profil']?>"></span>
-                  <span class="subject">
-                  <span class="from"><?php echo $noti['nom_expediteur']?></span>
-                  <span class="time"><?php
-                    $to_time = date('i',strtotime($noti['datep']));
-                    $from_time = date('i',time());
-                    $temp=round(abs($to_time - $from_time));
-                    if ($temp<=60) {
-                     echo $temp. " min";
-                    } else {
-                      date("h",$temp). "h";
-                    }
-                    
-                    ?></span>
-                  </span>
-                  <span class="subject"><?php echo $noti['sujet']?></span>
-                  </a>
-              </li>
-            <?php }
-                        
-               ?>
+             <span id="addnotifi">
+            
+               </span>
               <li>
            
                 <a href="index.php?page=inbox">See all messages</a>
@@ -271,21 +248,44 @@ include("fonctions/inbox.fonction.php");
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
     <!--sidebar start-->
-     <aside>
-      <div id="sidebar" class="nav-collapse ">
+    <aside>
+      <div id="sidebar" class="nav-collapse " style="z-index:99">
         <!-- sidebar menu start-->
-           <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="index.php?page=profil"><img src="cssfile/img/<?php echo $_SESSION['profil']; ?>" class="img-circle" width="120" id="image" height="120"></a></p>
-         
-          <h5 class="centered"><i class="fa fa-user"></i><?php echo " ".$_SESSION['nom']." ".$_SESSION['prenom']; ?><hr></h5>
+        <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
+          <h5 class="centered"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h5>
           <li class="mt">
-            <a class="active" href="index.php?page=compte">
-              <i class="fa fa-home"></i>
-              <span>acceuil</span>
+            <a href="index.php?page=compte">
+              <i class="fa fa-dashboard"></i>
+              <span>Acceuil</span>
               </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;">
+            <a>
+              <i class="fa fa-desktop"></i>
+              <span>consulter les regles</span>
+              </a>
+            <ul class="sub">
+              <li><a href="zones.php">consultation les zones</a></li>
+              <li><a href="regles.php">consultation les régles</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="list">
+              <i class="fa fa-cogs"></i>
+              <span>list des architect</span>
+              </a>
+            
+          </li>
+          <li class="sub-menu">
+            <a href="message">
+              <i class="fa fa-book"></i>
+              <span id="msg">messages</span>
+              </a>
+           
+          </li>
+          <li class="sub-menu">
+            <a class="active" href="javascript:;">
               <i class="fa fa-desktop"></i>
               <span>Propositions</span>
               </a>
@@ -295,15 +295,9 @@ include("fonctions/inbox.fonction.php");
               <li><a href="index.php?page=message_envoye#"><i class="fa fa-send"></i>messages envoyés</a></li>
             
             </ul>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-comments"></i>
-              <span>Chat Room</span>
-              </a>
+           
           </li>
         </ul>
-        <em id="emaile" style="visibility: hidden;"><?php  echo $_SESSION['email'] ?></em>
         <!-- sidebar menu end-->
       </div>
     </aside>

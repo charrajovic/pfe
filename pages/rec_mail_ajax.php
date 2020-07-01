@@ -17,7 +17,7 @@ if (isset($_POST['idr'])) {
    $id=$_POST['idr'];
      $GLOBALS['conn']->query("UPDATE `destinataire` SET `etat`=1 WHERE id=$id AND  etat!=1 ");
 
-    $res=$GLOBALS['conn']->query("SELECT message,datep,file,nom_expediteur,profil,travail,email FROM conversation,destinataire,utilisator WHERE id_message=destinataire.id AND email=email_expe AND destinataire.id=$id ORDER BY datep");
+    $res=$GLOBALS['conn']->query("SELECT message,datep,file,nom_expediteur,profil,travail,email FROM conversation,destinataire,user WHERE id_message=destinataire.id AND email=email_expe AND destinataire.id=$id ORDER BY datep");
   
      while ($data=$res->fetch()) {
         

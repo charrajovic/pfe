@@ -16,12 +16,12 @@ if(isset($_POST['changer'])){
   $Epassword =htmlentities(trim(sha1($_POST["encien"]))) ;
   $id= $_SESSION['id'];
 
-    $res =$conn->prepare("SELECT  `password` FROM `utilisator` WHERE password LIKE ? ");
+    $res =$conn->prepare("SELECT  `password` FROM `user` WHERE password LIKE ? ");
     $res -> execute(array($Epassword));
     if (!empty($res->fetch())) {
 
     echo "ok";
-       $conn->query("UPDATE utilisator SET  password = '$Npassword' WHERE id =$id" );
+       $conn->query("UPDATE user SET  password = '$Npassword' WHERE id =$id" );
     } else {
       echo "mot de passe erroné";
       echo $Epassword;

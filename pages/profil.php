@@ -139,32 +139,10 @@ include("fonctions/inbox.fonction.php");
               <li>
                 <p class="green" id="msg_nbr"></p>
               </li>
-              <?php foreach ($notis as $noti) {
-                      
-                        ?>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img src="cssfile/img/<?php echo $noti['profil']?>"></span>
-                  <span class="subject">
-                  <span class="from"><?php echo $noti['nom_expediteur']?></span>
-                  <span class="time"><?php
-                    $to_time = date('i',strtotime($noti['datep']));
-                    $from_time = date('i',time());
-                    $temp=round(abs($to_time - $from_time));
-                    if ($temp<=60) {
-                     echo $temp. " min";
-                    } else {
-                      date("h",$temp). "h";
-                    }
-                    
-                    ?></span>
-                  </span>
-                  <span class="subject"><?php echo $noti['sujet']?></span>
-                  </a>
-              </li>
-            <?php }
-                        
-               ?>
+             
+             <span id="addnotifi">
+              
+               </span>
               <li>
            
                 <a href="index.php?page=inbox">voit tout</a>
@@ -235,7 +213,7 @@ include("fonctions/inbox.fonction.php");
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="index.php?page=profil"><img src="cssfile/img/<?php echo $_SESSION['profil']; ?>" class="img-circle" width="120" height="120" id="image"></a></p><i class="fas fa-camera" style="color : white;margin-left: 45% " title="modifiers votre photo" id="tof"><input type="file" name="file" id="file" style="position: fixed;left: 2px;visibility: hidden;"></i>
+          <p class="centered"><a href="index.php?page=profil"><img src="<?php echo $_SESSION['profil']; ?>" class="img-circle" width="120" height="120" id="image"></a></p><i class="fas fa-camera" style="color : white;margin-left: 45% " title="modifiers votre photo" id="tof"><input type="file" name="file" id="file" style="position: fixed;left: 2px;visibility: hidden;"></i>
          
           <h5 class="centered"><i class="fas fa-user"></i><?php echo " ".$_SESSION['nom']." ".$_SESSION['prenom']; ?><hr></h5>
          <li class="mt">
@@ -306,7 +284,7 @@ include("fonctions/inbox.fonction.php");
                 <div class="profile-pic">';
                 ?>
                   
-                  <p><img id="modification" src="cssfile/img/<?php echo $_SESSION['profil'];?>" class="img-circle" style="cursor: pointer;" ></p>
+                  <p><img id="modification" src="<?php echo $_SESSION['profil'];?>" class="img-circle" style="cursor: pointer;" ></p>
                   
                 </div>
               </div>

@@ -10,11 +10,11 @@ if($_FILES["file"]["name"] != '')
  move_uploaded_file($_FILES["file"]["tmp_name"], $location);
  include("connect.php");
  $session=$_SESSION["id"];
- $spl="UPDATE `user` SET `photo`='$location' WHERE id=$session";
+ $spl="UPDATE `user` SET `profil`='$location' WHERE id=$session";
  $res=mysqli_query($con,$spl);
  if($res==1)
  {
-    $_SESSION["photo"]=$location;
+    $_SESSION["profil"]=$location;
     echo $location;
  }
 else

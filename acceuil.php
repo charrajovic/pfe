@@ -34,6 +34,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
   <link href="css/style.css" rel="stylesheet">
   <link href="css/style-responsive.css" rel="stylesheet">
   <link href="acc.css" rel="stylesheet" />
+  <link href="cssfile/css/style.css" rel="stylesheet">
   <script src="jquery.min.js"></script>
   <script src="lib/chart-master/Chart.js"></script>
   <script src="acc.js"></script>
@@ -241,7 +242,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
       <div id="sidebar" class="nav-collapse " style="z-index:99">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["photo"]; ?>" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80"></a></p>
           <h5 class="centered"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h5>
           <li class="mt">
             <a href="index.html">
@@ -287,36 +288,43 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
     <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
-    <!--main content start-->
-    <section id="main-content">
-      <section class="wrapper">
-        <div class="row">
-          <div class="col-md-12 consult" id="cont" style="padding:0">
-          <table  class="table table-striped table-bordered" id="table">
-          <tr class="haut" style="background:tomato;color:white">
-          <td>Nom</td>
-          <td>role</td>
-          <td>Catégorie</td>
-          </tr>
-           <?php
-           while($kar = mysqli_fetch_array($row))
-           {
-               ?><tr><td class="zones"><?php echo $kar[1]; ?></td><td><?php echo $kar[2]; ?></td><td><?php echo $kar[3]; ?></td></tr><?php
-           }
-           
-           mysqli_close($con);
-           
-           ?>
-           </table>
-          </div>
-          <!-- /col-lg-9 END SECTION MIDDLE -->
-          <!-- **********************************************************************************************************************************************************
-              RIGHT SIDEBAR CONTENT
-              *********************************************************************************************************************************************************** -->
-          
-        <!-- /row -->
-      </section>
-    </section>
+        <section class="">
+          <div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+     <img src="cssfile/img/man.jpg" style="width: 1156px;
+    margin-left: 27px;
+    height: 590px;
+    margin-top: 60px">
+  <div class="text">BIENVENUE A AMINE</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+        <img src="cssfile/img/image2.jpeg" style="width: 1156px;
+    margin-left: 27px;
+    height: 590px;
+    margin-top: 60px">
+  <div class="text">SITE D'ARCHITECTURE</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+    <img src="cssfile/img/image3.jpeg" style="width: 1156px;
+    margin-left: 27px;
+    height: 590px;
+    margin-top: 60px">
+  <div class="text">DISTINGUE </div>
+</div>
+
+</div>
+<div style="text-align:center" class="bac">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+   </section>
     <!--main content end-->
     <!--footer start-->
    

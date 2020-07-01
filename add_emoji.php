@@ -9,10 +9,9 @@
     $content=str_replace("'","\'",$content);
     $nom=$_SESSION["nom"];
     $prenom=$_SESSION["prenom"];
-    $etat=$_REQUEST["etat"];
     $p=time();
     $curent=date("Y-m-d H:i:s", $p);
-    $spl="INSERT INTO `messages`(`contenu`,`big`) VALUES ('$content',$etat)";
+    $spl="INSERT INTO `messages`(`contenu`,`big`) VALUES ('$content',1)";
     $ech1=mysqli_query($con,$spl);
     if($ech1==1)
     {
@@ -29,6 +28,6 @@
     else{
     echo "{\"response\":\"0\",";
     }
-    echo "\"nom\":\"$nom\",\"prenom\":\"$prenom\",\"etat\":\"$etat\",\"messag\":\"".htmlspecialchars($content)."\"}";
+    echo "\"nom\":\"$nom\",\"prenom\":\"$prenom\"}";
     mysqli_close($con);
 ?>

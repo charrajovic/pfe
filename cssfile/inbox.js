@@ -4,6 +4,7 @@ function tifo()
   $.post("pages/noti.php",
         {
           "notification":this.children[0].textContent
+
          },
     function(data){
               window.location="/pfe/index.php?page=inbox"
@@ -12,12 +13,11 @@ function tifo()
 
 
 window.onload= function () {
-  var yy=document.getElementsByClassName("notif")
-  for (let i = 0; i < yy.length; i++) {
-    yy[i].addEventListener("click",tifo)
-  }
+  
 propo();
 message();
+getallnoti();
+
 }
 function message()
 {
@@ -32,7 +32,7 @@ function message()
      
      var obj = JSON.parse(data);
 
-   
+   document.getElementById("add").innerHTML='';
      for (var i = 0; i < obj.length; i++) {
       var y;
       if(obj[i].etat==1)
@@ -43,6 +43,11 @@ function message()
       {
         y="fa-envelope"
       }
+     var daten = new Date(obj[i].datep);
+ var year=daten.getFullYear();
+  var     mont=daten.getMonth();
+     var  day=daten.getDate();
+
      if (obj[i].travail=='expert') {
        document.getElementById("add").innerHTML+='<tr class="unread">'+
                         '<td class="inbox-small-cells" id="nom_k">'+
@@ -54,7 +59,7 @@ function message()
                         '<td class="view-message " id="nom_expediteure">'+obj[i].nom_expediteur+'</td>'+
                         '<td class="view-message  dont-show" id="travaile">'+'<span class="label label-success ">'+obj[i].travail+'</span>'+'</td>'+
                         '<td class="view-message" id="sujete">'+obj[i].sujet+'</td>'+
-                        '<td class="view-message  text-right" id="datee">'+obj[i].datep+'</td>'+
+                        '<td class="view-message  text-right" id="datee">'+day+'/'+mont+'/'+year+'</td>'+
                       '</tr>'
      } else {
        document.getElementById("add").innerHTML+='<tr class="unread">'+
@@ -67,7 +72,7 @@ function message()
                         '<td class="view-message " id="nom_expediteure">'+obj[i].nom_expediteur+'</td>'+
                         '<td class="view-message  dont-show" id="travaile">'+'<span class="label label-info ">'+obj[i].travail+'</span>'+'</td>'+
                         '<td class="view-message" id="sujete">'+obj[i].sujet+'</td>'+
-                        '<td class="view-message  text-right" id="datee">'+obj[i].datep+'</td>'+
+                        '<td class="view-message  text-right" id="datee">'+day+'/'+mont+'/'+year+'</td>'+
                       '</tr>'
      }
 
@@ -76,7 +81,7 @@ function message()
 }
 var tt=document.getElementsByClassName("inbox-small-cells");
 for (let k = 0; k < tt.length; k++) {
-  console.log(tt[k])
+ 
   tt[k].addEventListener("click",ajax)
 }
 
@@ -84,7 +89,7 @@ for (let k = 0; k < tt.length; k++) {
 
 
            });
-     
+      setTimeout(message,3000)
 
 }
 function ajax()
@@ -181,7 +186,7 @@ function ajax()
       
        document.getElementById("email").innerHTML='['+obj.email+']';
       document.getElementById("message").innerHTML = obj.message;
-      document.getElementById("profil").src="cssfile/img/"+obj.profil+"";
+      document.getElementById("profil").src=""+obj.profil+"";
        document.getElementById("file").innerHTML = obj.file;
        document.getElementById("myAnchor").href = "upload/"+obj.file+"";
       
@@ -207,15 +212,64 @@ function propo()
     function(data){
      
      var obj = JSON.parse(data);
-    
+     
      document.getElementById('nbre').innerHTML=obj;
       document.getElementById('msg_nbr').innerHTML="vous avez "+obj+" message(s)";
-      // document.getElementById('inbo').innerHTML="INBOX("+obj+")";
+      document.getElementById('inbo').innerHTML="INBOX("+obj+")";
      
+     
+       
+
+           });
+    
+   
+	 setTimeout(propo,1000)
+}
+
+
+
+
+function getallnoti()
+{
+
+ var email= document.getElementById('emaile').textContent;
+   
+    $.post("pages/noti.php",
+        {
+          "email":email
+         },
+    function(data){
+     
+     var obj1 = JSON.parse(data);
+     document.getElementById("addnotifi").innerHTML='';
+    for (var i = 0; i < obj1.length; i++) {
+      var daten = new Date(obj1[i].datep);
+      var min=daten.getMinutes();
+      
+
+      
+
+      document.getElementById("addnotifi").innerHTML+= '<li>'+
+                '<a class="notif" style="cursor: pointer;">'+
+                  '<span style="display:none">'+obj1[i].id+'</span>'+
+                  '<span class="photo"><img src="'+obj1[i].profil+'">'+'</span>'+
+                  '<span class="subject">'+
+                  '<span class="from">'+obj1[i].nom_expediteur+'</span>'+
+                  '<span class="time">'+min+'min'+'</span>'+
+                  '</span>'+
+                  '<span class="subject">'+obj1[i].sujet+'</span>'+
+                  '</a>'+
+              '</li>'
+    }
+    var yy=document.getElementsByClassName("notif")
+  for (let i = 0; i < yy.length; i++) {
+    yy[i].addEventListener("click",tifo)
+  }
 
 
            });
     
 
-	 setTimeout(propo,500)
+setTimeout(getallnoti,1000);
+
 }

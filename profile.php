@@ -1,5 +1,6 @@
 <?php
 session_start(); 
+$phofo="./img/unknown.png";
 if(isset($_SESSION["id"]))
 { 
 include("connect.php");
@@ -48,7 +49,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
 </head>
 
 <body>
-  <section id="container">
+  <section id="container" class="containere">
     <!-- **********************************************************************************************************************************************************
         TOP BAR CONTENT & NOTIFICATIONS
         *********************************************************************************************************************************************************** -->
@@ -136,63 +137,25 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           <li id="header_inbox_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
               <i class="fa fa-envelope-o"></i>
-              <span class="badge bg-theme">5</span>
+              <span class="badge bg-theme" id="nbre"><?php $spl="SELECT count(*) as nbr FROM conversation,destinataire WHERE id_message=destinataire.id AND email_dest='{$_SESSION['email']}' AND  etat!=1 ";
+              $res=mysqli_query($con,$spl);  
+              while($kar = mysqli_fetch_array($res))
+              {
+                  echo $kar[0];
+              } ?></span>
+              <p id="emaile" style="display:none"><?php echo $_SESSION["email"]; ?></p>
               </a>
             <ul class="dropdown-menu extended inbox">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
-                <p class="green">You have 5 new messages</p>
+                 <p class="green" id="msg_nbr"></p>
               </li>
+             <span id="addnotifi">
+              
+               </span>
               <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-zac.jpg"></span>
-                  <span class="subject">
-                  <span class="from"></span>
-                  <span class="time">Just now</span>
-                  </span>
-                  <span class="message">
-                  Hi mate, how is everything?
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-divya.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Divya Manian</span>
-                  <span class="time">40 mins.</span>
-                  </span>
-                  <span class="message">
-                  Hi, I need your help with this.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-danro.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Dan Rogers</span>
-                  <span class="time">2 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Love your new Dashboard.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <span class="photo"><img alt="avatar" src="img/ui-sherman.jpg"></span>
-                  <span class="subject">
-                  <span class="from">Dj Sherman</span>
-                  <span class="time">4 hrs.</span>
-                  </span>
-                  <span class="message">
-                  Please, answer asap.
-                  </span>
-                  </a>
-              </li>
-              <li>
-                <a href="index.html#">See all messages</a>
+           
+                <a href="index.php?page=inbox">voit tout</a>
               </li>
             </ul>
           </li>
@@ -242,12 +205,12 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
       <div id="sidebar" class="nav-collapse " style="z-index:99">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["photo"]; ?>" class="img-circle" width="80" id="modi"></a></p>
+          <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
           <h5 class="centered"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h5>
           <li class="mt">
-            <a href="index.html">
+            <a href="index.php?page=compte">
               <i class="fa fa-dashboard"></i>
-              <span>Dashboard</span>
+              <span>Acceuil</span>
               </a>
           </li>
           <li class="sub-menu">
@@ -256,7 +219,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
               <span>consulter les regles</span>
               </a>
             <ul class="sub">
-            <li><a href="zones">consultation les zones</a></li>
+              <li><a href="zones"><b>-> </b>consultation les zones</a></li>
               <li><a href="regles">consultation les régles</a></li>
             </ul>
           </li>
@@ -276,10 +239,17 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-tasks"></i>
-              <span>Forms</span>
+              <i class="fa fa-desktop"></i>
+              <span>Propositions</span>
               </a>
+            <ul class="sub">
+              <li><a href="index.php?page=proposition#"><i class="fa fa-upload"></i>envoyer proposition</a></li>
+              <li><a href="index.php?page=inbox#"><i class="fa fa-inbox"></i>boite de recéption</a></li>
+              <li><a href="index.php?page=message_envoye#"><i class="fa fa-send"></i>messages envoyés</a></li>
+            
+            </ul>
            
+          </li>
         </ul>
         <!-- sidebar menu end-->
       </div>
@@ -315,9 +285,9 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
                   <h4>votre nom :</h4>
                   <h5>'.$_SESSION['nom'].' '.$_SESSION['prenom'].'</h5>
                   <h4>votre email :</h4>
-                  <h5>'.$_SESSION['mail'].'</h5>
+                  <h5>'.$_SESSION['email'].'</h5>
                   <h4>votre travail :</h4>
-                  
+                  <h5>'.$_SESSION['travail'].'</h5>
                 </div>
               </div>
             
@@ -334,8 +304,8 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
                 <div class="profile-pic">';
                 ?>
                   
-                  <p><img id="tof" src="<?php echo $_SESSION['photo'];?>" class="img-circle" style="cursor: pointer;" ></p>
-                  <input type="file" class="form-control" id="file" accept="image/*">
+                  <p><img id="tof" class="tof" src="<?php echo $_SESSION['profil'];?>" class="img-circle" style="cursor: pointer;" ></p>
+                  <input type="file" class="form-control file" id="file" accept="image/*">
                   
                 </div>
               </div>
@@ -344,8 +314,53 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
             </div>
             <!-- /row -->
           </div>
+          <div class="col-lg-12 mt">
+            <div class="row content-panel" style="height:58px">
+             
+                <div class="col-md-4 offset-md-4">
+                  <a class="modifer"><button style="background-color: #4ECDC4" type="button" class="btn btn-primary btn-lg btn-block">modifiers votre informations</button></a>
+
+                </div>
+              
+             
+              
+            </div>
+            <!-- /col-lg-12 -->
+          </div>
+          <div class="col-lg-12 mt" id="dismod" style="display:none">
+            <div class="row content-panel" style="padding-bottom:0">
+          <table class="table" id="tab">  
+                        <tbody><tr>
+                        <td><b>nom</b></td>
+                         <td><?php echo $_SESSION["nom"]; ?></td>
+                         <td><i class="modif fa fa-pencil" id="nom" style="cursor:pointer"></i></td>
+                      </tr>
+                       <tr>
+                        <td><b>prenom</b></td>
+                         <td><?php echo $_SESSION["prenom"]; ?></td>
+                         <td><i class="modif fa fa-pencil" id="prenom" style="cursor:pointer"></i></td>
+                       </tr>
+                       
+                        <tr>
+                        <td><b>email</b></td>
+                         <td><?php echo $_SESSION["email"]; ?></td>
+                         <td><i class="modif fa fa-pencil" id="email" style="cursor:pointer"></i></td>
+                       
+                        </tr><tr id="password">
+                        <td><b>password</b></td>
+                         <td>xxxXxxxXxxx</td>
+                         <td><i class="modif fa fa-pencil" id="modifpssd" style="cursor:pointer"></i></td>
+
+                        </tr><tr>
+                        <td><b>travail</b></td>
+                         <td><?php echo $_SESSION["travail"]; ?></td>
+                         <td><i class="modif fa fa-pencil" id="travail" style="cursor:pointer"></i></td>
+                    
+                    </tr></tbody></table>
+            </div>
+          </div>
           <?php $id=$_SESSION["id"];
-              $sql = "SELECT u.id,`nom`,`prenom`,`mail`,`password`,`date`,u.etat,`datetat`,`photo` FROM `user` u,invitations i WHERE (i.idp=$id or i.idm=$id) and (i.idp=u.id or i.idm=u.id) and u.id!=$id and i.etat=1";
+              $sql = "SELECT u.id,`nom`,`prenom`,`email`,`password`,`date`,u.etaton,`datetat`,`profil` FROM `user` u,invitations i WHERE (i.idp=$id or i.idm=$id) and (i.idp=u.id or i.idm=u.id) and u.id!=$id and i.etat=1";
               $res=mysqli_query($con,$sql); 
               if($kar = mysqli_fetch_array($res))
               { ?>
@@ -431,7 +446,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
         <div class="col-md-3" style="padding:0">
             <button class="btn btn-danger form-control block" style="height:50px;font-weight:bold">blocker</button>
         </div>
-        </div> --> -->
+        </div> -->
         <div class="row mt">
           <div class="col-lg-12">
           <div class='amischeck' style="display:none"><?php echo $id; ?></div>
@@ -447,7 +462,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
                   <h4>votre email :</h4>
                   <h5>'.$kar[3].'</h5>
                   <h4>votre travail :</h4>
-                  
+                  <h5>'.$kar[9].'</h5>
                 </div>
               </div>
             
@@ -493,18 +508,18 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
                 <div class="profile-pic">';
                 ?>
                   
-                  <p><img id="tof" src="<?php echo $kar[8];?>" class="img-circle" style="cursor: pointer;" ></p>
-                  <input type="file" class="form-control" id="file" accept="image/*">
+                  <p><img class="ttof" src="<?php $phofo=$kar[8]; echo $kar[8];?>" class="img-circle" style="cursor: pointer;" ></p>
                   
                 </div>
               </div>
           
               <!-- /col-md-4 -->
             </div>
+            
             <!-- /row -->
           </div>
           <?php $id=$_REQUEST["id"];
-              $sql = "select u.id,u.nom,u.prenom,u.mail,u.password,u.date,u.etat,u.datetat,u.photo from invitations i,user u where (idp=$session and (idm in (select idm from invitations where idp=$id and etat=1) or idm in (select idp from invitations where idm=$id and etat=1)) and idm=u.id and i.etat=1) or (idm=$session and (idp in (select idm from invitations where idp=$id and etat=1) or idp in (select idp from invitations where idm=$id and etat=1)) and idp=u.id and i.etat=1)";
+              $sql = "select u.id,u.nom,u.prenom,u.email,u.password,u.date,u.etaton,u.datetat,u.profil from invitations i,user u where (idp=$session and (idm in (select idm from invitations where idp=$id and etat=1) or idm in (select idp from invitations where idm=$id and etat=1)) and idm=u.id and i.etat=1) or (idm=$session and (idp in (select idm from invitations where idp=$id and etat=1) or idp in (select idp from invitations where idm=$id and etat=1)) and idp=u.id and i.etat=1)";
               $res=mysqli_query($con,$sql); 
               if($kar = mysqli_fetch_array($res))
               { ?>
@@ -534,7 +549,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           </div>
               <?php } ?>
               <?php $id=$_REQUEST["id"];
-              $sql = "select u.id,u.nom,u.prenom,u.mail,u.password,u.date,u.etat,u.datetat,u.photo from invitations i,user u where ((idp=$id and (idm not in (select idm from invitations where idp=$session) and idm not in (select idp from invitations where idm=$session)) and idm=u.id) or (idm=$id and (idp not in (select idm from invitations where idp=$session) and idp not in (select idp from invitations where idm=$session)) and idp=u.id)) and u.id!=$session";
+              $sql = "select u.id,u.nom,u.prenom,u.email,u.password,u.date,u.etaton,u.datetat,u.profil from invitations i,user u where ((idp=$id and (idm not in (select idm from invitations where idp=$session) and idm not in (select idp from invitations where idm=$session)) and idm=u.id) or (idm=$id and (idp not in (select idm from invitations where idp=$session) and idp not in (select idp from invitations where idm=$session)) and idp=u.id)) and u.id!=$session";
               $res=mysqli_query($con,$sql); 
               if($kar = mysqli_fetch_array($res))
               { ?>
@@ -549,7 +564,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
               <div class="col-md-8 offset-md-3">
               <?php 
               do
-              { ?>
+              { $phofo=$kar[8]; ?>
                   <div class="row panel-body" style="border:1px">
                         <p style="display:none"><?php echo $kar[0]; ?></p>
                         <div class="col-1" style="background-image: url('<?php echo $kar[8]; ?>');background-repeat: no-repeat;background-size: 100% 100%;height:33px;border-radius:50%"></div>
@@ -576,9 +591,24 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
     </section>
     <!--main content end-->
     <!--footer start-->
-   
+    
     <!--footer end-->
   </section>
+  <div id="darag" style="width: 100%;height: 100%;position: absolute;left: 0;top: 0;display: none;z-index: 98;"></div>
+  <div id="popupe" style="width: 80%;height: 85%;position: absolute;background: white;left: 10%;top: 8%;display: none;z-index: 99;">
+          <div class="row">
+            <div class="offset-4 col-6" style="font-size:25px;font-weight:bold">photo de profile</div>
+            <div class="close ofsset-1 col-2" style="
+    text-align: end;
+    /* margin-right: -75%; */
+    margin-left: -1%;
+    font-size: 25px;
+">X</div>
+          </div>      
+          <div class="row" style="height:90%">
+          <div class="offset-1 col-10" style="background-image: url('<?php echo $phofo; ?>');background-repeat: no-repeat;background-size: 100% 100%;height:100%;"></div>
+          </div>      
+    </div>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="lib/jquery/jquery.min.js"></script>
 

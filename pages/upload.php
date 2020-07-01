@@ -19,11 +19,11 @@ if($_FILES["file"]["name"] != '')
  $ext = end($test);
  $name = $_SESSION["id"].rand(1, 9999999999) . '.' . $ext;
 
- $location = $_SERVER['DOCUMENT_ROOT'].'\mini_reseau\cssfile\img\\'. $name;
+ $location = $_SERVER['DOCUMENT_ROOT'].'\pfe\cssfile\img\\'. $name;
  move_uploaded_file($_FILES["file"]["tmp_name"], $location);
 
  $session=$_SESSION["id"];
- $conn->query("UPDATE `utilisator` SET `profil`='$name' WHERE id=$session");
+ $conn->query("UPDATE `user` SET `profil`='$name' WHERE id=$session");
  $_SESSION['profil']=$name;
  echo 'cssfile/img/'.$name;
  }

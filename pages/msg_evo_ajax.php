@@ -16,7 +16,7 @@ catch(PDOException $e)
 if (isset($_POST['idr'])) {
    
     $id=$_POST['idr'];
-    $res=$GLOBALS['conn']->query("SELECT message,datep,file,nom_destinataire,email_dest,profil,travail FROM conversation,destinataire,utilisator WHERE id_message=destinataire.id AND email=email_dest AND destinataire.id=$id ORDER BY datep");
+    $res=$GLOBALS['conn']->query("SELECT message,datep,file,nom_destinataire,email_dest,profil,travail FROM conversation,destinataire,user WHERE id_message=destinataire.id AND email=email_dest AND destinataire.id=$id ORDER BY datep");
   
      while ($data=$res->fetch()) {
         

@@ -600,6 +600,7 @@ function imgs()
   if(jQuery.inArray(ext, ['gif','png','jpg','jpeg']) == -1) 
   {
    alert("Invalid Image File");
+   return;
   }
   var oFReader = new FileReader();
   oFReader.readAsDataURL(document.getElementById("fill").files[0]);
@@ -683,7 +684,7 @@ function imgg()
   var ext = name.split('.').pop().toLowerCase();
   if(jQuery.inArray(ext, ['gif','png','jpg','jpeg']) != -1) 
   {
-   alert("Invalid Image File");
+   alert("Invalid extension File");
    return;
   }
   var oFReader = new FileReader();
@@ -808,7 +809,7 @@ function msgs()
             document.getElementById("cont").innerHTML="<div class='row'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background:white;display:block;overflow:scroll;margin-left:-1px'></div>";
          document.getElementById("ide").style.display="none";
          document.getElementById("chatbox").innerHTML="<div class='row flex' style='width:100%'><div class='offset-1 col-3' style='font-weight:bold;font-size:25px;color:blue'>aucune message!</div></div>"
-         document.getElementById("cont").innerHTML+="<div id='env' class='row' style='margin-bottom:3%'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='col-6' style='padding:0'><input type='file' id='fille' style='display:none'/><div class='sendfile' style='background-image: url(img/fichier.jpg);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div><div class='col-6' style='padding-left:0'><input type='file' id='fill' style='display:none'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div class='row' style='margin-left:0%'><div id='mssg' class='col-3 btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div><div class='col-1 emojis' style='padding:0;margin-top:0%;font-size:16px'>😀</div></div></div></div>";
+         document.getElementById("cont").innerHTML+="<div id='env' class='row' style='margin-bottom:3%'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='col-6' style='padding:0'><input type='file' id='fille' style='display:none'/><div class='sendfile' style='background-image: url(img/fichier.jpg);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div><div class='col-6' style='padding-left:0'><input type='file' id='fill' style='display:none' accept='image/*'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div class='row' style='margin-left:0%'><div id='mssg' class='col-3 btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div><div class='col-1 emojis' style='padding:0;margin-top:0%;font-size:16px'>😀</div></div></div></div>";
          document.getElementById("mssg").addEventListener("click",envoyer);
         }
         else
@@ -887,7 +888,7 @@ function msgs()
              
          }
         //  document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-6 col-1'><i class='fa fa-sort-desc fa-2x'></i></div></div>"
-        document.getElementById("cont").innerHTML+="<div id='env' class='row' style='margin-bottom:3%'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='col-6' style='padding:0'><input type='file' id='fille' style='display:none'/><div class='sendfile' style='background-image: url(img/fichier.jpg);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div><div class='col-6' style='padding-left:0'><input type='file' id='fill' style='display:none'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div class='row' style='margin-left:0%'><div id='mssg' class='col-3 btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div><div class='col-1 emojis' style='padding:0;margin-top:0%;font-size:16px'>😀</div></div></div></div>";
+        document.getElementById("cont").innerHTML+="<div id='env' class='row' style='margin-bottom:3%'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='col-6' style='padding:0'><input type='file' id='fille' style='display:none'/><div class='sendfile' style='background-image: url(img/fichier.jpg);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div><div class='col-6' style='padding-left:0'><input type='file' id='fill' style='display:none' accept='image/*'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div class='row' style='margin-left:0%'><div id='mssg' class='col-3 btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div><div class='col-1 emojis' style='padding:0;margin-top:0%;font-size:16px'>😀</div></div></div></div>";
         var input = document.getElementById("messag");
         input.addEventListener("keyup", envv); 
         document.getElementById("fill").addEventListener("change",imgs);
@@ -1319,84 +1320,79 @@ window.onload=function()
         }
         else
         {
-            
-         var obj = JSON.parse(response);
+            var obj = JSON.parse(response);
         
-         document.getElementById("cont").innerHTML="<div class='row' style='background: aqua;width: 100%;margin-left: 0px;border-radius: 5%;'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background-image:url(./img/font.jpg);background-size:100% 100%;background-repeat:no-repeat;display:block;overflow:scroll;margin-left:-1px'></div>";
-         document.getElementById("ide").style.display="none";
-         t=obj.length
-         num=obj.length
-         for (var i = 0; i < obj.length; i++) {
-            var date=obj[i].date;
-            var res = date.split(" ");
-            var res1=res[1].split(".");
-            var tof="<div class='offset-1 col-1 phototo'></div>";
-            if(i<obj.length-1)
-            if(obj[i].id!=obj[i+1].id)
-            {
-                tof="<div class='offset-1 col-1 phototo' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
-            }
-            if(i==obj.length-1)
-            if(obj[i].id==z)
-            tof="<div class='offset-1 col-1 phototo' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
-             
-            if(obj[i].id==z)
-            tof="<div class='offset-1 col-1 phototo' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
-            if(obj[i].id==z)
-             {
-                 if(obj[i].contenu!="")
-                 document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='word-break:break-word'><h3 style='display:none'>"+obj[i].date+"</h3><article class='dismsg' style='background: silver;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer;margin-bottom:5px;text-align:left'>"+obj[i].contenu+"</article></div></div>"
-                 else
-                 {
-                     str=obj[i].file;
-                    var words = str.split('.');
-                    var fruits = ['GIF','PNG','JPG','JPEG'];
-                    words=words[words.length-1];
-                     if(fruits.includes(words.toUpperCase()))
-                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 3%;left:50%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 3%;left:42%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
-                     else
-                     {
-                         var t=obj[i].file;
-                         var op=t.split('/');
-                         var op1=op[op.length-1];
-                         var final=op1.split("_");
-                         var fina2=op1.split(".");
-                         var final2=fina2[fina2.length-1];
-                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
-                     }
-                 }
-             }
-             
-             else
-             {
-                if(obj[i].contenu!="")
-                document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;word-break: break-word;'><h3 style='display:none'>"+obj[i].date+"</h3><article class='dismsg' style='background: #1E90FF;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer;margin-bottom:5px;text-align:left'>"+obj[i].contenu+"</article></div></div>"
+            document.getElementById("cont").innerHTML="<div class='row' style='background: aqua;width: 100%;margin-left: 0px;border-radius: 5%;'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background-image:url(./img/font.jpg);background-size:100% 100%;background-repeat:no-repeat;display:block;overflow:scroll;margin-left:-1px'></div>";
+            document.getElementById("ide").style.display="none";
+            t=obj.length
+            num=obj.length
+            for (var i = 0; i < obj.length; i++) {
+               var date=obj[i].date;
+               var res = date.split(" ");
+               var res1=res[1].split(".");
+               var tof="<div class='offset-1 col-1 phototo'></div>";
+               if(i<obj.length-1)
+               if(obj[i].id!=obj[i+1].id)
+               {
+                   tof="<div class='offset-1 col-1 phototo' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
+               }
+               if(i==obj.length-1)
+               if(obj[i].id==z)
+               tof="<div class='offset-1 col-1 phototo' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
+               if(obj[i].id==z)
+                {
+                    if(obj[i].contenu!="")
+                    document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='word-break:break-word'><h3 style='display:none'>"+obj[i].date+"</h3><article class='dismsg' style='background: silver;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer;margin-bottom:5px;text-align:left'>"+obj[i].contenu+"</article></div></div>"
+                    else
+                    {
+                        str=obj[i].file;
+                       var words = str.split('.');
+                       var fruits = ['GIF','PNG','JPG','JPEG'];
+                       words=words[words.length-1];
+                        if(fruits.includes(words.toUpperCase()))
+                           document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 3%;left:50%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 3%;left:42%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                        else
+                        {
+                            var t=obj[i].file;
+                            var op=t.split('/');
+                            var op1=op[op.length-1];
+                            var final=op1.split("_");
+                            var fina2=op1.split(".");
+                            var final2=fina2[fina2.length-1];
+                           document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                        }
+                    }
+                }
+                
                 else
                 {
-                     str=obj[i].file;
-                    var words = str.split('.');
-                    var fruits = ['GIF','PNG','JPG','JPEG'];
-                    words=words[words.length-1];
-                     if(fruits.includes(words.toUpperCase()))
-                     document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 0%;left:87%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 0%;left:79%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
-                     else
-                     {
-                        var t=obj[i].file;
-                        var op=t.split('/');
-                        var op1=op[op.length-1];
-                        var final=op1.split("_");
-                        var fina2=op1.split(".");
-                        var final2=fina2[fina2.length-1];
-                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
-                     }
-                     
-
+                   if(obj[i].contenu!="")
+                   document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;word-break: break-word;'><h3 style='display:none'>"+obj[i].date+"</h3><article class='dismsg' style='background: #1E90FF;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer;margin-bottom:5px;text-align:left'>"+obj[i].contenu+"</article></div></div>"
+                   else
+                   {
+                        str=obj[i].file;
+                       var words = str.split('.');
+                       var fruits = ['GIF','PNG','JPG','JPEG'];
+                       words=words[words.length-1];
+                        if(fruits.includes(words.toUpperCase()))
+                        document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 0%;left:87%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 0%;left:79%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                        else
+                        {
+                           var t=obj[i].file;
+                           var op=t.split('/');
+                           var op1=op[op.length-1];
+                           var final=op1.split("_");
+                           var fina2=op1.split(".");
+                           var final2=fina2[fina2.length-1];
+                           document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                        }
+                        
+   
+                   }
                 }
-             }
-             
          }
         //  document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-6 col-1'><i class='fa fa-sort-desc fa-2x'></i></div></div>"
-        document.getElementById("cont").innerHTML+="<div id='env' class='row' style='margin-bottom:3%'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='col-6' style='padding:0'><input type='file' id='fille' style='display:none'/><div class='sendfile' style='background-image: url(img/fichier.jpg);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div><div class='col-6' style='padding-left:0'><input type='file' id='fill' style='display:none'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div class='row' style='margin-left:0%'><div id='mssg' class='col-3 btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div><div class='col-1 emojis' style='padding:0;margin-top:0%;font-size:16px'>😀</div></div></div></div>";
+        document.getElementById("cont").innerHTML+="<div id='env' class='row' style='margin-bottom:3%'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='col-6' style='padding:0'><input type='file' id='fille' style='display:none'/><div class='sendfile' style='background-image: url(img/fichier.jpg);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div><div class='col-6' style='padding-left:0'><input type='file' id='fill' style='display:none'  accept='image/*'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div class='row' style='margin-left:0%'><div id='mssg' class='col-3 btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div><div class='col-1 emojis' style='padding:0;margin-top:0%;font-size:16px'>😀</div></div></div></div>";
         var input = document.getElementById("messag");
         input.addEventListener("keyup", envv); 
         document.getElementById("fill").addEventListener("change",imgs);

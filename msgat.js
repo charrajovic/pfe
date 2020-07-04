@@ -31,6 +31,7 @@ function envoyer()
             document.getElementById("messag").value="";
             var element = document.getElementById("chatbox");
             element.scrollTop = element.scrollHeight;
+            console.log("bien")
             var t=document.getElementsByClassName("dismsg");
             num++;
             for (let i = 0; i < t.length; i++) {
@@ -76,7 +77,7 @@ function chatboxe()
     if(etat==2)
     {
     z=document.getElementById("ide").textContent
-    $.post('/pfe/msg.php', {"service":"chat","idm":document.getElementById("ide").textContent}, function(response) {
+    $.post('/pfe/msge.php', {"service":"chat","idm":document.getElementById("ide").textContent}, function(response) {
         
         if(response=="nope")
         {
@@ -140,6 +141,8 @@ function chatboxe()
                         document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
                      }
                  }
+                 var element = document.getElementById("chatbox");
+                 element.scrollTop = element.scrollHeight;
             }
             else if(obj[i].id!=z && obj[i].etat==0)
             {
@@ -166,6 +169,8 @@ function chatboxe()
                      
 
                 }
+                var element = document.getElementById("chatbox");
+                 element.scrollTop = element.scrollHeight;
             }
         
          }
@@ -195,8 +200,9 @@ function chatboxe()
             out[i].parentElement.children[2].addEventListener("mouseout",disn);
             out[i].parentElement.children[3].addEventListener("mouseout",disn);
         }
-         var element = document.getElementById("chatbox");
-        element.scrollTop = element.scrollHeight;
+        //  var element = document.getElementById("chatbox");
+        // element.scrollTop = element.scrollHeight;
+        // console.log("bien")
          }
          
         }
@@ -323,6 +329,7 @@ function imojbig()
             document.getElementById("messag").value="";
             var element = document.getElementById("chatbox");
             element.scrollTop = element.scrollHeight;
+            console.log("bien")
             var t=document.getElementsByClassName("dismsg");
             num++;
             for (let i = 0; i < t.length; i++) {
@@ -638,6 +645,7 @@ function imgs()
             document.getElementById("messag").value="";
             var element = document.getElementById("chatbox");
             element.scrollTop = element.scrollHeight;
+            console.log("bien")
             var t=document.getElementsByClassName("dismsg");
             num++;
             for (let i = 0; i < t.length; i++) {
@@ -729,6 +737,7 @@ function imgg()
             document.getElementById("messag").value="";
             var element = document.getElementById("chatbox");
             element.scrollTop = element.scrollHeight;
+            console.log("bien")
             var t=document.getElementsByClassName("dismsg");
             num++;
             for (let i = 0; i < t.length; i++) {
@@ -898,6 +907,10 @@ function msgs()
              pr[i].addEventListener("click",fill);
              
          }
+         var tt=document.getElementsByClassName("chatbox");
+            for (let i = 0; i < tt.length; i++) {
+                tt[i].addEventListener("scroll",upscroll)
+            }
          var tt=document.getElementsByClassName("emojis");
          for (let i = 0; i < tt.length; i++) {
              tt[i].addEventListener("click",emojis);
@@ -935,6 +948,7 @@ function msgs()
         }
         var element = document.getElementById("chatbox");
         element.scrollTop = element.scrollHeight;
+        console.log("bien")
         setTimeout(online,300);
         setTimeout(chatboxe,5000);
     });
@@ -1278,6 +1292,154 @@ function propo_not()
 setTimeout(getallnoti,1000);
 }
 
+function upscroll()
+{
+    
+    if(this.scrollTop==0)
+    {
+        console.log(this.scrollTop)
+        var z=document.getElementById("ide").textContent;
+        $.post('/pfe/upscroll.php', {"service":"chat","idm":this.parentElement.children[0].textContent}, function(response) {
+       
+            if(response!="nope")
+            {
+                var coco="";
+                console.log(response)
+                eElement=document.getElementById("chatbox")
+             var obj = JSON.parse(response);
+                for (let i = 0; i < obj.length; i++) {
+                    
+                    var date=obj[i].date;
+            var res = date.split(" ");
+            var res1=res[1].split(".");
+            var tof="<div class='offset-1 col-1 phototo'></div>";
+            if(i<obj.length-1)
+            if(obj[i].id!=obj[i+1].id)
+            {
+                tof="<div class='offset-1 col-1 phototo' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
+            }
+            if(i==obj.length-1)
+            if(obj[i].id==z)
+            tof="<div class='offset-1 col-1 phototo' style='background-image:url("+obj[i].photo+");background-repeat:no-repeat;background-size:100% 100%;height:50px;border-radius:50%'></div>"
+            if(obj[i].id==z)
+             {
+                 if(obj[i].contenu!="")
+                 coco+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='word-break:break-word'><h3 style='display:none'>"+obj[i].date+"</h3><article class='dismsg' style='background: silver;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer;margin-bottom:5px;text-align:left'>"+obj[i].contenu+"</article></div></div>"
+                 else
+                 {
+                     str=obj[i].file;
+                    var words = str.split('.');
+                    var fruits = ['GIF','PNG','JPG','JPEG'];
+                    words=words[words.length-1];
+                     if(fruits.includes(words.toUpperCase()))
+                        coco+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 3%;left:50%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 3%;left:42%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                     else
+                     {
+                         var t=obj[i].file;
+                         var op=t.split('/');
+                         var op1=op[op.length-1];
+                         var final=op1.split("_");
+                         var fina2=op1.split(".");
+                         var final2=fina2[fina2.length-1];
+                        coco+="<div class='row flex' style='width:100%'>"+tof+"<div class='col-6' style='border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>";
+                     }
+                 }
+             }
+             
+             else
+             {
+                if(obj[i].contenu!="")
+                coco+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;word-break: break-word;'><h3 style='display:none'>"+obj[i].date+"</h3><article class='dismsg' style='background: #1E90FF;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer;margin-bottom:5px;text-align:left'>"+obj[i].contenu+"</article></div></div>"
+                else
+                {
+                     str=obj[i].file;
+                    var words = str.split('.');
+                    var fruits = ['GIF','PNG','JPG','JPEG'];
+                    words=words[words.length-1];
+                     if(fruits.includes(words.toUpperCase()))
+                     coco+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+obj[i].date+"</h3><p class='dismsge' style='background-image: url("+obj[i].file+");background-repeat:no-repeat;background-size:100% 100%;color:black;padding: 8px 5px;border-radius: 15px;cursor:pointer;height:200px;width:60%;image-rendering: pixelated;'><div class='fullscreen' style='background-image:url(./img/full.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 0%;left:87%;display:none;cursor: grab;'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 20px;position: absolute;width: 7%;top: 0%;left:79%;display:none;cursor: grab;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                     else
+                     {
+                        var t=obj[i].file;
+                        var op=t.split('/');
+                        var op1=op[op.length-1];
+                        var final=op1.split("_");
+                        var fina2=op1.split(".");
+                        var final2=fina2[fina2.length-1];
+                        coco+="<div class='row flex' style='width:100%'><div class='offset-1 col-1 phototo'></div><div class='offset-6 col-6' style='text-align:-webkit-right;border: 5px;border-radius: 9%;text-align: center;box-shadow: 10px 10px 5px #aaaaaa;margin-bottom: 5px;height:50px;padding:2% 0;border-style: solid;'><h3 style='display:none'>"+obj[i].date+"</h3><p style='color:black;font-weight:bold'>"+final[0]+"."+final2+"<div style='display:none'></div><div class='download' style='background-image:url(./img/download.png);background-repeat:no-repeat;background-size:100% 100%;height: 70%;width: 11%;cursor: grab;position: absolute;top: 14%;left: 87%;'></div><a href='"+obj[i].file+"' style='display:none' download></a></p></div></div>"
+                     }
+                     
+
+                }
+             }
+                }
+                
+            var element = coco;
+            var t = element.scrollHeight;
+            var ty=document.getElementById("chatbox").children[0];
+            console.log(ty.offsetTop)
+                $("#chatbox").prepend(coco);
+                console.log(ty.offsetTop)
+                var tt=ty.offsetTop
+                var element = document.getElementById("chatbox");
+                element.scrollTop=tt;
+            console.log(tt)
+            console.log(element.scrollHeight)
+            console.log("bien")
+            //  document.getElementById("cont").innerHTML+="<div class='row'><div class='offset-6 col-1'><i class='fa fa-sort-desc fa-2x'></i></div></div>"
+            var input = document.getElementById("messag");
+            input.addEventListener("keyup", envv); 
+            document.getElementById("fill").addEventListener("change",imgs);
+            document.getElementById("fille").addEventListener("change",imgg);
+             var pr=document.getElementsByClassName("sendim");
+             for (let i = 0; i < pr.length; i++) {
+                 pr[i].addEventListener("click",fill);
+                 
+             }
+             var tt=document.getElementsByClassName("chatbox");
+                for (let i = 0; i < tt.length; i++) {
+                    tt[i].addEventListener("scroll",upscroll)
+                }
+             var tt=document.getElementsByClassName("emojis");
+             for (let i = 0; i < tt.length; i++) {
+                 tt[i].addEventListener("click",emojis);
+             }
+             var fille=document.getElementsByClassName("sendfile");
+             for (let i = 0; i < fille.length; i++) {
+                 fille[i].addEventListener("click",sendfile);
+             }
+             document.getElementById("mssg").addEventListener("click",envoyer);
+             var t=document.getElementsByClassName("dismsg");
+             for (let i = 0; i < t.length; i++) {
+                t[i].addEventListener("click",dispsg);
+                 
+             }
+             var r=document.getElementsByClassName("fullscreen");
+             for (let i = 0; i < r.length; i++) {
+                 r[i].addEventListener("click",fullp);
+             }
+            }
+            var down=document.getElementsByClassName("download");
+            for (let i = 0; i < down.length; i++) {
+                down[i].addEventListener("click",downlod)
+            }
+            var over=document.getElementsByClassName("dismsge");
+            for (let i = 0; i < over.length; i++) {
+                over[i].addEventListener("mouseover",dismp);
+                over[i].parentElement.children[2].addEventListener("mouseover",dismp);
+                over[i].parentElement.children[3].addEventListener("mouseover",dismp);
+            }
+            var out=document.getElementsByClassName("dismsge");
+            for (let i = 0; i < over.length; i++) {
+                out[i].addEventListener("mouseout",disn);
+                out[i].parentElement.children[2].addEventListener("mouseout",disn);
+                out[i].parentElement.children[3].addEventListener("mouseout",disn);
+            }
+            setTimeout(online,300);
+            setTimeout(chatboxe,5000);
+        });
+    }
+}
 
 window.onload=function()
 {
@@ -1291,6 +1453,10 @@ window.onload=function()
     for (let i = 0; i < zon.length; i++) {
         zon[i].addEventListener("click",unset);
         
+    }
+    var tt=document.getElementsByClassName("chatbox");
+    for (let i = 0; i < tt.length; i++) {
+        tt[i].addEventListener("scroll",upscroll)
     }
     document.getElementById("logout").addEventListener("click",logout);
     document.getElementById("logout").style.cursor="pointer";
@@ -1406,6 +1572,10 @@ window.onload=function()
          for (let i = 0; i < tt.length; i++) {
              tt[i].addEventListener("click",emojis);
          }
+         var tt=document.getElementsByClassName("chatbox");
+            for (let i = 0; i < tt.length; i++) {
+                tt[i].addEventListener("scroll",upscroll)
+            }
          var fille=document.getElementsByClassName("sendfile");
          for (let i = 0; i < fille.length; i++) {
              fille[i].addEventListener("click",sendfile);
@@ -1439,6 +1609,7 @@ window.onload=function()
         }
         var element = document.getElementById("chatbox");
         element.scrollTop = element.scrollHeight;
+        console.log("bien")
         setTimeout(online,300);
         setTimeout(chatboxe,5000);
     });

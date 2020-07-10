@@ -63,7 +63,7 @@ function notification()
             document.getElementById("not").innerHTML=obj.length;
             document.getElementById("notification").innerHTML="<div class='notify-arrow notify-arrow-yellow'></div><li><p class='yellow' id='note'>You have "+obj.length+" new notifications</p></li><li>"
             for (let i = 0; i < obj.length; i++) {
-                document.getElementById("notification").innerHTML+="<li class='notif' style='display:inline-table'><a><span class='label label-danger'><i class='fa fa-bolt'></i></span><span style='display:none'>"+obj[i].id+"</span><span style='color:blue;font-weight:bold;'>"+obj[i].nom+" "+obj[i].prenom+": "+"</span><span class='italic'>"+obj[i].contenu+"</span></a></li>"
+                document.getElementById("notification").innerHTML+="<li class='notif'><p style='width:100%;word-break:break-word'><span class='label label-danger'><i class='fa fa-bolt'></i></span><span style='display:none'>"+obj[i].id+"</span><span style='color:blue;font-weight:bold;'>"+obj[i].nom+" "+obj[i].prenom+": "+"</span><span class='italic'>"+obj[i].contenu+"</span></p></li>"
             }
             var t=document.getElementsByClassName("notif")
             for (let j = 0; j < t.length; j++) {
@@ -153,7 +153,7 @@ function tofchoose()
 function logout()
 {
     $.post('/pfe/logout.php', {"service":"ms"}, function(response) {
-        window.location="login"
+        window.location="index.php?page=login"
 	});
 }
 
@@ -615,11 +615,21 @@ function closex()
     document.getElementById("darag").style.display="none"
 }
 
+function chatt()
+{
+    console.log(10)
+    window.location="message";
+}
+
 window.onload=function()
 {
     var tt=document.getElementsByClassName("modif");
     for (let i = 0; i < tt.length; i++) {
         tt[i].addEventListener("click",modifiersession);
+    }
+    var y=document.getElementsByClassName("chat");
+    for (let i = 0; i < y.length; i++) {
+       y[i].addEventListener("click",chatt);
     }
     var zone=this.document.getElementsByClassName("zones");
     for (let i = 0; i < zone.length; i++) {

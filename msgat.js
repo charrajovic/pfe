@@ -27,7 +27,7 @@ function envoyer()
         var d = new Date();
             if(num==0)
             document.getElementById("chatbox").innerHTML="";
-            document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+d+"</h3><p class='dismsg' style='background: #1E90FF;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer'>"+obj.messag+"</p></div></div>"
+            document.getElementById("chatbox").innerHTML+="<div class='row flex' style='width:100%'><div class='offset-6 col-6' style='text-align:-webkit-right'><h3 style='display:none'>"+d+"</h3><article class='dismsg' style='background: #1E90FF;color:black;width: fit-content;padding: 8px 5px;border-radius: 15px;cursor:pointer;margin-bottom:5px;text-align:left'>"+obj.messag+"</article></div></div>"
             document.getElementById("messag").value="";
             var element = document.getElementById("chatbox");
             element.scrollTop = element.scrollHeight;
@@ -99,6 +99,7 @@ function chatboxe()
                 {
                     if(kk[kk.length-1].children[0]==mm[k])
                     {
+                        console.log(num+"/"+obj.length)
                         mm[k].removeAttribute("style");
                     }
                 }
@@ -826,10 +827,11 @@ function msgs()
             
          var obj = JSON.parse(response);
         
-         document.getElementById("cont").innerHTML="<div class='row' style='background: aqua;width: 100%;margin-left: 0px;border-radius: 5%;'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background-image:url(./img/font.jpg);background-size:100% 100%;background-repeat:no-repeat;display:block;overflow:scroll;margin-left:-1px'></div>";
+         document.getElementById("cont").innerHTML="<div class='row' style='background: white;width: 100%;margin-left: -1px;margin-top: -1px;*box-shadow:3px 3px silver inset'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background-image:url(./img/font.jpg);background-size:100% 100%;background-repeat:no-repeat;display:block;overflow:scroll;margin-left:-1px'></div>";
          document.getElementById("ide").style.display="none";
          t=obj.length
-         num=obj.length
+         console.log(obj.length)
+         num=obj[0].numbers
          for (var i = 0; i < obj.length; i++) {
             var date=obj[i].date;
             var res = date.split(" ");
@@ -963,7 +965,7 @@ function poop(){
 function logout()
 {
     $.post('/pfe/logout.php', {"service":"ms"}, function(response) {
-        window.location="login.php"
+        window.location="index.php?page=login"
 	});
 }
 
@@ -1024,6 +1026,7 @@ function notf()
 function notification()
 {
     $.post('/pfe/msgnnlu.php', {"service":"ms"}, function(response) {
+        console.log(response)
         if(response!="nope")
         {
             var obj = JSON.parse(response);
@@ -1031,7 +1034,7 @@ function notification()
             document.getElementById("not").innerHTML=obj.length;
             document.getElementById("notification").innerHTML="<div class='notify-arrow notify-arrow-yellow'></div><li><p class='yellow' id='note'>You have "+obj.length+" new notifications</p></li><li>"
             for (let i = 0; i < obj.length; i++) {
-                document.getElementById("notification").innerHTML+="<li class='notif' style='display:inline-table'><a><span class='label label-danger'><i class='fa fa-bolt'></i></span><span style='display:none'>"+obj[i].id+"</span><span style='color:blue;font-weight:bold;'>"+obj[i].nom+" "+obj[i].prenom+": "+"</span><span class='italic'>"+obj[i].contenu+"</span></a></li>"
+                document.getElementById("notification").innerHTML+="<li class='notif'><p style='width:100%;word-break:break-word'><span class='label label-danger'><i class='fa fa-bolt'></i></span><span style='display:none'>"+obj[i].id+"</span><span style='color:blue;font-weight:bold;'>"+obj[i].nom+" "+obj[i].prenom+": "+"</span><span class='italic'>"+obj[i].contenu+"</span></p></li>"
             }
             var t=document.getElementsByClassName("notif")
             for (let j = 0; j < t.length; j++) {
@@ -1488,10 +1491,10 @@ window.onload=function()
         {
             var obj = JSON.parse(response);
         
-            document.getElementById("cont").innerHTML="<div class='row' style='background: aqua;width: 100%;margin-left: 0px;border-radius: 5%;'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background-image:url(./img/font.jpg);background-size:100% 100%;background-repeat:no-repeat;display:block;overflow:scroll;margin-left:-1px'></div>";
+            document.getElementById("cont").innerHTML="<div class='row' style='background: white;width: 100%;margin-left: -1px;margin-top: -1px;box-shadow:3px 3px silver inset'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background-image:url(./img/font.jpg);background-size:100% 100%;background-repeat:no-repeat;display:block;overflow:scroll;margin-left:-1px'></div>";
             document.getElementById("ide").style.display="none";
             t=obj.length
-            num=obj.length
+            num=obj[0].numbers
             for (var i = 0; i < obj.length; i++) {
                var date=obj[i].date;
                var res = date.split(" ");

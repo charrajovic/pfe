@@ -18,10 +18,17 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title><?php if(!isset($_REQUEST["id"]) || $_REQUEST["id"]==$_SESSION["id"]){ echo "mon profile"; }else{
+    $idd=$_REQUEST["id"];
+    $spl="SELECT nom,prenom from user where id=$idd";
+    $res=mysqli_query($con,$spl);  
+    if($kar = mysqli_fetch_array($res))
+    {
+      echo $kar[0]." ".$kar[1]." profile";
+    }
+   }?></title>
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
@@ -59,7 +66,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation" id="shrttat"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="index.html" class="logo"><b>ARCHIT<span>ECTE</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -68,67 +75,12 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle">
               <i class="fa fa-tasks"></i>
-              <span class="badge bg-theme">4</span>
+              <span class="badge bg-theme">0</span>
               </a>
             <ul class="dropdown-menu extended tasks-bar">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
-                <p class="green">You have 4 pending tasks</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Dashio Admin Panel</div>
-                    <div class="percent">40%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                      <span class="sr-only">40% Complete (success)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Database Update</div>
-                    <div class="percent">60%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                      <span class="sr-only">60% Complete (warning)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Product Development</div>
-                    <div class="percent">80%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                      <span class="sr-only">80% Complete</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Payments Sent</div>
-                    <div class="percent">70%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                      <span class="sr-only">70% Complete (Important)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="external">
-                <a href="#">See All Tasks</a>
+                <p class="green">rien de changement sur les regles d'amenagement</p>
               </li>
             </ul>
           </li>
@@ -192,7 +144,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" id="logout">Logout</a></li>
+          <li><a class="logout" id="logout">deconnexion</a></li>
         </ul>
       </div>
     </header>
@@ -205,34 +157,34 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
       <div id="sidebar" class="nav-collapse " style="z-index:99">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
+          <p class="centered"><a href="profile.php"><img style="height:80px;width:57%" src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
           <h5 class="centered"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h5>
           <li class="mt">
             <a href="index.php?page=compte">
-              <i class="fa fa-dashboard"></i>
+              <i class="fa fa-home"></i>
               <span>Acceuil</span>
               </a>
           </li>
           <li class="sub-menu">
             <a>
-              <i class="fa fa-desktop"></i>
-              <span>consulter les regles</span>
+              <i class="fa fa-search" style="color:#aeb2b7"></i>
+              <span style="cursor:pointer">consulter les regles</span>
               </a>
             <ul class="sub">
-              <li><a href="zones"><b>-> </b>consultation les zones</a></li>
+              <li><a href="zones">consultation les zones</a></li>
               <li><a href="regles">consultation les régles</a></li>
             </ul>
           </li>
           <li class="sub-menu">
             <a href="list">
-              <i class="fa fa-cogs"></i>
+              <i class="fa fa-users"></i>
               <span>list des architect</span>
               </a>
             
           </li>
           <li class="sub-menu">
             <a href="message">
-              <i class="fa fa-book"></i>
+              <i class="fa fa-comments"></i>
               <span id="msg">messages</span>
               </a>
            
@@ -283,11 +235,11 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
                 <div class="right-divider">
                    
                   <h4>votre nom :</h4>
-                  <h5>'.$_SESSION['nom'].' '.$_SESSION['prenom'].'</h5>
+                  <h5 style="font-weight:bold">'.$_SESSION['nom'].' '.$_SESSION['prenom'].'</h5>
                   <h4>votre email :</h4>
-                  <h5>'.$_SESSION['email'].'</h5>
+                  <h5 style="font-weight:bold">'.$_SESSION['email'].'</h5>
                   <h4>votre travail :</h4>
-                  <h5>'.$_SESSION['travail'].'</h5>
+                  <h5 style="font-weight:bold">'.$_SESSION['travail'].'</h5>
                 </div>
               </div>
             
@@ -297,7 +249,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
                 <h6>vos informations sont protegeés</h6>
                 <p>salut monsieur ce site vous permet d"envoyer facilement et rapidement vos propositions et consulté les nouveaux regeles d"amenagements.</p>
                 <br>
-                <p><button class="btn btn-theme"><i class="fa fa-envelope"></i> Send Message</button></p>
+                <p><button class="btn btn-theme chat"><i class="fa fa-envelope"></i> Send messages</button></p>
               </div>
               <!-- /col-md-4 -->
               <div class="col-md-4 centered">
@@ -367,12 +319,12 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           <div class="col-lg-12 mt">
             <div class="row content-panel" style="padding-bottom:0">
              
-                <div class="col-md-4 offset-md-4">
-                  <h1 style="font-weight:bold;color:purple;font-size:30px">amis:</h1>
+                <div class="col-md-4 offset-md-5">
+                  <h1 style="/* font-weight:bold; *//* color:purple; *//* font-size:30px; */font-weight: bold;color: #48cfad;">amis:</h1>
                 </div>
             </div>
             <div class="row content-panel" style="padding-top:0">
-              <div class="col-md-8 offset-md-3">
+              <div class="col-md-8 offset-md-4">
               <?php 
               do
               { ?>
@@ -458,22 +410,22 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
                 <div class="right-divider">
                    
                   <h4>votre nom :</h4>
-                  <h5>'.$kar[1].' '.$kar[2].'</h5>
+                  <h5 style="font-weight:bold">'.$kar[1].' '.$kar[2].'</h5>
                   <h4>votre email :</h4>
-                  <h5>'.$kar[3].'</h5>
+                  <h5 style="font-weight:bold">'.$kar[3].'</h5>
                   <h4>votre travail :</h4>
-                  <h5>'.$kar[9].'</h5>
+                  <h5 style="font-weight:bold">'.$kar[9].'</h5>
                 </div>
               </div>
             
               <!-- /col-md-4 -->
               <div class="col-md-4 profile-text">
-                <h3>Bienvenue Mr:'.$kar[2].'</h3>
-                <h6>vos informations sont protegeés</h6>
+                <h3>Profile de Mr:'.$kar[2].'</h3>
+                <h6>Les informations sont protegeés</h6>
                 <p>salut monsieur ce site vous permet d"envoyer facilement et rapidement vos propositions et consulté les nouveaux regeles d"amenagements.</p>
                 <br>
-                <p><button class="btn btn-theme msge"><i class="fa fa-envelope"></i> Send Message</button></p>'; ?>
-                <div style="display: none" id="idp"><?php echo $kar[0]; ?></div>
+                <div class="row"><div class="col-md-4 offset-md-1" style="padding-left: 0;"><button class="btn btn-theme msge"><i class="fa fa-envelope"></i> Send Message</button></div>'; ?>
+                <div class="col-md-1" style="display: none" id="idp"><?php echo $kar[0]; ?></div>
             <?php 
              $session=$_SESSION["id"];
              $id=$_REQUEST["id"];
@@ -483,25 +435,25 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
               {
                     if($ka[3]==1)
                     {
-                    ?><button class="btn btn-success addamis" style="height:25px;font-weight:bold;width:95px">amis</button><?php
+                    ?><div class="col-md-4"><button class="btn btn-success addamis" style="height:25px;font-weight:bold;width:95px">amis</button></div><?php
                     }
                     else
                     {
                       if($ka[1]==$session)
                       {
-                        ?><button class="btn btn-info addamis" style="height:25px;font-weight:bold;width:95px">invitation envoye</button><?php
+                        ?><div class="col-md-4"><button class="btn btn-info addamis" style="height:25px;font-weight:bold;width:95px">invitation envoye</button></div><?php
                       }
                       else
                       {
-                        ?><button class="btn btn-info addamis" style="height:25px;font-weight:bold;width:95px">accepter invitation</button><?php
+                        ?><div class="col-md-4"><button class="btn btn-info addamis" style="height:25px;font-weight:bold;width:95px">accepter invitation</button></div><?php
                       }
                     } 
               }
               else
               {
-                ?><button class="btn btn-primary form-control addamis" style="height:25px;font-weight:bold;width:95px">envoyer invitation</button><?php
+                ?><div class="col-md-4"><button class="btn btn-primary form-control addamis" style="height:25px;font-weight:bold;width:95px">envoyer invitation</button></div><?php
               }
-            ?>
+            ?></div>
               <?php echo '</div>
               <!-- /col-md-4 -->
               <div class="col-md-4 centered">
@@ -527,7 +479,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
             <div class="row content-panel" style="padding-bottom:0">
              
                 <div class="col-md-4 offset-md-4">
-                  <h1 style="font-weight:bold;color:purple;font-size:30px">amis en commun:</h1>
+                  <h1 style="/* font-weight:bold; *//* color:purple; *//* font-size:30px; */font-weight: bold;color: #48cfad;">amis en commun:</h1>
                 </div>
             </div>
             <div class="row content-panel" style="padding-top:0">
@@ -549,7 +501,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           </div>
               <?php } ?>
               <?php $id=$_REQUEST["id"];
-              $sql = "select u.id,u.nom,u.prenom,u.email,u.password,u.date,u.etaton,u.datetat,u.profil from invitations i,user u where ((idp=$id and (idm not in (select idm from invitations where idp=$session) and idm not in (select idp from invitations where idm=$session)) and idm=u.id) or (idm=$id and (idp not in (select idm from invitations where idp=$session) and idp not in (select idp from invitations where idm=$session)) and idp=u.id)) and u.id!=$session";
+              $sql = "select u.id,u.nom,u.prenom,u.email,u.password,u.date,u.etaton,u.datetat,u.profil from invitations i,user u where (((idp=$id and (idm not in (select idm from invitations where idp=$session) and idm not in (select idp from invitations where idm=$session)) and idm=u.id) or (idm=$id and (idp not in (select idm from invitations where idp=$session) and idp not in (select idp from invitations where idm=$session)) and idp=u.id)) or (((idp=$id and (idm in (select idm from invitations where idp=$session and etat=0) or idm in (select idp from invitations where idm=$session and etat=0)) and idm=u.id) or (idm=$id and (idp in (select idm from invitations where idp=$session and etat=0) or idp in (select idp from invitations where idm=$session and etat=0)) and idp=u.id)))) and u.id!=$session";
               $res=mysqli_query($con,$sql); 
               if($kar = mysqli_fetch_array($res))
               { ?>
@@ -557,14 +509,14 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
             <div class="row content-panel" style="padding-bottom:0">
              
                 <div class="col-md-8 offset-md-4">
-                  <h1 style="font-weight:bold;color:purple;font-size:30px">Suggestions de demande d'amis:</h1>
+                  <h1 style="/* font-weight:bold; *//* color:purple; *//* font-size:30px; */font-weight: bold;color: darkred;">Suggestions de demande d'amis:</h1>
                 </div>
             </div>
             <div class="row content-panel" style="padding-top:0">
               <div class="col-md-8 offset-md-3">
               <?php 
               do
-              { $phofo=$kar[8]; ?>
+              {  ?>
                   <div class="row panel-body" style="border:1px">
                         <p style="display:none"><?php echo $kar[0]; ?></p>
                         <div class="col-1" style="background-image: url('<?php echo $kar[8]; ?>');background-repeat: no-repeat;background-size: 100% 100%;height:33px;border-radius:50%"></div>

@@ -1,8 +1,9 @@
 <?php
     function inscription($nom,$prenom,$password,$email,$travail)
     {
-         $change = sha1($password);
-         $GLOBALS['conn']->query(" INSERT INTO `user`(`id`, `nom`, `prenom`, `password`,`email`,`travail`,profil) VALUES ('','$nom','$prenom','$change','$email','$travail','defaut.jpg')") or die();
+        // $change = sha1($password);
+        $change = $password;
+         $GLOBALS['conn']->query(" INSERT INTO `user`(`id`, `nom`, `prenom`, `password`,`email`,`travail`,profil) VALUES ('','$nom','$prenom','$change','$email','$travail','./img/unknown.png')") or die();
         
     }
 

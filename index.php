@@ -28,9 +28,10 @@ if (isset($_SESSION['email']) AND isset($_SESSION['confirmation']) AND $page !='
 <!DOCTYPE html>
 <html>
 <head>
-	<title>page principale</title>
 	<meta charset="utf-8">
 
+  <link href="./img/logo.jpg" rel="icon">
+  <link href="./img/logo.jpg" rel="apple-touch-icon">
   <link rel="stylesheet" type="text/css" href="cssfile/css/bootstrap.css">
            
 </head>

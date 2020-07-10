@@ -63,7 +63,7 @@ function notification()
             document.getElementById("not").innerHTML=obj.length;
             document.getElementById("notification").innerHTML="<div class='notify-arrow notify-arrow-yellow'></div><li><p class='yellow' id='note'>You have "+obj.length+" new notifications</p></li><li>"
             for (let i = 0; i < obj.length; i++) {
-                document.getElementById("notification").innerHTML+="<li class='notif' style='display:inline-table'><a><span class='label label-danger'><i class='fa fa-bolt'></i></span><span style='display:none'>"+obj[i].id+"</span><span style='color:blue;font-weight:bold;'>"+obj[i].nom+" "+obj[i].prenom+": "+"</span><span class='italic'>"+obj[i].contenu+"</span></a></li>"
+                document.getElementById("notification").innerHTML+="<li class='notif'><p style='width:100%;word-break:break-word'><span class='label label-danger'><i class='fa fa-bolt'></i></span><span style='display:none'>"+obj[i].id+"</span><span style='color:blue;font-weight:bold;'>"+obj[i].nom+" "+obj[i].prenom+": "+"</span><span class='italic'>"+obj[i].contenu+"</span></p></li>"
             }
             var t=document.getElementsByClassName("notif")
             for (let j = 0; j < t.length; j++) {
@@ -105,7 +105,7 @@ function profiles()
 function logout()
 {
     $.post('/pfe/logout.php', {"service":"ms"}, function(response) {
-        window.location="login"
+        window.location="index.php?page=login"
 	});
 }
 
@@ -118,10 +118,11 @@ function recherche()
         {
             var obj = JSON.parse(response);
             for (let i = 0; i < obj.length; i++) {
-                document.getElementById("ajx").innerHTML+="<div class='row profiles' style='margin-top:16px;cursor:pointer'>"
-                +"<div class='col-md-1' style='display:none'>"+obj[i].id+"</div>"
-                +"<div class='col-md-2' style='background-image:url("+obj[i].photo+");background-repeat: no-repeat;background-size: 100% 100%;border-radius:50%;height: 50px;'></div>"
-                +"<div class='col-md-8' style='height: 50px;padding: 5% 0;font-weight: bold;'>"+obj[i].nom+" "+obj[i].prenom+"</div>"
+                document.getElementById("ajx").innerHTML+="<div class='col-3 offset-1 profiles' style='padding:5%;background:white;margin-bottom: 1%;border-radius:50%;cursor:pointer;height:fit-content'>"
+                +"<div class='col-1' style='display:none'>"+obj[i].id+"</div>"
+                +"<div class='row'><div class='col-12' style='background-image:url("+obj[i].photo+");background-repeat: no-repeat;background-size: 100% 100%;border-radius:50%;height: 50px;height: 95px;margin-top: -19%;'></div></div>"
+                +"<div class='row'><div class='col-12 offset-1' style='font-weight: bold;font-size:15px'>"+obj[i].nom+' '+obj[i].prenom+"</div></div>"
+                +"</div>"  
             +"</div>";
             }
             var zone=document.getElementsByClassName("profiles");

@@ -58,7 +58,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation" id="shrttat"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="index.html" class="logo"><b>ARCHIT<span>ECTE</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -67,67 +67,12 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle">
               <i class="fa fa-tasks"></i>
-              <span class="badge bg-theme">4</span>
+              <span class="badge bg-theme">0</span>
               </a>
             <ul class="dropdown-menu extended tasks-bar">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
-                <p class="green">You have 4 pending tasks</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Dashio Admin Panel</div>
-                    <div class="percent">40%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                      <span class="sr-only">40% Complete (success)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Database Update</div>
-                    <div class="percent">60%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                      <span class="sr-only">60% Complete (warning)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Product Development</div>
-                    <div class="percent">80%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                      <span class="sr-only">80% Complete</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Payments Sent</div>
-                    <div class="percent">70%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                      <span class="sr-only">70% Complete (Important)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="external">
-                <a href="#">See All Tasks</a>
+                <p class="green">rien de changement sur les regles d'amenagement</p>
               </li>
             </ul>
           </li>
@@ -191,7 +136,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" id="logout">Logout</a></li>
+          <li><a class="logout" id="logout">deconnexion</a></li>
         </ul>
       </div>
     </header>
@@ -204,18 +149,18 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
       <div id="sidebar" class="nav-collapse " style="z-index:99">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
+          <p class="centered"><a href="profile.php"><img style="height:80px;width:57%" src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
           <h5 class="centered"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h5>
           <li class="mt">
             <a href="index.php?page=compte">
-              <i class="fa fa-dashboard"></i>
+              <i class="fa fa-home"></i>
               <span>Acceuil</span>
               </a>
           </li>
           <li class="sub-menu">
             <a class="active">
-              <i class="fa fa-desktop"></i>
-              <span>consulter les regles</span>
+              <i class="fa fa-search" style="color:#aeb2b7"></i>
+              <span style="cursor:pointer">consulter les regles</span>
               </a>
             <ul class="sub">
               <li><a href="zones">consultation les zones</a></li>
@@ -224,14 +169,14 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           </li>
           <li class="sub-menu">
             <a href="list">
-              <i class="fa fa-cogs"></i>
+              <i class="fa fa-users"></i>
               <span>list des architect</span>
               </a>
             
           </li>
           <li class="sub-menu">
             <a href="message">
-              <i class="fa fa-book"></i>
+              <i class="fa fa-comments"></i>
               <span id="msg">messages</span>
               </a>
            

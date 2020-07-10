@@ -97,7 +97,7 @@
              <span style="color: red;font-weight: bold;font-family:  sans-serif;"><?php if(isset($erssword)) echo $erssword;?></span>
               <br>
           <br>
-          <input type="radio" name="gender" <?php if (isset($gender) && $gender== "archithec") echo "checked";?> value="archithec">archithec
+          <input type="radio" name="gender" <?php if (isset($gender) && $gender== "architecte") echo "checked";?> value="architecte">architecte
            <input type="radio" name="gender"  <?php if (isset($gender) && $gender=="expert") echo "checked";?> value="expert">expert
               <input type="radio" name="gender"  <?php if (isset($gender) && $gender=="autre") echo "checked";?> value="autre">autre <br> 
           <span style="color: red;font-weight: bold;font-family:  sans-serif;"><?php if(isset($ergender))

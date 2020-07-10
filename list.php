@@ -17,7 +17,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashio - Bootstrap Admin Template</title>
+  <title>architecte</title>
 
   <!-- Favicons -->
   <link href="img/favicon.png" rel="icon">
@@ -58,7 +58,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation" id="shrttat"></div>
       </div>
       <!--logo start-->
-      <a href="index.html" class="logo"><b>DASH<span>IO</span></b></a>
+      <a href="index.html" class="logo"><b>ARCHIT<span>ECTE</span></b></a>
       <!--logo end-->
       <div class="nav notify-row" id="top_menu">
         <!--  notification start -->
@@ -67,67 +67,12 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle">
               <i class="fa fa-tasks"></i>
-              <span class="badge bg-theme">4</span>
+              <span class="badge bg-theme">0</span>
               </a>
             <ul class="dropdown-menu extended tasks-bar">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
-                <p class="green">You have 4 pending tasks</p>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Dashio Admin Panel</div>
-                    <div class="percent">40%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                      <span class="sr-only">40% Complete (success)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Database Update</div>
-                    <div class="percent">60%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                      <span class="sr-only">60% Complete (warning)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Product Development</div>
-                    <div class="percent">80%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                      <span class="sr-only">80% Complete</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="index.html#">
-                  <div class="task-info">
-                    <div class="desc">Payments Sent</div>
-                    <div class="percent">70%</div>
-                  </div>
-                  <div class="progress progress-striped">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                      <span class="sr-only">70% Complete (Important)</span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li class="external">
-                <a href="#">See All Tasks</a>
+                <p class="green">rien de changement sur les regles d'amenagement</p>
               </li>
             </ul>
           </li>
@@ -191,7 +136,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
       </div>
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" id="logout">Logout</a></li>
+          <li><a class="logout" id="logout">deconnexion</a></li>
         </ul>
       </div>
     </header>
@@ -204,18 +149,18 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
       <div id="sidebar" class="nav-collapse " style="z-index:99">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.php"><img src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
+          <p class="centered"><a href="profile.php"><img style="height:80px;width:57%" src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
           <h5 class="centered"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h5>
           <li class="mt">
             <a href="index.php?page=compte">
-              <i class="fa fa-dashboard"></i>
+              <i class="fa fa-home"></i>
               <span>Acceuil</span>
               </a>
           </li>
           <li class="sub-menu">
             <a>
-              <i class="fa fa-desktop"></i>
-              <span>consulter les regles</span>
+              <i class="fa fa-search" style="color:#aeb2b7"></i>
+              <span style="cursor:pointer">consulter les regles</span>
               </a>
             <ul class="sub">
               <li><a href="zones.php">consultation les zones</a></li>
@@ -224,14 +169,14 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
           </li>
           <li class="sub-menu">
             <a class="active" href="list">
-              <i class="fa fa-cogs"></i>
+              <i class="fa fa-users"></i>
               <span>list des architect</span>
               </a>
             
           </li>
           <li class="sub-menu">
             <a href="message">
-              <i class="fa fa-book"></i>
+              <i class="fa fa-comments"></i>
               <span id="msg">messages</span>
               </a>
            
@@ -261,29 +206,31 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
     <section id="main-content">
       <section class="wrapper">
         <div class="row">
-            <div class="offset-md-4 col-md-4">
+            <div class="offset-4 col-4">
                 <input type="text" id="recherche" class="form-control"/>
             </div>
         </div>
         <div class="row">
-            <div class="offset-md-3 col-md-6" id="ajx" style="margin-top:10px">
+            <div class="col-10" style="margin-top:10px">
+            <div class="row" id="ajx" style="margin-top:6px">
                 <?php
                     $id=$_SESSION["id"];
-                    $sql = "SELECT * FROM `user` WHERE id != $id";
+                    $sql = "SELECT * FROM `user` WHERE id != $id and travail='architecte'";
                     $res=mysqli_query($con,$sql);  
                     while($kar = mysqli_fetch_array($res))
                     {
                         ?>
-                            <div class="row profiles" style="margin-top:16px;cursor:pointer">
-                                <div class="col-md-1" style="display:none"><?php echo $kar[0]; ?></div>
-                                <div class="col-md-2" style="background-image:url('<?php echo $kar[8] ?>');background-repeat: no-repeat;background-size: 100% 100%;border-radius:50%;height: 50px;"></div>
-                                <div class="col-md-8" style="height: 50px;padding: 5% 0;font-weight: bold;"><?php echo $kar[1]." ".$kar[2] ?></div>
-                            </div>
+                                <div class="col-3 offset-1 profiles" style="padding:5%;background:white;margin-bottom: 1%;border-radius:50%;cursor:pointer;height:fit-content">
+                                <div class="col-1" style="display:none"><?php echo $kar[0]; ?></div>
+                                <div class="row"><div class="col-12" style="background-image:url('<?php echo $kar[8] ?>');background-repeat: no-repeat;background-size: 100% 100%;border-radius:50%;height: 50px;height: 95px;margin-top: -19%;"></div></div>
+                                <div class="row"><div class="col-12 offset-1" style="font-weight: bold;font-size:15px"><?php echo $kar[1]." ".$kar[2] ?></div></div>
+                                </div>  
                         <?php
                     }
                     
                     mysqli_close($con);
                 ?>
+            </div>
             </div>
         </div>
           <!-- /col-lg-9 END SECTION MIDDLE -->

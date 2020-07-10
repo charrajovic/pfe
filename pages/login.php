@@ -28,6 +28,7 @@ if(isset($_POST['ok']) )
              $_SESSION['password']=$val['password'];
              $_SESSION['profil']=$val['profil'];
              $_SESSION['confirmation']=$val['confirmation'];
+             header("Location:index.php?page=compte");
             }
              
            header("Location:index.php?page=alert");

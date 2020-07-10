@@ -20,8 +20,8 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
   <title>architecte</title>
 
   <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="./img/logo.jpg" rel="icon">
+  <link href="./img/logo.jpg" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">

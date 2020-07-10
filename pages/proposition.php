@@ -64,8 +64,8 @@ include("fonctions/inbox.fonction.php");
   <title>evoyer proposition</title>
 
   <!-- Favicons -->
-  <link href="cssfile/img/favicon.png" rel="icon">
-  <link href="cssfile/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="./img/logo.jpg" rel="icon">
+  <link href="./img/logo.jpg" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="cssfile/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">

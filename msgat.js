@@ -816,18 +816,50 @@ function msgs()
        
         if(response=="nope")
         {
-            document.getElementById("cont").innerHTML="<div class='row'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background:white;display:block;overflow:scroll;margin-left:-1px'></div>";
-         document.getElementById("ide").style.display="none";
-         document.getElementById("chatbox").innerHTML="<div class='row flex' style='width:100%'><div class='offset-1 col-3' style='font-weight:bold;font-size:25px;color:blue'>aucune message!</div></div>"
-         document.getElementById("cont").innerHTML+="<div id='env' class='row' style='margin-bottom:3%'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='col-6' style='padding:0'><input type='file' id='fille' style='display:none'/><div class='sendfile' style='background-image: url(img/fichier.jpg);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div><div class='col-6' style='padding-left:0'><input type='file' id='fill' style='display:none' accept='image/*'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div class='row' style='margin-left:0%'><div id='mssg' class='col-3 btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div><div class='col-1 emojis' style='padding:0;margin-top:0%;font-size:16px'>😀</div></div></div></div>";
-         document.getElementById("mssg").addEventListener("click",envoyer);
+            document.getElementById("cont").innerHTML="<div class='row' style='background: white;width: 100%;margin-left: -1px;margin-top: -1px;box-shadow:3px 3px silver inset'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background-image:url(./img/font.jpg);background-size:100% 100%;background-repeat:no-repeat;display:block;overflow:scroll;margin-left:-1px'></div>";
+            document.getElementById("ide").style.display="none";
+            document.getElementById("chatbox").innerHTML="<div class='row flex' style='width:100%'><div class='offset-1 col-3' style='font-weight:bold;font-size:25px;color:blue'>aucune message!</div></div>"
+            document.getElementById("cont").innerHTML+="<div id='env' class='row' style='margin-bottom:3%'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='col-6' style='padding:0'><input type='file' id='fille' style='display:none'/><div class='sendfile' style='background-image: url(img/fichier.jpg);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div><div class='col-6' style='padding-left:0'><input type='file' id='fill' style='display:none'  accept='image/*'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div class='row' style='margin-left:0%'><div id='mssg' class='col-3 btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div><div class='col-1 emojis' style='padding:0;margin-top:0%;font-size:16px'>😀</div></div></div></div>";
+           var input = document.getElementById("messag");
+           input.addEventListener("keyup", envv); 
+           document.getElementById("fill").addEventListener("change",imgs);
+           document.getElementById("fille").addEventListener("change",imgg);
+            var pr=document.getElementsByClassName("sendim");
+            for (let i = 0; i < pr.length; i++) {
+                pr[i].addEventListener("click",fill);
+                
+            }
+            var tt=document.getElementsByClassName("emojis");
+            for (let i = 0; i < tt.length; i++) {
+                tt[i].addEventListener("click",emojis);
+            }
+            var tt=document.getElementsByClassName("chatbox");
+               for (let i = 0; i < tt.length; i++) {
+                   tt[i].addEventListener("scroll",upscroll)
+               }
+            var fille=document.getElementsByClassName("sendfile");
+            for (let i = 0; i < fille.length; i++) {
+                fille[i].addEventListener("click",sendfile);
+            }
+            document.getElementById("mssg").addEventListener("click",envoyer);
+            var t=document.getElementsByClassName("dismsg");
+            for (let i = 0; i < t.length; i++) {
+               t[i].addEventListener("click",dispsg);
+                
+            }
+            var r=document.getElementsByClassName("fullscreen");
+            for (let i = 0; i < r.length; i++) {
+                r[i].addEventListener("click",fullp);
+            }
+            document.getElementById("mssg").addEventListener("click",envoyer);
+           
         }
         else
         {
             
          var obj = JSON.parse(response);
         
-         document.getElementById("cont").innerHTML="<div class='row' style='background: white;width: 100%;margin-left: -1px;margin-top: -1px;*box-shadow:3px 3px silver inset'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background-image:url(./img/font.jpg);background-size:100% 100%;background-repeat:no-repeat;display:block;overflow:scroll;margin-left:-1px'></div>";
+         document.getElementById("cont").innerHTML="<div class='row' style='background: white;width: 100%;margin-left: -1px;margin-top: -1px;box-shadow:3px 3px silver inset'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background-image:url(./img/font.jpg);background-size:100% 100%;background-repeat:no-repeat;display:block;overflow:scroll;margin-left:-1px'></div>";
          document.getElementById("ide").style.display="none";
          t=obj.length
          console.log(obj.length)
@@ -1481,10 +1513,41 @@ window.onload=function()
        
         if(response=="nope")
         {
-            document.getElementById("cont").innerHTML="<div class='row'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background:white;display:block;overflow:scroll;margin-left:-1px'></div>";
+            document.getElementById("cont").innerHTML="<div class='row' style='background: white;width: 100%;margin-left: -1px;margin-top: -1px;box-shadow:3px 3px silver inset'><div class='offset-5'><h3 id='ide'>"+z+"</h3><h1 id='fullname'>"+nom+" "+prenom+"</h1></div><div class='online' id='onlinemsg' style='background:gray;width:20px;height:20px;border-radius:50%;display:inherit;margin-top:5px'></div></div><div class='chatbox row' id='chatbox' style='width:100%;height:500px;background-image:url(./img/font.jpg);background-size:100% 100%;background-repeat:no-repeat;display:block;overflow:scroll;margin-left:-1px'></div>";
          document.getElementById("ide").style.display="none";
          document.getElementById("chatbox").innerHTML="<div class='row flex' style='width:100%'><div class='offset-1 col-3' style='font-weight:bold;font-size:25px;color:blue'>aucune message!</div></div>"
-         document.getElementById("cont").innerHTML+="<div class='row'><div class='col-5 offset-3'><input type='text' class='form-control' id='messag' /></div><div class='col-2'><input type='submit' value='envoyer' id='mssg' class='btn btn-success'/></div></div>";
+         document.getElementById("cont").innerHTML+="<div id='env' class='row' style='margin-bottom:3%'><div class='offset-1 col-1' style='padding:0'><div class='row'><div class='col-6' style='padding:0'><input type='file' id='fille' style='display:none'/><div class='sendfile' style='background-image: url(img/fichier.jpg);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div><div class='col-6' style='padding-left:0'><input type='file' id='fill' style='display:none'  accept='image/*'/><div class='sendim' style='background-image: url(img/imag.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 100%;border: none;cursor:pointer'></div></div></div></div><div class='col-5' style='padding:0'><input type='text' class='form-control' id='messag' /></div><div class='col-2' style='padding:0'><div class='row' style='margin-left:0%'><div id='mssg' class='col-3 btn btn-success' style='background-image: url(img/send.png);background-repeat: no-repeat;background-size: 100% 100%;height: 25px;width: 30%;border: none;border-radius: 50%;'></div><div class='col-1 emojis' style='padding:0;margin-top:0%;font-size:16px'>😀</div></div></div></div>";
+        var input = document.getElementById("messag");
+        input.addEventListener("keyup", envv); 
+        document.getElementById("fill").addEventListener("change",imgs);
+        document.getElementById("fille").addEventListener("change",imgg);
+         var pr=document.getElementsByClassName("sendim");
+         for (let i = 0; i < pr.length; i++) {
+             pr[i].addEventListener("click",fill);
+             
+         }
+         var tt=document.getElementsByClassName("emojis");
+         for (let i = 0; i < tt.length; i++) {
+             tt[i].addEventListener("click",emojis);
+         }
+         var tt=document.getElementsByClassName("chatbox");
+            for (let i = 0; i < tt.length; i++) {
+                tt[i].addEventListener("scroll",upscroll)
+            }
+         var fille=document.getElementsByClassName("sendfile");
+         for (let i = 0; i < fille.length; i++) {
+             fille[i].addEventListener("click",sendfile);
+         }
+         document.getElementById("mssg").addEventListener("click",envoyer);
+         var t=document.getElementsByClassName("dismsg");
+         for (let i = 0; i < t.length; i++) {
+            t[i].addEventListener("click",dispsg);
+             
+         }
+         var r=document.getElementsByClassName("fullscreen");
+         for (let i = 0; i < r.length; i++) {
+             r[i].addEventListener("click",fullp);
+         }
          document.getElementById("mssg").addEventListener("click",envoyer);
         }
         else

@@ -264,6 +264,6 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
 <?php
 }
 else{
-  header('location:login.php');
+  header('location:index.php?page=login');
 }
 ?>

@@ -207,7 +207,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
       <section class="wrapper">
           <div class="row" style="margin:20px auto 10px">
               <div class="offset-md-3 col-md-6">
-                <input type="text" class="form-control sear" id="searche"/>
+                <input type="text" class="form-control sear" id="searche" placeholder="search by name"/>
               </div>
           </div>
       <div class="row">
@@ -260,6 +260,6 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
 <?php
 }
 else{
-  header('location:login.php');
+  header('location:index.php?page=login');
 }
 ?>

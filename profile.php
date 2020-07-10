@@ -546,7 +546,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
     
     <!--footer end-->
   </section>
-  <div id="darag" style="width: 100%;height: 100%;position: absolute;left: 0;top: 0;display: none;z-index: 98;"></div>
+  <div id="darag" style="width: 100%;height: 100%;position: absolute;left: 0;top: 0;display: none;z-index: 98;background:black;opacity: 0.6;"></div>
   <div id="popupe" style="width: 80%;height: 85%;position: absolute;background: white;left: 10%;top: 8%;display: none;z-index: 99;">
           <div class="row">
             <div class="offset-4 col-6" style="font-size:25px;font-weight:bold">photo de profile</div>
@@ -579,6 +579,6 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
 <?php
 }
 else{
-  header('location:login.php');
+  header('location:index.php?page=login');
 }
 ?>

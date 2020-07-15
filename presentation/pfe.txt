@@ -1,0 +1,12 @@
+->inscription:on va cree une nouveau compte pour l'architecte.l'utilisateur ne peut pas acceder a son compte jusqu'à l'admine le confirmer.
+->authentification:on va dabord connecter au compte d'architecte.
+->acceuil:skip
+->mon profile:on va changer le photo de profile puis on va changer les informations personnels par exemple le nom et le prenom.
+->consultation des zones:consultation des zones.
+->consultation des regles:consultation des regles.
+->list des architect:rechercher sur les architectes enregistré dans notre application web, par exemple on va chercher sur charraj haytem et voir son profile et l'envoyé une invitation.
+->chat:on va tester la boite de messagerie.
+->envoyé proposition:on va envoyé une proposition d'amélioration, l'autre personne qui a recu le fichier  doit etre averti par une notification.
+->la boite:l'expert peut consulter le fichier el le message rejoingné avec lui.
+->propo envoyé:l'architecte peut voir se qu'il a envoyé.
+

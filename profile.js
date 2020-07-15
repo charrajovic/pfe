@@ -401,7 +401,7 @@ function getallnoti()
       
 
       document.getElementById("addnotifi").innerHTML+= '<li>'+
-                '<a class="notif" style="cursor: pointer;">'+
+                '<a class="notif_propo" style="cursor: pointer;">'+
                   '<span style="display:none">'+obj1[i].id+'</span>'+
                   '<span class="photo"><img src="'+obj1[i].profil+'">'+'</span>'+
                   '<span class="subject">'+
@@ -412,7 +412,7 @@ function getallnoti()
                   '</a>'+
               '</li>'
     }
-    var yy=document.getElementsByClassName("notif")
+    var yy=document.getElementsByClassName("notif_propo")
   for (let i = 0; i < yy.length; i++) {
     yy[i].addEventListener("click",tifo)
   }
@@ -421,7 +421,7 @@ function getallnoti()
            });
     
 
-setTimeout(getallnoti,1000);
+setTimeout(getallnoti,3000);
 
 }
 
@@ -550,7 +550,7 @@ function propo()
            });
     
 
-   setTimeout(propo,500)
+   setTimeout(propo,3000)
 }
 function propo_not()
 {
@@ -572,7 +572,7 @@ function propo_not()
       
 
       document.getElementById("addnotifi").innerHTML+= '<li>'+
-                '<a class="notif" style="cursor: pointer;">'+
+                '<a class="notif_propo" style="cursor: pointer;">'+
                   '<span style="display:none">'+obj1[i].id+'</span>'+
                   '<span class="photo"><img src="'+obj1[i].profil+'">'+'</span>'+
                   '<span class="subject">'+
@@ -583,7 +583,7 @@ function propo_not()
                   '</a>'+
               '</li>'
     }
-    var yy=document.getElementsByClassName("notif")
+    var yy=document.getElementsByClassName("notif_propo")
   for (let i = 0; i < yy.length; i++) {
     yy[i].addEventListener("click",tifo)
   }
@@ -621,11 +621,46 @@ function chatt()
     window.location="message";
 }
 
+function modifierp()
+{
+    if(this.classList[2]=="fa-pencil"){
+       
+        var tr = this.parentElement.parentElement;
+        
+        var first = tr.children[1].textContent;
+       
+        tr.children[1].innerHTML = "<input id='anc' style='color : black; width:40% ' type='text' placeholder='entre l`anciant password'/><input id='new' style='color : black; width:40% ' type='text' placeholder='entre new password'/>";
+      
+
+        this.classList.remove("fa-pencil");
+        this.classList.add("fa-check-circle");
+
+    }
+    else{
+        var tr = this.parentElement.parentElement;
+        $.post("password.php",
+        {"anc":document.getElementById("anc").value,"new":document.getElementById("new").value},
+    function(data){
+      if(data!="0")
+      {
+        console.log("bien")
+      }
+    });
+        tr.children[1].innerHTML="xxxXxxxXxxx";
+        this.classList.remove("fa-check-circle");
+        this.classList.add("fa-pencil");
+    }
+}
+
 window.onload=function()
 {
     var tt=document.getElementsByClassName("modif");
     for (let i = 0; i < tt.length; i++) {
         tt[i].addEventListener("click",modifiersession);
+    }
+    var tt=document.getElementsByClassName("modifp");
+    for (let i = 0; i < tt.length; i++) {
+        tt[i].addEventListener("click",modifierp);
     }
     var y=document.getElementsByClassName("chat");
     for (let i = 0; i < y.length; i++) {
@@ -655,8 +690,8 @@ window.onload=function()
     document.getElementById("msg").addEventListener("click",messages);
     document.getElementById("msg").style.cursor="pointer";
     setInterval(poop,10000);
-    // setInterval(propo,1000);
-    // this.setTimeout(propo_not,100);
+    setInterval(propo,1000);
+    this.setTimeout(propo_not,100);
     this.setTimeout(notification,100);
     document.getElementById("shrttat").addEventListener("click",shrttat);
     var tt=document.getElementsByClassName("tof")

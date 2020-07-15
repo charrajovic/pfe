@@ -2,8 +2,8 @@ window.onload = function(){
   setInterval(poop,10000);
   this.setTimeout(notification,100);
   showSlides();
-  //  propo();
-  //  getallnoti();
+    propo();
+    getallnoti();
 
 }
 
@@ -29,33 +29,33 @@ function notf()
 
 function notification()
 {
-    $.post('/pfe/msgnnlu.php', {"service":"ms"}, function(response) {
-        console.log(response)
-        if(response!="nope")
-        {
-            var obj = JSON.parse(response);
-            console.log(obj.length)
-            document.getElementById("not").innerHTML=obj.length;
-            document.getElementById("notification").innerHTML="<div class='notify-arrow notify-arrow-yellow'></div><li><p class='yellow' id='note'>You have "+obj.length+" new notifications</p></li><li>"
-            for (let i = 0; i < obj.length; i++) {
-                document.getElementById("notification").innerHTML+="<li class='notifi' style='display:inline-table'><a><span class='label label-danger'><i class='fa fa-bolt'></i></span><span style='display:none'>"+obj[i].id+"</span><span style='color:blue;font-weight:bold;'>"+obj[i].nom+" "+obj[i].prenom+": "+"</span><span class='italic'>"+obj[i].contenu+"</span></a></li>"
-            }
-            var t=document.getElementsByClassName("notifi")
-            for (let j = 0; j < t.length; j++) {
-                t[j].style.cursor="pointer"
-                t[j].addEventListener("click",notf)
-            }
+  $.post('/pfe/msgnnlu.php', {"service":"ms"}, function(response) {
+    console.log(response)
+    if(response!="nope")
+    {
+        var obj = JSON.parse(response);
+        console.log(obj.length)
+        document.getElementById("not").innerHTML=obj.length;
+        document.getElementById("notification").innerHTML="<div class='notify-arrow notify-arrow-yellow'></div><li><p class='yellow' id='note'>You have "+obj.length+" new notifications</p></li><li>"
+        for (let i = 0; i < obj.length; i++) {
+            document.getElementById("notification").innerHTML+="<li class='notif'><p style='width:100%;word-break:break-word'><span class='label label-danger'><i class='fa fa-bolt'></i></span><span style='display:none'>"+obj[i].id+"</span><span style='color:blue;font-weight:bold;'>"+obj[i].nom+" "+obj[i].prenom+": "+"</span><span class='italic'>"+obj[i].contenu+"</span></p></li>"
         }
-        else
-        {
-            if(document.getElementById("not").textContent!="0")
-            {
-                document.getElementById("not").innerHTML="0";
-                document.getElementById("note").innerHTML="You have 0 new notifications";
-            }
+        var t=document.getElementsByClassName("notif")
+        for (let j = 0; j < t.length; j++) {
+            t[j].style.cursor="pointer"
+            t[j].addEventListener("click",notf)
         }
-    });
-    setTimeout(notification,5000)
+    }
+    else
+    {
+        if(document.getElementById("not").textContent!="0")
+        {
+            document.getElementById("not").innerHTML="0";
+            document.getElementById("note").innerHTML="You have 0 new notifications";
+        }
+    }
+});
+setTimeout(notification,5000)
 }
 
  var slideIndex=0;
@@ -96,7 +96,7 @@ function propo()
            });
     
 
-   setTimeout(propo,500)
+   setTimeout(propo,3000)
 }
 function getallnoti()
 {
@@ -127,7 +127,7 @@ function getallnoti()
           
 
       document.getElementById("addnotifi").innerHTML+= '<li>'+
-                '<a class="notif" style="cursor: pointer;">'+
+                '<a class="notif_propo" style="cursor: pointer;">'+
                   '<span style="display:none">'+obj1[i].id+'</span>'+
                   '<span class="photo"><img src="'+obj1[i].profil+'">'+'</span>'+
                   '<span class="subject">'+
@@ -138,7 +138,7 @@ function getallnoti()
                   '</a>'+
               '</li>'
     }
-    var yy=document.getElementsByClassName("notif")
+    var yy=document.getElementsByClassName("notif_propo")
   for (let i = 0; i < yy.length; i++) {
     yy[i].addEventListener("click",tifo)
   }
@@ -147,7 +147,7 @@ function getallnoti()
            });
     
 
-setTimeout(getallnoti,1000);
+setTimeout(getallnoti,3000);
 
 }
 function tifo()

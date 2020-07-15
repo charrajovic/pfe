@@ -108,7 +108,7 @@ propo();
 message();
 getallnoti();
 setInterval(poop,10000);
-    // setInterval(propo,1000);
+    setInterval(propo,1000);
     // this.setTimeout(propo_not,100);
 this.setTimeout(notification,100);
 }
@@ -124,7 +124,7 @@ function message()
     function(data){
      
      var obj = JSON.parse(data);
-
+    console.log(document.getElementById("add"))  
    document.getElementById("add").innerHTML='';
      for (var i = 0; i < obj.length; i++) {
       var y;
@@ -308,7 +308,7 @@ function propo()
      
      document.getElementById('nbre').innerHTML=obj;
       document.getElementById('msg_nbr').innerHTML="vous avez "+obj+" message(s)";
-      document.getElementById('inbo').innerHTML="INBOX("+obj+")";
+      // document.getElementById('inbo').innerHTML="INBOX("+obj+")";
      
      
        
@@ -316,7 +316,7 @@ function propo()
            });
     
    
-	 setTimeout(propo,1000)
+	 setTimeout(propo,3000)
 }
 
 
@@ -343,7 +343,7 @@ function getallnoti()
       
 
       document.getElementById("addnotifi").innerHTML+= '<li>'+
-                '<a class="notif" style="cursor: pointer;">'+
+                '<a class="notif_propo" style="cursor: pointer;">'+
                   '<span style="display:none">'+obj1[i].id+'</span>'+
                   '<span class="photo"><img src="'+obj1[i].profil+'">'+'</span>'+
                   '<span class="subject">'+
@@ -354,7 +354,7 @@ function getallnoti()
                   '</a>'+
               '</li>'
     }
-    var yy=document.getElementsByClassName("notif")
+    var yy=document.getElementsByClassName("notif_propo")
   for (let i = 0; i < yy.length; i++) {
     yy[i].addEventListener("click",tifo)
   }
@@ -363,6 +363,6 @@ function getallnoti()
            });
     
 
-setTimeout(getallnoti,1000);
+setTimeout(getallnoti,3000);
 
 }

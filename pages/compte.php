@@ -74,7 +74,7 @@ include("fonctions/inbox.fonction.php");
             <ul class="dropdown-menu extended tasks-bar">
               <div class="notify-arrow notify-arrow-green"></div>
               <li>
-                <p class="green">rien de changement sur les regles d'amenagement</p>
+                <p class="green" style="font-size:12px">rien de changement sur les regles d'amenagement</p>
               </li>
             </ul>
           </li>
@@ -98,6 +98,9 @@ include("fonctions/inbox.fonction.php");
               </li>
             </ul>
           </li>
+          <!-- inbox dropdown end -->
+          <!-- notification dropdown start-->
+          
           <!-- inbox dropdown end -->
           <!-- notification dropdown start-->
           <li id="header_notification_bar" class="dropdown">
@@ -145,7 +148,7 @@ include("fonctions/inbox.fonction.php");
     <div id="sidebar" class="nav-collapse " style="z-index:99">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.php"><img style="height:80px;width:57%" src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
+          <p class="centered"><a href="profile.php"><img style="height:102px;width:57%" src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
           <h5 class="centered"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h5>
           <li class="mt">
             <a  class="active" href="index.php?page=compte">
@@ -172,7 +175,7 @@ include("fonctions/inbox.fonction.php");
           <li class="unset" class="sub-menu">
             <a href="message">
               <i class="fa fa-comments"></i>
-              <span id="msg">messages</span>
+              <span id="msg">Chat</span>
               </a>
           </li>
           <li class="sub-menu">

@@ -29,6 +29,7 @@
         if (empty($inco) AND empty($ergender) AND empty($erre) AND empty($erssword))
          {   if (comtexis($email)==1) {
            inscription($nom,$prenom,$password,$email,$gender);
+           header("location:index.php?page=login");
          } else {
             $eror= "email deja existe";
          }

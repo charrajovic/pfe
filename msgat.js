@@ -1134,7 +1134,7 @@ function getallnoti()
       
 
       document.getElementById("addnotifi").innerHTML+= '<li>'+
-                '<a class="notif" style="cursor: pointer;">'+
+                '<a class="notif_propo" style="cursor: pointer;">'+
                   '<span style="display:none">'+obj1[i].id+'</span>'+
                   '<span class="photo"><img src="'+obj1[i].profil+'">'+'</span>'+
                   '<span class="subject">'+
@@ -1145,7 +1145,7 @@ function getallnoti()
                   '</a>'+
               '</li>'
     }
-    var yy=document.getElementsByClassName("notif")
+    var yy=document.getElementsByClassName("notif_propo")
   for (let i = 0; i < yy.length; i++) {
     yy[i].addEventListener("click",tifo)
   }
@@ -1154,7 +1154,7 @@ function getallnoti()
            });
     
 
-setTimeout(getallnoti,1000);
+setTimeout(getallnoti,3000);
 
 }
 
@@ -1282,7 +1282,7 @@ function propo()
            });
     
 
-   setTimeout(propo,500)
+   setTimeout(propo,3000)
 }
 function propo_not()
 {
@@ -1304,7 +1304,7 @@ function propo_not()
       
 
       document.getElementById("addnotifi").innerHTML+= '<li>'+
-                '<a class="notif" style="cursor: pointer;">'+
+                '<a class="notif_propo" style="cursor: pointer;">'+
                   '<span style="display:none">'+obj1[i].id+'</span>'+
                   '<span class="photo"><img src="'+obj1[i].profil+'">'+'</span>'+
                   '<span class="subject">'+
@@ -1315,7 +1315,7 @@ function propo_not()
                   '</a>'+
               '</li>'
     }
-    var yy=document.getElementsByClassName("notif")
+    var yy=document.getElementsByClassName("notif_propo")
   for (let i = 0; i < yy.length; i++) {
     yy[i].addEventListener("click",tifo)
   }

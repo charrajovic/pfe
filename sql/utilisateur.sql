@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 10 juil. 2020 à 15:47
+-- Généré le : mer. 15 juil. 2020 à 15:29
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.2
 
@@ -115,13 +115,19 @@ INSERT INTO `conversation` (`id_message`, `sujet`, `message`, `file`, `datep`) V
 (29, 'cc', 'sat', 'ZONE2 (3).txt', '2020-06-27 15:17:57.000000'),
 (30, 'cc', 'sat', 'ZONE2 (3).txt', '2020-06-27 15:19:37.000000'),
 (31, 'zz', 'aaa', 'ZONE2 (3).txt', '2020-06-27 15:22:07.000000'),
-(32, 'tt', 'ttt', 'ZONE2 (3).txt', '2020-06-27 15:41:24.000000'),
-(33, 'zzzzz', 'zzzzz', 'ZONE2 (3).txt', '2020-06-28 14:25:01.000000'),
-(34, 'zzzzz', 'zzzzz', 'ZONE2 (3).txt', '2020-06-28 14:25:48.000000'),
-(35, 'zzzzz', 'zzzzz', 'ZONE2 (3).txt', '2020-06-28 14:27:59.000000'),
-(36, 'czzcz', 'eczzc', 'ZONE2 (3).txt', '2020-06-29 16:01:19.000000'),
-(37, 'khona', 'ta malek a sat', 'utilisateur.sql', '2020-07-07 15:26:32.000000'),
-(38, 'khona', 'ta malek a sat', 'ZONE2 (3).txt', '2020-07-07 15:26:37.000000');
+(32, 'règles d’aménagement 1', 'voila ma proposition autour de la zone ZS', 'ZONE2 (3).txt', '2020-06-27 15:41:24.000000'),
+(33, 'règles d’aménagement 5', 'voila ma proposition autour de la zone ZS', 'ZONE2 (3).txt', '2020-06-28 14:25:01.000000'),
+(34, 'règles d’aménagement 4', 'voila ma proposition autour de la zone B1', 'ZONE2 (3).txt', '2020-06-28 14:25:48.000000'),
+(35, 'règles d’aménagement 3', 'voila ma proposition autour de la zone B2', 'ZONE2 (3).txt', '2020-06-28 14:27:59.000000'),
+(36, 'règles d’aménagement 2', 'voila ma proposition autour de la zone SB4', 'ZONE2 (3).txt', '2020-06-29 16:01:19.000000'),
+(37, 'règles d’aménagement 2', 'voila ma proposition autour de la zone B2', 'utilisateur.sql', '2020-07-07 15:26:32.000000'),
+(38, 'règles d’aménagement 3', 'voila ma proposition autour de la zone SB4', 'ZONE2 (3).txt', '2020-07-07 15:26:37.000000'),
+(41, 'règles d’aménagement 4', 'voila ma proposition autour de la zone B', 'ZONE2 (3).txt', '2020-07-13 14:01:06.000000'),
+(42, 'r&egrave;gles d&rsquo;am&eacute;nagement 1', 'voila ma proposition autour de la zone B1', 'zone_B1.txt', '2020-07-14 11:59:15.000000'),
+(43, 'r&egrave;gles d&rsquo;am&eacute;nagement 3', 'voila ma proposition autour de la zone IN', 'zone_B1.txt', '2020-07-14 12:33:54.000000'),
+(44, 'regles', 'mzyan', 'zone_B1.txt', '2020-07-15 14:20:00.000000'),
+(45, 'as', 'sasa', 'ZONE2 (3).txt', '2020-07-15 14:20:38.000000'),
+(46, 'aa', 'aaa', 'zone_B1.txt', '2020-07-15 14:23:54.000000');
 
 -- --------------------------------------------------------
 
@@ -170,17 +176,21 @@ INSERT INTO `destinataire` (`id`, `nom_expediteur`, `nom_destinataire`, `email_d
 (25, 'alamie', 'bchaiker', 'bchaiker@gmail.com', 'achref@gmail.com', 0),
 (26, 'alamie', 'bchaiker', 'bchaiker@gmail.com', 'achref@gmail.com', 0),
 (27, 'alamie', 'bchaiker', 'bchaiker@gmail.com', 'achref@gmail.com', 1),
-(28, 'charraj', 'charrajovic', 'hcharraj@gmail.com', 'mouadcharraj@gmail.com', 1),
-(29, 'charrajovic', 'charraj', 'mouadcharraj@gmail.com', 'hcharraj@gmail.com', 1),
-(30, 'charrajovic', 'charraj', 'mouadcharraj@gmail.com', 'hcharraj@gmail.com', 1),
-(31, 'charraj', 'charrajovic', 'hcharraj@gmail.com', 'mouadcharraj@gmail.com', 0),
-(32, 'charrajovic', 'charraj', 'mouadcharraj@gmail.com', 'hcharraj@gmail.com', 1),
-(33, 'charraj', 'bchaiker', 'bchaikera@gmail.com', 'mouadcharraj@gmail.com', 1),
+(32, 'mouafik', 'charraj', 'mouadcharraj@gmail.com', 'hcharraj@gmail.com', 1),
+(33, 'charraj', 'fatih', 'walid@gmail.com', 'mouadcharraj@gmail.com', 1),
 (34, 'charraj', 'bchaiker', 'bchaikera@gmail.com', 'mouadcharraj@gmail.com', 1),
-(35, 'charraj', 'bchaiker', 'bchaikera@gmail.com', 'mouadcharraj@gmail.com', 1),
+(35, 'charraj', 'fatih', 'walid@gmail.com', 'mouadcharraj@gmail.com', 1),
 (36, 'charraj', 'bchaiker', 'bchaikera@gmail.com', 'mouadcharraj@gmail.com', 1),
-(37, 'bchaiker', 'charraj', 'mouadcharraj@gmail.com', 'bchaikera@gmail.com', 0),
-(38, 'bchaiker', 'charraj', 'mouadcharraj@gmail.com', 'bchaikera@gmail.com', 0);
+(37, 'bchaiker', 'charraj', 'mouadcharraj@gmail.com', 'bchaikera@gmail.com', 1),
+(38, 'bchaiker', 'charraj', 'mouadcharraj@gmail.com', 'bchaikera@gmail.com', 1),
+(39, 'charraj', 'bchaiker', 'bchaikera@gmail.com', 'mouadcharraj@gmail.com', 1),
+(40, 'charraj', 'bchaiker', 'bchaikera@gmail.com', 'mouadcharraj@gmail.com', 0),
+(41, 'mouafik', 'charraj', 'mouadcharraj@gmail.com', 'hcharraj@gmail.com', 1),
+(42, 'charraj', 'fatih', 'walid@gmail.com', 'mouadcharraj@gmail.com', 0),
+(43, 'charraj', 'mouafik', 'hcharraj@gmail.com', 'mouadcharraj@gmail.com', 1),
+(44, 'bchaiker', 'mouafik', 'hcharraj@gmail.com', 'bchaikera@gmail.com', 1),
+(45, 'mouafik', 'bchaiker', 'bchaikera@gmail.com', 'hcharraj@gmail.com', 0),
+(46, 'bchaiker', 'mouafik', 'hcharraj@gmail.com', 'bchaikera@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -207,7 +217,8 @@ INSERT INTO `invitations` (`id`, `idp`, `idm`, `etat`) VALUES
 (10, 2, 1, 1),
 (13, 5, 4, 1),
 (14, 4, 3, 0),
-(15, 1, 5, 0);
+(15, 1, 5, 1),
+(16, 4, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -532,8 +543,8 @@ INSERT INTO `messages` (`id`, `contenu`, `file`, `date`, `etat`, `big`) VALUES
 (317, '', './img/1mois_47517027932.PNG', '2020-06-20 14:11:18.723757', 1, 0),
 (318, '', './img/1mois_5v_43142573892.PNG', '2020-06-20 14:11:18.723757', 1, 0),
 (319, '?', NULL, '0000-00-00 00:00:00.000000', 0, 0),
-(320, '😜', NULL, '2020-06-28 12:15:57.616517', 0, 0),
-(321, '🤑', NULL, '2020-06-28 12:17:06.159794', 0, 0),
+(320, '😜', NULL, '2020-07-13 12:50:10.071419', 1, 0),
+(321, '🤑', NULL, '2020-07-13 12:50:10.071419', 1, 0),
 (322, '', './img/fb_41433193976.PNG', '2020-06-28 12:37:08.219494', 1, 0),
 (323, '', './img/envl_43400877798.PNG', '2020-06-28 12:38:02.932530', 1, 0),
 (326, 'fen', NULL, '2020-06-29 13:51:22.518359', 1, 0),
@@ -565,7 +576,7 @@ INSERT INTO `messages` (`id`, `contenu`, `file`, `date`, `etat`, `big`) VALUES
 (356, 'cc', NULL, '2020-06-29 15:08:50.736287', 1, 0),
 (357, 'ccccc', NULL, '2020-06-29 15:09:00.469535', 1, 0),
 (359, 'ccc', NULL, '2020-06-29 15:09:03.572279', 1, 0),
-(360, '😋😋😄😄', NULL, '2020-06-30 13:00:11.171930', 0, 0),
+(360, '😋😋😄😄', NULL, '2020-07-13 12:50:10.071419', 1, 0),
 (361, '😫😫', NULL, '2020-06-30 13:01:19.391089', 1, 0),
 (362, '🥱🥱🥱', NULL, '2020-06-30 13:04:33.444077', 1, 0),
 (363, '😁😁🙄🙄', NULL, '2020-06-30 13:46:40.271856', 1, 0),
@@ -826,7 +837,7 @@ INSERT INTO `messages` (`id`, `contenu`, `file`, `date`, `etat`, `big`) VALUES
 (618, 'dzede', NULL, '2020-07-04 16:14:45.611535', 1, 0),
 (619, 'ed', NULL, '2020-07-04 16:14:49.767347', 1, 0),
 (620, '<span style=\'font-size:100px\'>😇</span>', NULL, '2020-07-07 12:08:35.594313', 1, 1),
-(621, '<span style=\'font-size:100px\'>🤣</span>', NULL, '2020-07-07 12:14:27.133450', 0, 1),
+(621, '<span style=\'font-size:100px\'>🤣</span>', NULL, '2020-07-14 10:23:27.318306', 1, 1),
 (622, '<span style=\'font-size:100px\'>🙃</span>', NULL, '2020-07-07 13:25:13.361843', 1, 1),
 (623, 'hhhh', NULL, '2020-07-07 13:27:06.477782', 1, 0),
 (624, 'dzeze', NULL, '2020-07-07 13:27:58.667681', 1, 0),
@@ -856,7 +867,47 @@ INSERT INTO `messages` (`id`, `contenu`, `file`, `date`, `etat`, `big`) VALUES
 (648, 'cc', NULL, '2020-07-10 13:32:45.441563', 1, 0),
 (649, '😴hola mi hermano como estats com', NULL, '2020-07-10 13:33:00.626692', 1, 0),
 (650, 'hola mi hermano como estats com esta los padres', NULL, '2020-07-10 13:33:24.941801', 1, 0),
-(651, 'hola mi hermano como estats com esta los padres', NULL, '2020-07-10 13:34:26.712081', 1, 0);
+(651, 'hola mi hermano como estats com esta los padres', NULL, '2020-07-10 13:34:26.712081', 1, 0),
+(652, 'cc', NULL, '2020-07-10 13:52:29.910647', 0, 0),
+(653, 'ttitt', NULL, '2020-07-10 14:58:37.898784', 0, 0),
+(654, 'hola mi hermanos', NULL, '2020-07-10 14:58:44.703956', 0, 0),
+(655, 'salut mon amis cv?', NULL, '2020-07-13 11:07:50.693807', 1, 0),
+(656, 'salut bro', NULL, '2020-07-13 11:13:02.867115', 1, 0),
+(657, 'how are you?', NULL, '2020-07-13 11:13:09.915344', 1, 0),
+(658, '😎😎', NULL, '2020-07-13 11:13:24.355574', 1, 0),
+(659, '<span style=\'font-size:100px\'>😉</span>', NULL, '2020-07-13 11:13:33.717573', 1, 1),
+(662, 'bro', NULL, '2020-07-13 11:14:07.661621', 1, 0),
+(664, 'h-i', NULL, '2020-07-13 11:17:11.604527', 1, 0),
+(666, 'hello', NULL, '2020-07-13 11:17:38.334555', 1, 0),
+(668, 'salut monsieur haytem', NULL, '2020-07-13 11:44:03.489162', 1, 0),
+(669, 'salut monsieur amine est ce que cv?', NULL, '2020-07-13 11:45:09.090440', 1, 0),
+(670, 'cv hmd  😀😀 et toi?', NULL, '2020-07-13 11:46:18.769460', 1, 0),
+(672, 'cv 😊', NULL, '2020-07-13 12:00:57.621415', 1, 0),
+(673, 's\'il vous plait de m\'envoyer la photo de la zone concerné', NULL, '2020-07-13 12:01:37.940094', 1, 0),
+(674, '', './img/regles_12014850054.PNG', '2020-07-13 12:04:37.656999', 1, 0),
+(675, '', './img/zones_13595746611.pdf', '2020-07-13 12:04:52.893916', 1, 0),
+(676, 'voila la zone et quelque regles d\'amenagement sur elle', NULL, '2020-07-13 12:06:14.708385', 1, 0),
+(677, '<span style=\'font-size:100px\'>😀</span>', NULL, '2020-07-13 12:06:50.049271', 1, 1),
+(678, 'mrc beaucoup monsieur haytem', NULL, '2020-07-13 12:07:29.495995', 1, 0),
+(679, 'de rien monsieur amine', NULL, '2020-07-13 12:07:52.005836', 1, 0),
+(680, 'salut monsieur haytem', NULL, '2020-07-14 10:48:15.474614', 1, 0),
+(681, 'bionjour', NULL, '2020-07-14 10:48:15.474614', 1, 0),
+(682, 'lmhm ylh thala a sat', NULL, '2020-07-14 10:48:15.474614', 1, 0),
+(683, 'fen t\'i', NULL, '2020-07-14 11:31:29.840278', 1, 0),
+(684, 'c\'c', NULL, '2020-07-14 11:31:55.988087', 1, 0),
+(685, 'tt\'i', NULL, '2020-07-14 11:35:23.996248', 0, 0),
+(686, '😁😁', NULL, '2020-07-14 11:37:45.547938', 0, 0),
+(687, '<span style=\'font-size:100px\'>😴</span>', NULL, '2020-07-14 11:37:58.844500', 0, 1),
+(688, 'salut', NULL, '2020-07-14 11:42:15.904021', 0, 0),
+(689, 'salut', NULL, '2020-07-15 12:02:52.663864', 0, 0),
+(690, 'salut', NULL, '2020-07-15 12:03:30.315204', 1, 0),
+(691, 'salut', NULL, '2020-07-15 12:03:37.545480', 1, 0),
+(692, 'cc', NULL, '2020-07-15 12:03:40.478236', 1, 0),
+(693, 'youtube', NULL, '2020-07-15 12:03:44.221622', 1, 0),
+(694, 'c\'est haytem battal l3alam', NULL, '2020-07-15 12:03:55.666278', 1, 0),
+(695, 'c\'est haytem battal l3alam', NULL, '2020-07-15 12:03:56.400237', 1, 0),
+(696, '<span style=\'font-size:100px\'>😶</span>', NULL, '2020-07-15 12:04:45.913638', 1, 1),
+(697, 'ttotto', NULL, '2020-07-15 13:18:53.028989', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1005,15 +1056,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `date`, `etaton`, `datetat`, `profil`, `travail`, `confirmation`) VALUES
-(1, 'charraj', 'haytem', 'mouadcharraj@gmail.com', 'asihmha', '2020-07-10 13:47:16.523089', 1, '2020-07-10 14:47:16.000000', './img/18883196346.png', 'architecte', 1),
-(2, 'charrajovic', 'haytem', 'hcharraj@gmail.com', 'asihmha', '2020-06-28 12:47:31.047707', 1, '2020-06-15 14:55:05.000000', './img/26367491589.jpg', 'architecte', 1),
-(3, 'nnjnj', 'aajkna', 'aaa@gmail.com', '123123', '2020-06-28 12:47:27.524427', 1, '2020-05-03 17:53:22.000000', './img/unknown.png', 'architecte', 1),
-(4, 'bchaiker', 'amine', 'bchaikera@gmail.com', 'asihmha', '2020-07-10 13:47:16.909129', 1, '2020-07-10 14:47:16.000000', './img/45435114003.jpg', 'architecte', 1),
-(5, 'bribiche', 'achraf', 'achraf@gmail.com', 'asihmha', '2020-06-28 12:47:18.485227', 1, '2020-06-20 15:24:38.000000', './img/unknown.png', 'architecte', 1),
-(6, 'kahlaoui', 'ayoub', 'ayoub@gmail.com', '123456', '0000-00-00 00:00:00.000000', 0, '0000-00-00 00:00:00.000000', './img/unknown.png', 'expert', 0),
-(7, 'e karti', 'walid', 'walid@gmail.com', 'asihmha', '2020-07-07 14:08:03.772127', 0, '2020-07-07 14:03:52.661675', './img/unknown.png', 'architecte', 0),
-(8, '7adad', 'ismail', 'ismail@gmail.com', 'asihmha', '2020-07-07 14:08:00.213508', 0, '2020-07-07 14:06:09.774282', './img/unknown.png', 'architecte', 0),
-(9, 'jumai', 'walo', 'wali@gmail.com', 'asihmha', '2020-07-07 14:07:19.830216', 0, '2020-07-07 14:07:19.830216', './img/unknown.png', 'architecte', 0);
+(1, 'charraj', 'haytem', 'mouadcharraj@gmail.com', 'asihmha', '2020-07-14 11:35:00.536687', 1, '2020-07-14 12:35:00.000000', './img/15977556421.jpg', 'architecte', 1),
+(2, 'mouafik', 'hamza', 'hcharraj@gmail.com', 'asihmha', '2020-07-15 13:29:24.665223', 1, '2020-07-15 14:29:24.000000', './img/22336063990.jpg', 'architecte', 1),
+(3, 'touri', 'othmane', 'aaa@gmail.com', '123123', '2020-07-13 12:11:34.304870', 1, '2020-05-03 17:53:22.000000', './img/39451138473.jpg', 'architecte', 1),
+(4, 'bchaiker', 'amine', 'bchaikera@gmail.com', 'asihmha', '2020-07-15 13:29:24.678290', 1, '2020-07-15 14:29:24.000000', './img/49142584560.jpg', 'architecte', 1),
+(5, 'bribiche', 'achraf', 'achraf@gmail.com', 'asihmha', '2020-07-13 12:12:17.137496', 1, '2020-07-13 13:12:17.000000', './img/52645364771.jpg', 'architecte', 1),
+(7, 'fatih', 'haitam', 'walid@gmail.com', 'asihmha', '2020-07-14 11:27:15.185422', 0, '2020-07-10 15:57:01.000000', './img/71777999556.jpg', 'expert', 1),
+(9, 'derbani', 'mourad', 'wali@gmail.com', 'asihmha', '2020-07-13 12:12:55.727947', 0, '2020-07-13 13:12:54.000000', './img/93157120779.jpg', 'architecte', 1),
+(12, 'chadel', 'yassine', 'yassine@gmail.com', 'asihmha', '2020-07-15 11:50:10.792266', 0, '2020-07-14 12:43:49.270370', './img/unknown.png', 'architecte', 1);
 
 -- --------------------------------------------------------
 
@@ -1672,35 +1722,52 @@ INSERT INTO `usermsg` (`id`, `idu`, `idr`, `idm`) VALUES
 (641, 4, 1, 648),
 (642, 4, 1, 649),
 (643, 4, 1, 650),
-(644, 4, 1, 651);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `utilisator`
---
-
-CREATE TABLE `utilisator` (
-  `id` int(100) NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `travail` varchar(100) NOT NULL,
-  `profil` varchar(200) NOT NULL,
-  `confirmation` int(100) NOT NULL,
-  `admine` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `utilisator`
---
-
-INSERT INTO `utilisator` (`id`, `nom`, `prenom`, `password`, `email`, `travail`, `profil`, `confirmation`, `admine`) VALUES
-(1, 'bchaiker', 'amine', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'bchaiker@gmail.com', 'expert', '16996803502.PNG', 1, 0),
-(2, 'kahlaoui', 'ayoub', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'ayoub@gmail.com', 'expert', '28410927723.jpg', 1, 0),
-(3, 'alamie', 'laila', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'laila@gmail.com', 'expert', '36931362767.jpg', 1, 0),
-(4, 'alamie', 'achref', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'achref@gmail.com', 'archithec', '41578738384.jpg', 1, 0);
+(644, 4, 1, 651),
+(646, 4, 7, 653),
+(647, 4, 7, 654),
+(648, 1, 4, 655),
+(649, 4, 1, 656),
+(650, 1, 4, 657),
+(651, 4, 1, 658),
+(652, 4, 1, 659),
+(653, 4, 1, 660),
+(654, 4, 1, 661),
+(655, 4, 1, 662),
+(656, 4, 1, 663),
+(657, 4, 1, 664),
+(658, 4, 1, 665),
+(659, 4, 1, 666),
+(660, 4, 1, 667),
+(661, 4, 1, 668),
+(662, 1, 4, 669),
+(663, 4, 1, 670),
+(664, 4, 1, 671),
+(665, 1, 4, 672),
+(666, 4, 1, 673),
+(667, 1, 4, 674),
+(668, 1, 4, 675),
+(669, 1, 4, 676),
+(670, 4, 1, 677),
+(671, 4, 1, 678),
+(672, 1, 4, 679),
+(673, 2, 1, 680),
+(674, 2, 1, 681),
+(675, 2, 1, 682),
+(676, 1, 2, 683),
+(677, 2, 1, 684),
+(678, 2, 1, 685),
+(679, 2, 1, 686),
+(680, 2, 1, 687),
+(681, 2, 1, 688),
+(682, 2, 1, 689),
+(683, 2, 4, 690),
+(684, 4, 2, 691),
+(685, 4, 2, 692),
+(686, 4, 2, 693),
+(687, 4, 2, 694),
+(688, 4, 2, 695),
+(689, 2, 4, 696),
+(690, 4, 2, 697);
 
 --
 -- Index pour les tables déchargées
@@ -1755,12 +1822,6 @@ ALTER TABLE `usermsg`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `utilisator`
---
-ALTER TABLE `utilisator`
-  ADD PRIMARY KEY (`id`);
-
---
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -1768,25 +1829,25 @@ ALTER TABLE `utilisator`
 -- AUTO_INCREMENT pour la table `conversation`
 --
 ALTER TABLE `conversation`
-  MODIFY `id_message` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id_message` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT pour la table `destinataire`
 --
 ALTER TABLE `destinataire`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT pour la table `invitations`
 --
 ALTER TABLE `invitations`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=652;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=698;
 
 --
 -- AUTO_INCREMENT pour la table `réglementation`
@@ -1804,19 +1865,13 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `usermsg`
 --
 ALTER TABLE `usermsg`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=645;
-
---
--- AUTO_INCREMENT pour la table `utilisator`
---
-ALTER TABLE `utilisator`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=691;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

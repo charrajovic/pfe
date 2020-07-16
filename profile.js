@@ -317,9 +317,11 @@ function modifiersession()
         if (tr.children[0].textContent=='nom') {
           nom = tr.children[1].children[0].value;
           tr.children[1].innerHTML=nom;
+          document.getElementById("non").innerHTML=nom;
           }else if (tr.children[0].textContent=='prenom') {
           prenom = tr.children[1].children[0].value;
           tr.children[1].innerHTML=prenom;
+          document.getElementById("pren").innerHTML=" "+prenom;
          }else if(tr.children[0].textContent=='email'){
          email = tr.children[1].children[0].value;
          tr.children[1].innerHTML=email;

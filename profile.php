@@ -159,7 +159,7 @@ $row = mysqli_query($con, $sql) or die( mysqli_error($con));
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.php"><img style="height:102px;width:57%" src="<?php echo $_SESSION["profil"]; ?>" class="img-circle" width="80" id="modi"></a></p>
-          <h5 class="centered"><?php echo $_SESSION["nom"]." ".$_SESSION["prenom"]; ?></h5>
+          <h5 class="centered" style="font-size:14px"><span id="non"><?php echo $_SESSION["nom"]; ?></span><span id="pren"><?php echo " ".$_SESSION["prenom"]; ?></span></h5>
           <li class="mt">
             <a href="index.php?page=compte">
               <i class="fa fa-home"></i>

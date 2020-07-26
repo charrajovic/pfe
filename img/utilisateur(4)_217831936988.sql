@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : Dim 26 juil. 2020 à 20:45
+-- Généré le : mer. 15 juil. 2020 à 15:29
 -- Version du serveur :  10.4.11-MariaDB
 -- Version de PHP : 7.4.2
 
@@ -127,10 +127,7 @@ INSERT INTO `conversation` (`id_message`, `sujet`, `message`, `file`, `datep`) V
 (43, 'r&egrave;gles d&rsquo;am&eacute;nagement 3', 'voila ma proposition autour de la zone IN', 'zone_B1.txt', '2020-07-14 12:33:54.000000'),
 (44, 'regles', 'mzyan', 'zone_B1.txt', '2020-07-15 14:20:00.000000'),
 (45, 'as', 'sasa', 'ZONE2 (3).txt', '2020-07-15 14:20:38.000000'),
-(46, 'aa', 'aaa', 'zone_B1.txt', '2020-07-15 14:23:54.000000'),
-(47, 'zones', 'zone B1', 'zone_B1.txt', '2020-07-16 11:24:07.000000'),
-(48, 'zone B1', 'regles d\'amenagement', 'zone_B1.txt', '2020-07-17 10:31:30.000000'),
-(49, 'zone B1', 'regles d\'amenagement', 'zone_B1.txt', '2020-07-17 10:41:38.000000');
+(46, 'aa', 'aaa', 'zone_B1.txt', '2020-07-15 14:23:54.000000');
 
 -- --------------------------------------------------------
 
@@ -189,11 +186,11 @@ INSERT INTO `destinataire` (`id`, `nom_expediteur`, `nom_destinataire`, `email_d
 (39, 'charraj', 'bchaiker', 'bchaikera@gmail.com', 'mouadcharraj@gmail.com', 1),
 (40, 'charraj', 'bchaiker', 'bchaikera@gmail.com', 'mouadcharraj@gmail.com', 0),
 (41, 'mouafik', 'charraj', 'mouadcharraj@gmail.com', 'hcharraj@gmail.com', 1),
-(42, 'charraj', 'fatih', 'walid@gmail.com', 'mouadcharraj@gmail.com', 1),
+(42, 'charraj', 'fatih', 'walid@gmail.com', 'mouadcharraj@gmail.com', 0),
+(43, 'charraj', 'mouafik', 'hcharraj@gmail.com', 'mouadcharraj@gmail.com', 1),
 (44, 'bchaiker', 'mouafik', 'hcharraj@gmail.com', 'bchaikera@gmail.com', 1),
 (45, 'mouafik', 'bchaiker', 'bchaikera@gmail.com', 'hcharraj@gmail.com', 0),
-(46, 'bchaiker', 'mouafik', 'hcharraj@gmail.com', 'bchaikera@gmail.com', 0),
-(49, 'chadeli', 'fatih', 'walid@gmail.com', 'yassine@gmail.com', 1);
+(46, 'bchaiker', 'mouafik', 'hcharraj@gmail.com', 'bchaikera@gmail.com', 0);
 
 -- --------------------------------------------------------
 
@@ -221,13 +218,7 @@ INSERT INTO `invitations` (`id`, `idp`, `idm`, `etat`) VALUES
 (13, 5, 4, 1),
 (14, 4, 3, 0),
 (15, 1, 5, 1),
-(16, 4, 7, 1),
-(17, 12, 1, 1),
-(18, 2, 12, 1),
-(19, 18, 1, 1),
-(20, 19, 1, 1),
-(21, 20, 1, 1),
-(22, 21, 1, 1);
+(16, 4, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -916,27 +907,7 @@ INSERT INTO `messages` (`id`, `contenu`, `file`, `date`, `etat`, `big`) VALUES
 (694, 'c\'est haytem battal l3alam', NULL, '2020-07-15 12:03:55.666278', 1, 0),
 (695, 'c\'est haytem battal l3alam', NULL, '2020-07-15 12:03:56.400237', 1, 0),
 (696, '<span style=\'font-size:100px\'>😶</span>', NULL, '2020-07-15 12:04:45.913638', 1, 1),
-(697, 'ttotto', NULL, '2020-07-15 13:18:53.028989', 1, 0),
-(699, 'cc', NULL, '2020-07-16 09:38:52.622363', 0, 0),
-(700, 'salut monsieur', NULL, '2020-07-16 10:21:39.757243', 1, 0),
-(701, 'salut monsieur yassine', NULL, '2020-07-16 10:22:05.754673', 1, 0),
-(702, '', './img/regles_187400491940.PNG', '2020-07-16 10:22:14.243069', 1, 0),
-(703, '', './img/ZONE2(3)_185841517522.txt', '2020-07-16 10:22:30.476202', 1, 0),
-(704, 'bien', NULL, '2020-07-16 10:22:36.609318', 1, 0),
-(705, '<span style=\'font-size:100px\'>😀</span>', NULL, '2020-07-16 10:22:49.386863', 1, 1),
-(706, 'bonjour monsieur yassine', NULL, '2020-07-16 10:40:38.032118', 1, 0),
-(707, 'bonjour monsieur haytem', NULL, '2020-07-17 09:26:56.154306', 1, 0),
-(708, 'bonjour monsieur yassin', NULL, '2020-07-17 09:27:26.642429', 1, 0),
-(709, '', './img/regles_207019796951.PNG', '2020-07-17 09:27:43.808415', 1, 0),
-(710, '', './img/utilisateur(4)_206190481952.sql', '2020-07-17 09:27:53.010987', 1, 0),
-(711, 'mrc beaucoup', NULL, '2020-07-17 09:28:03.060792', 1, 0),
-(712, '<span style=\'font-size:100px\'>😀</span>', NULL, '2020-07-17 09:28:12.197629', 1, 1),
-(713, 'bonjour haytem', NULL, '2020-07-17 09:39:38.737622', 1, 0),
-(714, 'bonjour', NULL, '2020-07-17 09:39:55.584667', 1, 0),
-(715, '', './img/regles_2179164646.PNG', '2020-07-17 09:40:05.247034', 1, 0),
-(716, '', './img/utilisateur(4)_217831936988.sql', '2020-07-17 09:40:32.607876', 1, 0),
-(717, 'merci', NULL, '2020-07-17 09:40:38.090266', 1, 0),
-(718, '<span style=\'font-size:100px\'>😀</span>', NULL, '2020-07-17 09:40:44.252338', 1, 1);
+(697, 'ttotto', NULL, '2020-07-15 13:18:53.028989', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1085,14 +1056,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `nom`, `prenom`, `email`, `password`, `date`, `etaton`, `datetat`, `profil`, `travail`, `confirmation`) VALUES
-(1, 'charraj', 'haytem', 'mouadcharraj@gmail.com', 'asihmha', '2020-07-17 10:05:09.159532', 1, '2020-07-17 11:05:09.000000', './img/15977556421.jpg', 'architecte', 1),
-(2, 'mouafik', 'hamza', 'hcharraj@gmail.com', 'asihmha', '2020-07-16 09:38:21.544478', 1, '2020-07-16 10:38:21.000000', './img/22336063990.jpg', 'architecte', 1),
+(1, 'charraj', 'haytem', 'mouadcharraj@gmail.com', 'asihmha', '2020-07-14 11:35:00.536687', 1, '2020-07-14 12:35:00.000000', './img/15977556421.jpg', 'architecte', 1),
+(2, 'mouafik', 'hamza', 'hcharraj@gmail.com', 'asihmha', '2020-07-15 13:29:24.665223', 1, '2020-07-15 14:29:24.000000', './img/22336063990.jpg', 'architecte', 1),
 (3, 'touri', 'othmane', 'aaa@gmail.com', '123123', '2020-07-13 12:11:34.304870', 1, '2020-05-03 17:53:22.000000', './img/39451138473.jpg', 'architecte', 1),
-(4, 'bchaiker', 'amine', 'bchaikera@gmail.com', 'asihmha', '2020-07-17 10:00:48.461549', 1, '2020-07-15 14:30:43.000000', './img/49142584560.jpg', 'expert', 1),
+(4, 'bchaiker', 'amine', 'bchaikera@gmail.com', 'asihmha', '2020-07-15 13:29:24.678290', 1, '2020-07-15 14:29:24.000000', './img/49142584560.jpg', 'architecte', 1),
 (5, 'bribiche', 'achraf', 'achraf@gmail.com', 'asihmha', '2020-07-13 12:12:17.137496', 1, '2020-07-13 13:12:17.000000', './img/52645364771.jpg', 'architecte', 1),
-(7, 'fatih', 'haitam', 'walid@gmail.com', 'asihmha', '2020-07-17 09:59:56.603616', 0, '2020-07-17 10:59:56.000000', './img/71777999556.jpg', 'expert', 1),
+(7, 'fatih', 'haitam', 'walid@gmail.com', 'asihmha', '2020-07-14 11:27:15.185422', 0, '2020-07-10 15:57:01.000000', './img/71777999556.jpg', 'expert', 1),
 (9, 'derbani', 'mourad', 'wali@gmail.com', 'asihmha', '2020-07-13 12:12:55.727947', 0, '2020-07-13 13:12:54.000000', './img/93157120779.jpg', 'architecte', 1),
-(21, 'chadeli', 'yassin', 'yassine@gmail.com', 'asihmha', '2020-07-17 09:42:43.679169', 0, '2020-07-17 10:42:43.000000', './img/211324993417.jpeg', 'architecte', 1);
+(12, 'chadel', 'yassine', 'yassine@gmail.com', 'asihmha', '2020-07-15 11:50:10.792266', 0, '2020-07-14 12:43:49.270370', './img/unknown.png', 'architecte', 1);
 
 -- --------------------------------------------------------
 
@@ -1796,28 +1767,7 @@ INSERT INTO `usermsg` (`id`, `idu`, `idr`, `idm`) VALUES
 (687, 4, 2, 694),
 (688, 4, 2, 695),
 (689, 2, 4, 696),
-(690, 4, 2, 697),
-(691, 12, 1, 698),
-(692, 12, 2, 699),
-(693, 18, 1, 700),
-(694, 1, 18, 701),
-(695, 18, 1, 702),
-(696, 18, 1, 703),
-(697, 1, 18, 704),
-(698, 1, 18, 705),
-(699, 19, 1, 706),
-(700, 20, 1, 707),
-(701, 1, 20, 708),
-(702, 20, 1, 709),
-(703, 20, 1, 710),
-(704, 1, 20, 711),
-(705, 1, 20, 712),
-(706, 21, 1, 713),
-(707, 1, 21, 714),
-(708, 21, 1, 715),
-(709, 21, 1, 716),
-(710, 1, 21, 717),
-(711, 1, 21, 718);
+(690, 4, 2, 697);
 
 --
 -- Index pour les tables déchargées
@@ -1879,25 +1829,25 @@ ALTER TABLE `usermsg`
 -- AUTO_INCREMENT pour la table `conversation`
 --
 ALTER TABLE `conversation`
-  MODIFY `id_message` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_message` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT pour la table `destinataire`
 --
 ALTER TABLE `destinataire`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT pour la table `invitations`
 --
 ALTER TABLE `invitations`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT pour la table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=719;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=698;
 
 --
 -- AUTO_INCREMENT pour la table `réglementation`
@@ -1915,13 +1865,13 @@ ALTER TABLE `test`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `usermsg`
 --
 ALTER TABLE `usermsg`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=712;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=691;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
